@@ -2,145 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b8cc8f5-a668-45ac-90af-f888ff0088a5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/avatar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/avatar04.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/avatar2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/avatar3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/avatar5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/boxed-bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/boxed-bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/credit/american-express.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/credit/cirrus.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/credit/mastercard.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/credit/mestro.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/credit/paypal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/credit/paypal2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/credit/visa.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/default-50x50.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/icons.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/photo1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/photo2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/photo3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/photo4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/user1-128x128.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/user2-160x160.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/user3-128x128.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/user4-128x128.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/user5-128x128.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/user6-128x128.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/user7-128x128.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/img/user8-128x128.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/fonts/fontawesome-webfont.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/02E8A8E2E36241D6511C0F38A8C0DEDC.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/072621003472.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/074719106587.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/125032256345.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/182315684036.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/67e9eac6f4da13b5c14ff057d667309b.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/CHOUTI_3EA2E1D27BB84FA99F2F28516B23010C_W1024H768.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/QQ20160819-0.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/lj12lnsad.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/templatemo-bg-1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/1/templatemo-bg-2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/rocket.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/imgs/rocket_up.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/images/image.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Earth/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Earth/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Earth/templatetags/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Earth/templatetags/custom.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Earth/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/css/blog.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/css/custom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/AdminLTE.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/AdminLTE.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/ionicons.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/_all-skins.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/_all-skins.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-black-light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-black-light.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-black.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-black.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-blue-light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-blue-light.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-blue.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-blue.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-green-light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-green-light.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-green.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-green.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-purple-light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-purple-light.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-purple.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-purple.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-red-light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-red-light.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-red.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-red.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-yellow-light.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-yellow-light.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-yellow.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/css/skins/skin-yellow.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/js/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/js/app.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/js/demo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/js/pages/dashboard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/dist/js/pages/dashboard2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/js/custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/bootstrap/js/jquery-2.1.4.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/hotkeys.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/hotkeys.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/marked.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/module.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/module.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/simditor-markdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/simditor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/simditor.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/to-markdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/uploader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/uploader.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/editor.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/fonticon.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/simditor-markdown.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/simditor.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/simditor.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/blog/admin.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/blog/article_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/blog/blog_edit.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/blog/blog_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/blog/new_article.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/blog/post_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/blog/post_draft_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/blog/post_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Earth/admin.py" afterPath="$PROJECT_DIR$/Earth/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Earth/models.py" afterPath="$PROJECT_DIR$/Earth/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Earth/views.py" afterPath="$PROJECT_DIR$/Earth/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Star/settings.py" afterPath="$PROJECT_DIR$/Star/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Star/urls.py" afterPath="$PROJECT_DIR$/Star/urls.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/02E8A8E2E36241D6511C0F38A8C0DEDC.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/072621003472.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/074719106587.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/125032256345.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/182315684036.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/67e9eac6f4da13b5c14ff057d667309b.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/CHOUTI_3EA2E1D27BB84FA99F2F28516B23010C_W1024H768.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/QQ20160819-0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/lj12lnsad.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/templatemo-bg-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/imgs/1/templatemo-bg-2.jpg" afterPath="" />
     </list>
     <ignored path="Star.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -364,6 +237,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="statics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Star" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Star" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="statics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imgs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -672,9 +563,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1229" height="777" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25863522" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25863522" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
