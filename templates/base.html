@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://v3.bootcss.com/examples/blog/ -->
+<html lang="zh-CN">
+<head>
+    <link rel="icon" href="/statics/imgs/favicon.ico">
+    <title>Blog for xyspace</title>
+    <link href="/statics/bootstrap/css/custom.css" rel="stylesheet">
+    <link href="/statics/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/statics/bootstrap/css/blog.css" rel="stylesheet">
+    {% block head-cs %}
+    {% endblock %}
+</head>
+
+<body>
+{% block main %}
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="blog-nav">
+                <a class="blog-nav-item active" href="/blog">Home</a>
+                <a class="blog-nav-item" href="/blog">New features</a>
+                <a class="blog-nav-item" href="/blog">Press</a>
+                <a class="blog-nav-item" href="/blog">New hires</a>
+                <a class="blog-nav-item" href="/blog">About</a>
+                <a class=" nav navbar-nav navbar-right list-inline" style="margin: 8px 120px ;color: white">{{ user.username }}</a>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-9 ">
+                {% block content %}
+                    这里显示文章列表
+                {% endblock %}
+            </div>
+            <div class="col-md-2 " style="margin-left: 58px;margin-top: 35px;width: 19%">
+                <div class="sidebar-module sidebar-module-inset">
+                    <h4>About</h4>
+                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
+                        fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                </div>
+                <div class="sidebar-module">
+                    <h4>Mangement</h4>
+                    {% if user.is_authenticated %}
+                        <ol class="list-unstyled">
+                            <li>
+                                <a href="{% url 'new' %}" >New article</a>
+                            </li>
+                                <li>
+                                <a href="{% url 'admin' %}" >Backend</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'drafts' %}">Drafts</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'Earth.views.acc_logout' %}">Logout</a>
+                            </li>
+                        </ol>
+                    {% else %}
+                        <ol class="list-unstyled">
+                            <li><a href="{% url 'Earth.views.acc_login' %}" class="top-menu"><span
+                                    class="glyphicon glyphicon-lock"></span></a>
+                            </li>
+                        </ol>
+                    {% endif %}
+                </div>
+                <div class="sidebar-module">
+                    <h4>Archives</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="http://v3.bootcss.com/examples/blog/#">March 2014</a></li>
+                        <li><a href="http://v3.bootcss.com/examples/blog/#">February 2014</a></li>
+                        <li><a href="http://v3.bootcss.com/examples/blog/#">January 2014</a></li>
+                        <li><a href="http://v3.bootcss.com/examples/blog/#">December 2013</a></li>
+                    </ol>
+                </div>
+                <div class="sidebar-module">
+                    <h4>Elsewhere</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="https://github.com/xiajieok/Earth">GitHub</a></li>
+                        <li><a href="https://twitter.com/xiajieok">Twitter</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=100012864398323">Facebook</a></li>
+                    </ol>
+                </div>
+                <div class="go-top hide">
+                    <a onclick="GoTop();"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+<footer class="blog-footer">
+    <p>
+        Copyright © blog.xyspace.top 2013-2016 All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script type="text/javascript" src="/statics/bootstrap/js/jquery-2.1.4.js" async=""></script>
+<script type="text/javascript" src="/statics/bootstrap/js/bootstrap.min.js" async=""></script>
+<script type="text/javascript" src="/statics/bootstrap/js/custom.js" async=""></script>
+{% block js %}
+{% endblock %}
+<script>
+
+    window.onscroll = function () {
+        // 获取当前scrollTop
+        var currentTop = $(window).scrollTop();
+        {#                console.log(currentTop);#}
+        if (currentTop > 100) {
+            $('.go-top').removeClass('hide');
+        } else {
+            $('.go-top').addClass('hide');
+        }
+    };
+    function GoTop() {
+        $(window).scrollTop(0);
+    }
+</script>
+
+</body>
+</html>

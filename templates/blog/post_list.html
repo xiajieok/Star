@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load custom %}
+{% block content %}
+    {% for post in posts %}
+        <div class="blog-post">
+            <div>
+                <a class="blog-title"
+                   href="{% url 'Earth.views.post_detail' pk=post.pk %}">{{ post.title }}</a>
+                <hr style="height: 1px;"/>
+                <div class="blog-list-author">
+                    posted @ {{ post.published_date |date:"Y-m-d H:i:s" }} {{ post.author }}
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'Earth.views.blog_edit' pk=post.pk %}"><span
+                                class="glyphicon glyphicon-edit"></span></a>
+                    {% endif %}
+                </div>
+                <div>
+                    <p>
+                        {{ post.brief|truncatechars:100|safe }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <div style="height: 100px;padding-top: 30px">
+        <hr/>
+        <div>
+
+            <nav>
+                <ul class="pagination">
+                    {% if posts.has_previous %}
+                        <li class="">
+                            <a href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for page_num in posts.paginator.page_range %}
+                        {% guess_page posts.number page_num %}
+                    {% endfor %}
+                    {% if shcool_list.has_next %}
+                        <li class="">
+                            <a href="?page={{ posts.next_page_number }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+{% endblock content %}

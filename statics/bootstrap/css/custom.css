@@ -1,0 +1,59 @@
+.top_img {
+    background-image: url("/statics/imgs/rocket.png");
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.go-top {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 100px;
+    height: 100px;
+}
+
+.hide {
+    display: none;
+}
+
+
+.go-top a {
+    display: block;
+    width: 50px;
+    height: 63px;
+    background: url("/statics/imgs/rocket.png") no-repeat ;
+}
+
+.go-top a:hover {
+    display: block;
+    width: 27px;
+    height: 63px;
+    background: url("/statics/imgs/rocket.png") no-repeat bottom;
+}
+/*.container .row .col-md-8 {*/
+    /*margin-top: 30px;*/
+    /*margin-bottom: 10px;*/
+/*}*/
+
+/*.container .row .col-md-3 {*/
+    /*margin-top: 50px;*/
+/*}*/
+/*.post{*/
+    /*margin-top: 30px;*/
+/*}*/
+.img-article-list {
+    width: 220px;
+    height: 124px;
+}
+.img-article-detail {
+    width: 740px;
+    /*margin: 20px 0;*/
+    /*height: 124px;*/
+}
+.blog-list-author {
+    margin: 15px 0;
+}
+img {
+    max-width: 710px;
+}

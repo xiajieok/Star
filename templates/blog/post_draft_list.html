@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-11" style="margin-left: 50px">
+            {% for post in posts %}
+                <div class="post">
+                    <a href="{% url 'Earth.views.post_detail' pk=post.pk %}"
+                       class="blog-detail-title" >{{ post.title }}</a>
+                    <p class="date" style="float: right;margin-top: 20px">
+                        created: {{ post.created_date|date:'d-m-Y' }}</p>
+
+                    <p style="margin-top: 20px">{{ post.brief }}</p>
+                    <div>
+                        <img class="img-article-detail" src="{{ post.head_img }}">
+
+                    </div>
+                    <div>
+                        <p>{{ post.brief|truncatechars:200 |safe }}</p>
+                        <p>{{ post.content |safe }}</p>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
