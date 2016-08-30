@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% load custom %}
 {% block content %}
+    {% if list_header %}
+        <div>
+            <p class="blog-title">{{ list_header }}</p>
+            {% for i in  posts_ar %}
+                <ol class="list-unstyled">
+                    <li>
+{#                        <div class="blog-title" style="font-size: 15px;color: #42b983">{{ i.published_date |date:"Y-m-d" }} &nbsp{{ i }}   </div>#}
+                        <div class="blog-title" style="font-size: 15px;margin-left: 5%">{{ i.published_date |date:"Y-m-d" }} &nbsp{{ i }}   </div>
+
+                    </li>
+                </ol>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+
     {% for post in posts %}
         <div class="blog-post">
             <div>
@@ -8,11 +24,8 @@
                    href="{% url 'Earth.views.post_detail' pk=post.pk %}">{{ post.title }}</a>
                 <hr style="height: 1px;"/>
                 <div class="blog-list-author">
-                    posted @ {{ post.published_date |date:"Y-m-d H:i:s" }} {{ post.author }}
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'Earth.views.blog_edit' pk=post.pk %}"><span
-                                class="glyphicon glyphicon-edit"></span></a>
-                    {% endif %}
+                    <span class="glyphicon glyphicon-calendar"></span>
+                    <a style="color: #ff8f21;font-size: 15px">{{ post.published_date|date:"M  j, Y"  }}</a>
                 </div>
                 <div>
                     <p>
@@ -49,6 +62,7 @@
             </nav>
         </div>
     </div>
-
-
 {% endblock content %}
+{% block js %}
+
+{% endblock %}

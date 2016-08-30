@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{#{% load custom %}#}
 {% block content %}
     <div class="row">
         <div class="col-md-11">
@@ -33,6 +33,7 @@
 
             <div style="margin: 30px 0 60px 0 ;">
                 <p>{{ post.brief }}</p>
+{#                <p>{{ post.content |custom_markdown |safe }}</p>#}
                 <p>{{ post.content |safe }}</p>
             </div>
         </div>
