@@ -79,21 +79,26 @@ def post_detail(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
 
-
+@login_required
 def blog_new(request):
     if request.method == "POST":
         form = ArticleFrom(request.POST)
-        print('这里是post的request', request)
-        print('这里是post的form', form)
+        print('这里是post的request', request.POST)
+        # print('这里是post的form', form)
         if form.is_valid():
             form_data = form.cleaned_data
             form_data['author_id'] = request.user.userprofile.id
+            # print('ID--->',request.POST.get('category_id'))
+            form_data['category_id'] = request.POST.get('category_id')
+            #不知道咋回事,反正就是category_id必须手动加进去
+            print('--->form_data',form_data)
+            # form_data['category_id'] = request.user.userprofile.id
             # new_img_path = handle_uploaded_file(request,request.FILES['head_img'])
             # print('---->',form_data)
             # print('---->',new_img_path)
             # form_data['head_img'] = new_img_path
             new_article_obj = models.Article(**form_data)
-            # print('----obj-->',new_article_obj.head_img)
+            # print('----obj-->',new_article_obj.category_id)
             new_article_obj.save()
             # post = form.save(commit=False)
             print(new_article_obj)
@@ -101,10 +106,9 @@ def blog_new(request):
     else:
         # form = models.Post.objects.all()
         new_article = ArticleFrom()
+        category_list = models.Category.objects.all()
         # print('这里是get的form',form)
-    return render(request, 'blog/blog_edit.html', {'new_article': new_article})
-
-
+    return render(request, 'blog/blog_edit.html', {'new_article': new_article,'category_list':category_list,'is_new': True})
 @login_required
 def blog_publish(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
@@ -177,9 +181,12 @@ def blog_edit(request, pk):
             '''
             return redirect('Earth.views.post_detail', pk=post.pk)
     else:
-        new_article = ArticleFrom(instance=post)
+        edit_article = ArticleFrom(instance=post)
+        category_list = models.Category.objects.all()
+        category_id = models.Article.objects.filter(id=pk)[0].category_id
+        # print('--category_list-->',category_list[0].category_id)
         # print('如果是get的方式,那就先查询')
-    return render(request, 'blog/blog_edit.html', {'new_article': new_article})
+    return render(request, 'blog/blog_edit.html', {'edit_article': edit_article,'category_list':category_list,'category_id':category_id})
 
 
 def archives(request, y, m):
@@ -196,3 +203,14 @@ def archives(request, y, m):
     print(posts_ar.query)
     return render(request, 'blog/post_list.html',
                   {'posts_ar': posts_ar, 'list_header': '{0}年{1}月'.format(y, m)})
+@login_required
+def blog_category(request):
+    '''
+    管理后台版块列表
+    :param request:
+    :return:
+    '''
+    category_obj = models.Category.objects.all()
+    print(category_obj)
+    # posts = pages(request, blog_all)
+    return render(request, 'blog/category_list.html', {'category_obj': category_obj})

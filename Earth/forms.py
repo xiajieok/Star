@@ -6,13 +6,15 @@ from Earth.models import Article
 
 class ArticleFrom(forms.ModelForm):
     # title = forms.CharField(max_length=30, min_length=5)
-    # brief = forms.CharField(max_length=50, min_length=5)
+    title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','width':'900px'}))
+    brief = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     # head_img = forms.ImageField
-    # content = forms.CharField(min_length=10)
+    # content = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','value':'{{ new_article.content|safe }}'}))
+    content = forms.CharField()
 
     class Meta:
         model = Article
-        fields = ('title', 'brief', 'head_img', 'content',)
+        fields = ('title', 'brief', 'head_img', 'content')
         error_messages = {
             NON_FIELD_ERRORS: {
                 'unique_together': "%(model_name)s's %(field_labels)s are not unique.",

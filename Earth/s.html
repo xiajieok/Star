@@ -1,7 +1,7 @@
 {% extends 'bbs/index.html' %}
-{% block head-js %}
-    <script src="/statics/plugin/ckeditor/ckeditor.js"></script>
-{% endblock %}
+{#{% block head-js %}#}
+{#    <script src="/static/plugin/ckeditor/ckeditor.js"></script>#}
+{#{% endblock %}#}
 {% block page-container %}
     <div class="new_article" >
     {% if  new_article_obj %}
@@ -30,6 +30,7 @@
 
 {% endblock %}
 {% block bottom-js %}
+    <script src="/static/plugin/ckeditor/ckeditor.js"></script>
     <script>
          CKEDITOR.replace( 'ck-editor' );
     </script>

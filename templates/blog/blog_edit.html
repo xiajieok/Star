@@ -1,22 +1,39 @@
 {% extends 'blog/admin.html' %}
 {% block admin-head %}
-    <link rel="stylesheet" href="/statics/plugin/simditor-2.3.6/styles/simditor.css">
+    <link rel="stylesheet" href="/statics/plugin/simditor-2.3.6/styles/simditor.css"
+          xmlns="http://www.w3.org/1999/html">
     <link rel="stylesheet" href="/statics/plugin/simditor-2.3.6/styles/simditor-markdown.css">
 {% endblock %}
+{% block admin-content-header %}
+    <h2>{% if is_new %}New article{% else %}Edit article{% endif %}</h2>
+{% endblock %}
 {% block admin-content %}
-    <div style="margin-bottom: 40px">
-        <form enctype="multipart/form-data" method="post">{% csrf_token %}
-            <div style="margin-bottom: 30px;">
-            <label>Title:</label>
-            <input name="title" type="text" class="form-control" placeholder={{ new_article.title }}
-            <label>brief:</label>
-            <input name="brief" type="text" class="form-control" placeholder={{ new_article.brief }}
-            <label>head_img:</label>
-            <textarea id='ck-editor' name="content" placeholder={{ new_article.content|safe }}</textarea>
-            <button type="submit" class="btn btn-success pull-right" style="margin-top: 10px;">保存</button>
+    <div style="margin-bottom: 40px" id="edit">
+        {% if is_new %}
+            <form enctype="multipart/form-data" method="post">{% csrf_token %}
+                <label>Category:
+                    <select name='category_id' class="form-control" style="width: 80px">
+                        {% for item in category_list %}
+                            <option value="{{ item.id }}">{{ item.name }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                {{ new_article.as_p }}
+                <button type="submit" class="save btn btn-success " style="float: right;margin-bottom: 10px;">Save
+                </button>
+            </form>
+        {% else %}
+            <div>
+                <form enctype="multipart/form-data" method="post">{% csrf_token %}
+                    {{ edit_article.as_p }}
+                    <button type="submit" class="save btn btn-success " style="float: right;margin-bottom: 10px;">Save
+                    </button>
+                </form>
             </div>
-        </form>
+        {% endif %}
     </div>
+
 {% endblock %}
 {% block admin-js %}
     <script src="/statics/plugin/simditor-2.3.6/scripts/module.min.js"></script>
@@ -28,10 +45,16 @@
     <script src="/statics/plugin/simditor-2.3.6/scripts/simditor-markdown.js"></script>
     <script>
         var editor = new Simditor({
-            textarea: $('#ck-editor'),
-{#            markdown: true,#}
-            toolbar: ['bold', 'italic', 'underline', 'color', '|', 'ol', 'ul', '|', 'markdown']
+            textarea: $('#id_content'),
+            {#            markdown: true,#}
+            toolbar: ['bold', 'italic', 'underline', 'color', '|', 'ol', 'ul', '|', 'markdown', '|', 'code', '|', 'blockquote', '|', 'table', '|', 'link', '|', 'image', '|', ''],
         });
+
+    </script>
+    <script>
+        $('#id_content').hide(1000);
+        var content = $('#id_content').val();
+        $('.simditor-body').append(content);
     </script>
 {% endblock %}
 

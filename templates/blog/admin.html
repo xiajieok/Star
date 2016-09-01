@@ -226,6 +226,7 @@
                 <li class="active"><a href="{% url 'new' %}"><i class="fa fa-plus"></i> <span>New Article</span></a></li>
                 <li class=""><a href='{% url 'list' %}'><i class="fa fa-list"></i> <span>Article list</span></a></li>
                 <li><a href="{% url 'drafts' %}"><i class="fa fa-send"></i> <span>Drafts</span></a></li>
+                <li><a href="{% url 'category' %}"><i class="fa fa-send"></i> <span>Category</span></a></li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i
                             class="fa fa-angle-left pull-right"></i></a>
@@ -258,10 +259,10 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
+                {% block admin-content-header %}
                 Page Header
-                <small>Optional description</small>
-            </h1>
+                {% endblock %}
+{#                <small>Optional description</small>#}
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
                 <li class="active">Here</li>

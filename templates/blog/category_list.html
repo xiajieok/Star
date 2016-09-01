@@ -1,0 +1,65 @@
+{% extends 'blog/admin.html' %}
+{% load custom %}
+{% block admin-content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    box-header
+                </div>
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+{#                            <th style="width: 400px">ID</th>#}
+                            <th style="width: 140px">Name</th>
+                            <th style="width: 140px">Handle</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in category_obj %}
+                            <tr>
+{#                                <td style="width: 20%"><a href="#">{{ item.id }}</a></td>#}
+                                <td><a href="#">{{ item.name }}</a></td>
+                                <td><a href="#"><span
+                                        class="fa fa-edit"></span></a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div>
+                <nav>
+                    <ul class="pagination">
+                        {% if posts.has_previous %}
+                            <li class="">
+                                <a href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% for page_num in posts.paginator.page_range %}
+                            {% guess_page posts.number page_num %}
+                        {% endfor %}
+                        {% if shcool_list.has_next %}
+                            <li class="">
+                                <a href="?page={{ posts.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block admin-js %}
+    <script>
+    </script>
+{% endblock %}

@@ -5,13 +5,37 @@ from datetime import datetime
 
 
 
+class Tag(models.Model):
+    class Meta:
+        app_label = 'Earth'
+        verbose_name = '标签'
+        verbose_name_plural = '标签'
 
+    name = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.name
+
+
+class Category(models.Model):
+    class Meta:
+        app_label = 'Earth'
+        verbose_name = '分类目录'
+        verbose_name_plural = '分类目录'
+
+    name = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.name
 
 class Article(models.Model):
     author = models.ForeignKey(User)
     title = models.CharField(max_length=200)
     brief = models.CharField(null=True, blank=True, max_length=255)
     content = models.TextField(u"文章内容")
+    tags = models.ManyToManyField(Tag)
+    # 分类目录
+    category = models.ForeignKey(Category)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     head_img = models.ImageField(u"文章标题图片", upload_to="uploads", blank=True, null=True)
@@ -39,27 +63,5 @@ class UserProfile(models.Model):
     # head_img = models.ImageField(blank=True,null=True,upload_to='uploads')
     # head_img = models.ImageField(blank=True,null=True)
     # friends = models.ManyToManyField('self',related_name='my_friends',blank=True)
-    def __str__(self):
-        return self.name
-class Tag(models.Model):
-    class Meta:
-        app_label = 'blog'
-        verbose_name = '标签'
-        verbose_name_plural = '标签'
-
-    name = models.CharField(max_length=40)
-
-    def __str__(self):
-        return self.name
-
-
-class Category(models.Model):
-    class Meta:
-        app_label = 'blog'
-        verbose_name = '分类目录'
-        verbose_name_plural = '分类目录'
-
-    name = models.CharField(max_length=40)
-
     def __str__(self):
         return self.name
