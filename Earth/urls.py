@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^post/(?P<pk>[0-9]+)/publish/$', views.blog_publish, name='publish'),
     url(r'^post/(?P<pk>[0-9]+)/remove/$', views.blog_remove, name='remove'),
     url(r'^posts/archive/(?P<y>[0-9]{4})/(?P<m>[0-9]{1,2})$', views.archives, name='list_by_ym'),
+    url(r'^posts/category/(?P<cg>\w+)$', views.post_list_by_category, name='list_by_cg'),
     # url(r'^tag(?P<tag>\w+)/$',views.search_tag,name='search_tag'),
 ]

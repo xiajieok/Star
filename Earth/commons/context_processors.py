@@ -31,8 +31,8 @@ def custom_proc(request):
     # alltags = models.Tag.objects.annotate(num_post=Count('post'))
     # tags = {t.name: t.num_post for t in alltags}
     # 分类目录
-    # categories = models.Category.objects.annotate(
-    #     num_post=Count('post')).filter(num_post__gt=0).order_by('name')
+    categories = models.Category.objects.annotate(
+        num_post=Count('article')).filter(num_post__gt=0).order_by('name')
     # 文章归档，按照年月分类
     select = {
         'year': connection.ops.date_trunc_sql('year', 'published_date'),
@@ -59,6 +59,6 @@ def custom_proc(request):
         # 'HOT_POSTS': hot_posts,
         # 'RECENT_COMMENTS': recent_comments,
         # 'TAGS': utils.tag_font(tags),
-        # 'CATEGORIES': categories,
+        'CATEGORIES': categories,
         'ARCHIVES': archives,
     }

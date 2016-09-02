@@ -1,7 +1,7 @@
 import os
 from django import forms
 from django.core.exceptions import NON_FIELD_ERRORS
-from Earth.models import Article
+from Earth.models import Article,Category
 
 
 class ArticleFrom(forms.ModelForm):
@@ -20,7 +20,11 @@ class ArticleFrom(forms.ModelForm):
                 'unique_together': "%(model_name)s's %(field_labels)s are not unique.",
             }
         }
-
+class CategoryFrom(forms.ModelForm):
+    name = forms.CharField(min_length=1,max_length=30)
+    class Meta:
+        model = Category
+        fields = ('id','name')
 def handle_uploaded_file(request, f):
     print('-->', f.name)
     base_img_upload_path = 'static/imgs'

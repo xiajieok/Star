@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <link rel="icon" href="/statics/imgs/favicon.ico">
-    <title>Blog for xyspace</title>
+    <title>Blog for Medivh</title>
     <link href="/statics/bootstrap/css/custom.css" rel="stylesheet">
     <link href="/statics/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="/statics/bootstrap/css/blog.css" rel="stylesheet">
@@ -13,19 +13,6 @@
 
 <body>
 {% block main %}
-    {#    <div class="blog-masthead">#}
-    {#        <div class="container">#}
-    {#            <nav class="blog-nav">#}
-    {#                <a class="blog-nav-item active" href="/blog">Home</a>#}
-    {#                <a class="blog-nav-item" href="/blog">New features</a>#}
-    {#                <a class="blog-nav-item" href="/blog">Press</a>#}
-    {#                <a class="blog-nav-item" href="/blog">New hires</a>#}
-    {#                <a class="blog-nav-item" href="/blog">About</a>#}
-    {#                <a class=" nav navbar-nav navbar-right list-inline"#}
-    {#                   style="margin: 8px 120px ;color: white">{{ user.username }}</a>#}
-    {#            </nav>#}
-    {#                </div>#}
-    {#        </div>#}
     <div class="header">
         <div class="header-nav">
             <div class="header-nav-content">
@@ -62,7 +49,8 @@
             <!-- end .header-bg --></div>
         <div class="header-bg">
             <img id="header_bg_image"
-                 src="//dannysite.oss-cn-hongkong.aliyuncs.com/dcom/media/site/theme/image/00b85b0a-91c0-4b26-8c5d-299a043d511d.jpg"
+                 src="http://7xp3xc.com1.z0.glb.clouddn.com/2016/1472737103450.png"
+                 width="100%"
                  height="560">
             <!-- end .header-bg --></div>
     </div>
@@ -74,7 +62,7 @@
                     这里显示文章列表
                 {% endblock %}
             </div>
-            <div class="col-md-2 "  style="margin:35px 5px 0 15px" >
+            <div class="col-md-2 " style="margin:35px 5px 0 15px">
                 <div class="sidebar-module sidebar-module-inset">
                     <h4>About</h4>
                     <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
@@ -109,6 +97,17 @@
                     {% endif %}
                 </div>
                 <div class="sidebar-module">
+                    <h4>Category</h4>
+                    <ol class="list-unstyled">
+                        {% for ca in CATEGORIES %}
+                            <li>
+                                <a href="{% url 'Earth.views.post_list_by_category' cg=ca.name %}"
+                                   title="{{ ca.name }}">{{ ca.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                </div>
+                <div class="sidebar-module">
                     <h4>Archives</h4>
                     <ol class="list-unstyled">
                         {% for ar in ARCHIVES %}
@@ -118,8 +117,8 @@
                             </li>
                         {% endfor %}
                     </ol>
-                    {% block Archives %}
-                    {% endblock %}
+                </div>
+
                 <div class="sidebar-module">
                     <h4>Elsewhere</h4>
                     <ol class="list-unstyled">
