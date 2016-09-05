@@ -10,7 +10,7 @@ class ArticleFrom(forms.ModelForm):
     brief = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     # head_img = forms.ImageField
     # content = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','value':'{{ new_article.content|safe }}'}))
-    content = forms.CharField()
+    content = forms.CharField(widget=forms.Textarea)
 
     class Meta:
         model = Article

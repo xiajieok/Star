@@ -7,6 +7,9 @@
     <link href="/statics/bootstrap/css/custom.css" rel="stylesheet">
     <link href="/statics/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="/statics/bootstrap/css/blog.css" rel="stylesheet">
+    <link href="/statics/plugin/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet">
+    <script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
     {% block head-cs %}
     {% endblock %}
 </head>
@@ -98,11 +101,16 @@
                 </div>
                 <div class="sidebar-module">
                     <h4>Category</h4>
-                    <ol class="list-unstyled">
+                    <ol class="list-unstyled" style="margin-top: 30px;font-size: 18px">
                         {% for ca in CATEGORIES %}
                             <li>
-                                <a href="{% url 'Earth.views.post_list_by_category' cg=ca.name %}"
-                                   title="{{ ca.name }}">{{ ca.name }}</a>
+                                <div>
+                                    <a href="{% url 'Earth.views.post_list_by_category' cg=ca.name %}"
+                                       title="{{ ca.name }}">{{ ca.name }}</a>&nbsp;
+                                    <span style="float: right">({{ ca.num_post }})</span>
+                                    <hr style="margin-top: 3px"/>
+                                </div>
+
                             </li>
                         {% endfor %}
                     </ol>
@@ -122,7 +130,7 @@
                 <div class="sidebar-module">
                     <h4>Elsewhere</h4>
                     <ol class="list-unstyled">
-                        <li><a href="https://github.com/xiajieok/Earth">GitHub</a></li>
+                        <li><a href="https://github.com/xiajieok/Star">GitHub</a></li>
                         <li><a href="https://twitter.com/xiajieok">Twitter</a></li>
                         <li><a href="https://www.facebook.com/profile.php?id=100012864398323">Facebook</a></li>
                     </ol>
@@ -146,6 +154,14 @@
 <script type="text/javascript" src="/statics/bootstrap/js/jquery-2.1.4.js" async=""></script>
 <script type="text/javascript" src="/statics/bootstrap/js/bootstrap.min.js" async=""></script>
 <script type="text/javascript" src="/statics/bootstrap/js/custom.js" async=""></script>
+<script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shBrushXml.js"></script>
+
+
 {% block js %}
 {% endblock %}
 <script>

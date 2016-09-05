@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {#{% load custom %}#}
+{% block head-cs %}
+    <link rel="stylesheet" href="http://7xp77w.com1.z0.glb.clouddn.com/monokai-sublime.css">
+
+{% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-md-11">
@@ -21,10 +25,10 @@
                 {% endif %}
                 {% if user.is_authenticated %}
                     <div style="float: right">
-                    <a class="btn btn-default" href="{% url 'edit' pk=post.pk %}"><span
-                            class="glyphicon glyphicon-pencil"></span></a>
-                    <a class="btn btn-default" href="{% url 'remove' pk=post.pk %}"><span
-                            class="glyphicon glyphicon-trash"></span></a>
+                        <a class="btn btn-default" href="{% url 'edit' pk=post.pk %}"><span
+                                class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-default" href="{% url 'remove' pk=post.pk %}"><span
+                                class="glyphicon glyphicon-trash"></span></a>
                     </div>
                 {% endif %}
 
@@ -33,11 +37,15 @@
 
             <div style="margin: 30px 0 60px 0 ;">
                 <p>{{ post.brief }}</p>
-{#                <p>{{ post.content |custom_markdown |safe }}</p>#}
                 <p>{{ post.content |safe }}</p>
             </div>
         </div>
     </div>
 
+
+{% endblock %}
+{% block js %}
+    <script src="http://7xp77w.com1.z0.glb.clouddn.com/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
 {% endblock %}

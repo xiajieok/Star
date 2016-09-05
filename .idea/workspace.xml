@@ -2,21 +2,319 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b8cc8f5-a668-45ac-90af-f888ff0088a5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Earth/s.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/blog/archives.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-cool.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-cry.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-embarassed.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-frown.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-innocent.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-kiss.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-laughing.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-money-mouth.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-sealed.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-surprised.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-tongue-out.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-undecided.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-wink.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/img/smiley-yell.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/media/moxieplayer.swf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/sh4tinymce/fonts/sh4tinymce.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/sh4tinymce/fonts/sh4tinymce.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/sh4tinymce/fonts/sh4tinymce.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/upload/upload_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/fonts/tinymce-small.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/fonts/tinymce-small.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/fonts/tinymce-small.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/fonts/tinymce.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/fonts/tinymce.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/fonts/tinymce.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/img/anchor.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/img/loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/img/object.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/img/trans.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-cool.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-cry.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-embarassed.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-frown.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-innocent.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-kiss.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-laughing.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-money-mouth.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-sealed.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-smile.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-surprised.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-tongue-out.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-undecided.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-wink.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/img/smiley-yell.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/media/moxieplayer.swf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/sh4tinymce/fonts/sh4tinymce.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/sh4tinymce/fonts/sh4tinymce.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/sh4tinymce/fonts/sh4tinymce.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/upload/upload_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/fonts/tinymce-small.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/fonts/tinymce-small.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/fonts/tinymce-small.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/fonts/tinymce.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/fonts/tinymce.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/fonts/tinymce.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/img/anchor.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/img/loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/img/object.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/img/trans.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/LGPL-LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/MIT-LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/_theme_template.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/config.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shCore.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shCoreDefault.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shCoreDjango.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shCoreEclipse.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shCoreEmacs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shCoreFadeToGrey.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shCoreMDUltra.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shCoreMidnight.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shCoreRDark.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shThemeDefault.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shThemeDjango.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shThemeEclipse.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shThemeEmacs.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shThemeFadeToGrey.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shThemeMDUltra.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shThemeMidnight.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/compass/shThemeRDark.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shAutoloader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushAS3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushAppleScript.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushBash.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushCSharp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushColdFusion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushCpp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushCss.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushDelphi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushDiff.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushErlang.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushGroovy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushJScript.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushJava.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushJavaFX.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushPerl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushPhp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushPlain.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushPowerShell.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushPython.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushRuby.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushSass.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushScala.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushSql.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushVb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shBrushXml.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shCore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/scripts/shLegacy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/src/shAutoloader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/src/shCore.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/src/shLegacy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shCore.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shCoreDefault.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shCoreDjango.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shCoreEclipse.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shCoreEmacs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shCoreFadeToGrey.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shCoreMDUltra.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shCoreMidnight.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shCoreRDark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shThemeDefault.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shThemeDjango.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shThemeEclipse.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shThemeEmacs.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shThemeFadeToGrey.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shThemeMDUltra.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shThemeMidnight.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/styles/shThemeRDark.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/.rvmrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/brushes/sass.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/brushes_tests.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/001_basic.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/002_brushes.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/003_script_tag.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/004_url_parsing.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/005_no_gutter.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/006_pad_line_numbers.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/007_collapse.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/007_collapse_interaction.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/008_first_line.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/009_class_name.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/010_highlight.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/011_smart_tabs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/012_server_side.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/013_html_script.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/cases/014_legacy.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/commonjs_tests.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/js/jquery-1.4.2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/js/qunit.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/js/qunit.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/syntaxhighlighter_tests.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/theme_tests.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/webrick.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/syntaxhighlighter/tests/webrick.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/LICENSE.TXT" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/changelog.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/langs/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/license.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/advlist/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/anchor/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/autolink/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/autoresize/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/autosave/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/bbcode/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/charmap/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/code/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/colorpicker/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/contextmenu/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/directionality/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/emoticons/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/example/dialog.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/example/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/example_dependency/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/fullpage/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/fullscreen/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/hr/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/image/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/importcss/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/insertdatetime/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/layer/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/legacyoutput/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/link/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/lists/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/media/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/nonbreaking/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/noneditable/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/pagebreak/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/paste/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/preview/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/print/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/save/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/searchreplace/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/sh4tinymce/fonts/sh4tinymce.dev.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/sh4tinymce/fonts/sh4tinymce.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/sh4tinymce/langs/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/sh4tinymce/langs/fr_FR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/sh4tinymce/plugin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/sh4tinymce/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/sh4tinymce/style/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/spellchecker/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/tabfocus/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/table/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/template/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/textcolor/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/textpattern/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/upload/plugin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/upload/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/visualblocks/css/visualblocks.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/visualblocks/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/visualchars/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins/wordcount/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/content.inline.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/content.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/fonts/tinymce-small.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/fonts/tinymce.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/skin.ie7.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/skins/lightgray/skin.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/themes/modern/theme.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/tinymce.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/langs/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/addmore/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/advlist/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/anchor/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/autolink/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/autoresize/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/autosave/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/bbcode/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/charmap/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/code/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/colorpicker/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/contextmenu/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/directionality/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/emoticons/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/example/dialog.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/example/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/example_dependency/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/fullpage/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/fullscreen/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/hr/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/image/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/importcss/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/insertdatetime/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/layer/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/legacyoutput/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/link/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/lists/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/media/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/nonbreaking/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/noneditable/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/pagebreak/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/paste/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/preview/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/print/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/save/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/searchreplace/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/sh4tinymce/fonts/sh4tinymce.dev.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/sh4tinymce/fonts/sh4tinymce.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/sh4tinymce/langs/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/sh4tinymce/langs/fr_FR.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/sh4tinymce/plugin.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/sh4tinymce/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/sh4tinymce/style/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/spellchecker/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/tabfocus/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/table/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/template/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/textcolor/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/textpattern/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/upload/plugin.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/upload/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/visualblocks/css/visualblocks.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/visualblocks/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/visualchars/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/plugins/wordcount/plugin.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/content.inline.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/content.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/fonts/tinymce-small.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/fonts/tinymce.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/skin.ie7.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/skins/lightgray/skin.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/themes/modern/theme.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/plugin/tinymce/tinymce.min.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/images/image.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/hotkeys.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/hotkeys.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/marked.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/module.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/module.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/simditor-markdown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/simditor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/simditor.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/to-markdown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/uploader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/scripts/uploader.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/editor.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/fonticon.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/simditor-markdown.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/simditor.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/simditor.scss" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Earth/commons/context_processors.py" afterPath="$PROJECT_DIR$/Earth/commons/context_processors.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Earth/forms.py" afterPath="$PROJECT_DIR$/Earth/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Earth/urls.py" afterPath="$PROJECT_DIR$/Earth/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Earth/views.py" afterPath="$PROJECT_DIR$/Earth/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/statics/bootstrap/css/bootstrap.css" afterPath="$PROJECT_DIR$/statics/bootstrap/css/bootstrap.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/statics/bootstrap/css/custom.css" afterPath="$PROJECT_DIR$/statics/bootstrap/css/custom.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/blog/admin.html" afterPath="$PROJECT_DIR$/templates/blog/admin.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/blog/blog_edit.html" afterPath="$PROJECT_DIR$/templates/blog/blog_edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/blog/blog_list.html" afterPath="$PROJECT_DIR$/templates/blog/blog_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/blog/category_list.html" afterPath="$PROJECT_DIR$/templates/blog/category_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/blog/post_detail.html" afterPath="$PROJECT_DIR$/templates/blog/post_detail.html" />
     </list>
     <ignored path="Star.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +340,7 @@
         <entry file="file://$PROJECT_DIR$/Earth/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
+              <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
                 <element signature="e#7333#8071#0" expanded="false" />
@@ -51,43 +349,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="category_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/blog/category_list.html">
+      <file leaf-file-name="blog_edit.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/blog/blog_edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.75">
-              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.1923077">
+              <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
               <folding>
-                <element signature="e#1526#1560#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#p#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#p#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Earth/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375">
-              <caret line="107" column="25" selection-start-line="107" selection-start-column="25" selection-end-line="107" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="context_processors.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="context_processors.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Earth/commons/context_processors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3617021">
-              <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="67" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -96,7 +376,7 @@
       <file leaf-file-name="blog_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/blog/blog_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.541667">
+            <state vertical-scroll-proportion="0.0">
               <caret line="31" column="73" selection-start-line="31" selection-start-column="72" selection-end-line="31" selection-end-column="73" />
               <folding>
                 <element signature="n#block#1;n#!!top" expanded="false" />
@@ -125,7 +405,6 @@
         <option value="$USER_HOME$/Project/Earth/Earth/Copernicus/admin.py" />
         <option value="$PROJECT_DIR$/templates/blog/post_draft_list.html" />
         <option value="$PROJECT_DIR$/templates/login.html" />
-        <option value="$PROJECT_DIR$/templates/blog/post_detail.html" />
         <option value="$PROJECT_DIR$/statics/bootstrap/css/blog.css" />
         <option value="$PROJECT_DIR$/Star/urls.py" />
         <option value="$PROJECT_DIR$/templates/blog/archives.html" />
@@ -136,17 +415,20 @@
         <option value="$PROJECT_DIR$/Earth/models.py" />
         <option value="$PROJECT_DIR$/templates/blog/post_list.html" />
         <option value="$PROJECT_DIR$/Earth/s.html" />
-        <option value="$PROJECT_DIR$/statics/bootstrap/css/custom.css" />
         <option value="$PROJECT_DIR$/templates/blog/blog_list.html" />
-        <option value="$PROJECT_DIR$/templates/blog/blog_edit.html" />
-        <option value="$PROJECT_DIR$/Earth/forms.py" />
-        <option value="$PROJECT_DIR$/statics/bootstrap/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/templates/blog/category_list.html" />
         <option value="$PROJECT_DIR$/templates/blog/admin.html" />
         <option value="$PROJECT_DIR$/Earth/urls.py" />
         <option value="$PROJECT_DIR$/Earth/views.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/Earth/commons/context_processors.py" />
+        <option value="$PROJECT_DIR$/statics/plugin/ckeditor-full/config.js" />
+        <option value="$PROJECT_DIR$/templates/blog/post_detail.html" />
+        <option value="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/tinymce.js" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/Earth/forms.py" />
+        <option value="$PROJECT_DIR$/templates/blog/blog_edit.html" />
+        <option value="$PROJECT_DIR$/statics/bootstrap/css/custom.css" />
+        <option value="$PROJECT_DIR$/statics/bootstrap/css/bootstrap.css" />
       </list>
     </option>
   </component>
@@ -248,6 +530,46 @@
               <option name="myItemId" value="statics" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tinymce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Star" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Star" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="statics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Star" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Star" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="statics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -277,6 +599,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="statics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Star" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Star" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Star" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -292,31 +636,13 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Earth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Star" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Star" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="commons" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -340,11 +666,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/statics/plugin" />
+      <recent name="$PROJECT_DIR$/statics/plugin/tinymce/js/tinymce/plugins" />
+      <recent name="$PROJECT_DIR$/statics/plugin/ckeditor/plugins" />
       <recent name="$PROJECT_DIR$/templates/blog" />
       <recent name="$PROJECT_DIR$/Earth/commons" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/Earth" />
-      <recent name="$PROJECT_DIR$/Star" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.Star">
@@ -607,16 +933,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1230" height="777" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1590909" sideWeight="0.48857644" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16414142" sideWeight="0.48857644" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34160584" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.013138686" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16835018" sideWeight="0.5114235" order="2" side_tool="true" content_ui="tabs" />
@@ -626,6 +951,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -645,56 +971,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Earth/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/blog_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Earth/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-            <element signature="e#7333#8071#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Earth/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="188" column="41" selection-start-line="188" selection-start-column="33" selection-end-line="188" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-            <element signature="e#7333#8071#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Star/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-          <folding>
-            <element signature="e#637#678#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/blog/post_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -724,7 +1000,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -732,9 +1007,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -840,13 +1113,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/post_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.5/site-packages/django/db/models/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33178654">
@@ -868,7 +1134,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -912,25 +1177,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statics/bootstrap/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="424" column="1" selection-start-line="424" selection-start-column="1" selection-end-line="424" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.5/site-packages/django/forms/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1356674">
           <caret line="203" column="6" selection-start-line="203" selection-start-column="6" selection-end-line="203" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/statics/plugin/simditor-2.3.6/styles/simditor.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="15.623556">
-          <caret line="588" column="27" selection-start-line="588" selection-start-column="27" selection-end-line="588" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -950,29 +1200,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Earth/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/statics/bootstrap/css/blog.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3517588">
           <caret line="88" column="1" selection-start-line="88" selection-start-column="1" selection-end-line="88" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/statics/bootstrap/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95477384">
-          <caret line="2568" column="19" selection-start-line="2568" selection-start-column="14" selection-end-line="2568" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -984,16 +1215,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/category_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.75">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding>
-            <element signature="e#1526#1560#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35545024">
@@ -1002,37 +1223,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/blog_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2843602">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/blog_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.541667">
-          <caret line="31" column="73" selection-start-line="31" selection-start-column="72" selection-end-line="31" selection-end-column="73" />
-          <folding>
-            <element signature="n#block#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Earth/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/blog/s.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.3383459">
           <caret line="302" column="65" selection-start-line="302" selection-start-column="65" selection-end-line="302" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,14 +1234,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Earth/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
+          <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
             <element signature="e#7333#8071#0" expanded="false" />
@@ -1055,19 +1248,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/Earth/commons/context_processors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375">
-          <caret line="107" column="25" selection-start-line="107" selection-start-column="25" selection-end-line="107" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="67" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Earth/commons/context_processors.py">
+    <entry file="file://$PROJECT_DIR$/templates/blog/blog_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3617021">
-          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="73" selection-start-line="31" selection-start-column="72" selection-end-line="31" selection-end-column="73" />
+          <folding>
+            <element signature="n#block#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blog/post_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8051948">
+          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+          <folding>
+            <element signature="e#1434#1465#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.024038462">
+          <caret line="11" column="68" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Earth/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32407406">
+          <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blog/category_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.024038462">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Earth/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25462964">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/statics/bootstrap/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.25">
+          <caret line="425" column="0" selection-start-line="425" selection-start-column="0" selection-end-line="425" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/statics/bootstrap/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39423078">
+          <caret line="2552" column="13" selection-start-line="2552" selection-start-column="13" selection-end-line="2552" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blog/blog_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1923077">
+          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#p#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#p#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#p#2;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

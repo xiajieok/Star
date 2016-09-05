@@ -1,9 +1,4 @@
 {% extends 'blog/admin.html' %}
-{% block admin-head %}
-    <link rel="stylesheet" href="/statics/plugin/simditor-2.3.6/styles/simditor.css"
-          xmlns="http://www.w3.org/1999/html">
-    <link rel="stylesheet" href="/statics/plugin/simditor-2.3.6/styles/simditor-markdown.css">
-{% endblock %}
 {% block admin-content-header %}
     <h2>{% if is_new %}New article{% else %}Edit article{% endif %}</h2>
 {% endblock %}
@@ -11,14 +6,22 @@
     <div style="margin-bottom: 40px" id="edit">
         {% if is_new %}
             <form enctype="multipart/form-data" method="post">{% csrf_token %}
-                <label>Category:
-                    <select name='category_id' class="form-control" style="width: 80px">
+                <p>Category:
+                    <select name='category_id' class="form-control" style="width: 80%">
                         {% for item in category_list %}
                             <option value="{{ item.id }}">{{ item.name }}</option>
                         {% endfor %}
                     </select>
-                </label>
-                {{ new_article.as_p }}
+                </p>
+                <p>
+                    Title:
+                    <input name="title" type="text" class="form-control" placeholder="文章标题" style="width: 300px">
+                </p>
+                <p>
+                    Brief:
+                    <input name="brief" type="text" class="form-control" placeholder="文章简介" style="width: 300px">
+                </p>
+                <textarea id='id_content' name="content" class="form-control"></textarea>
                 <button type="submit" class="save btn btn-success " style="float: right;margin-bottom: 10px;">Save
                 </button>
             </form>
@@ -35,25 +38,22 @@
 
 {% endblock %}
 {% block admin-js %}
-    <script src="/statics/plugin/simditor-2.3.6/scripts/module.min.js"></script>
-    <script src="/statics/plugin/simditor-2.3.6/scripts/hotkeys.min.js"></script>
-    <script src="/statics/plugin/simditor-2.3.6/scripts/uploader.min.js"></script>
-    <script src="/statics/plugin/simditor-2.3.6/scripts/simditor.min.js"></script>
-    <script src="/statics/plugin/simditor-2.3.6/scripts/marked.js"></script>
-    <script src="/statics/plugin/simditor-2.3.6/scripts/to-markdown.js"></script>
-    <script src="/statics/plugin/simditor-2.3.6/scripts/simditor-markdown.js"></script>
-    <script>
-        var editor = new Simditor({
-            textarea: $('#id_content'),
-            {#            markdown: true,#}
-            toolbar: ['bold', 'italic', 'underline', 'color', '|', 'ol', 'ul', '|', 'markdown', '|', 'code', '|', 'blockquote', '|', 'table', '|', 'link', '|', 'image', '|', ''],
+    <script src="/statics/plugin/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            //width: 800,
+            height: 300,
+            forced_root_block: false,
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor sh4tinymce upload",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter" +
+            " alignright alignjustify | bullist numlist outdent indent | preview link image sh4tinymce"
         });
+    </script>
 
-    </script>
-    <script>
-        $('#id_content').hide(1000);
-        var content = $('#id_content').val();
-        $('.simditor-body').append(content);
-    </script>
 {% endblock %}
 
