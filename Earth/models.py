@@ -52,7 +52,10 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
-
+class About(models.Model):
+    content = models.TextField(u"关于作者")
+    def __str__(self):
+        return self.title
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)

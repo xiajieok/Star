@@ -8,8 +8,7 @@
     <link href="/statics/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="/statics/bootstrap/css/blog.css" rel="stylesheet">
     <link href="/statics/plugin/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet">
-    <script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shCore.js"></script>
-    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
     {% block head-cs %}
     {% endblock %}
 </head>
@@ -30,14 +29,14 @@
                     </div>
                 </a>
                 <a class="menu-btn fltrt" id="menu_btn">
-                    <img src="//dannysite.oss-cn-hongkong.aliyuncs.com/dcom/media/site/theme/image/6bf43b39-6cb1-41c7-9303-943d65d52d92.png"
-                         width="40">
+                    {#                    <img src="//dannysite.oss-cn-hongkong.aliyuncs.com/dcom/media/site/theme/image/6bf43b39-6cb1-41c7-9303-943d65d52d92.png"#}
+                    width="40">
                 </a>
                 <div class="nav-bar fltrt" id="nav_bar" style="float: right">
                     <a class="blog-nav-item " href="/">HOME</a>
                     <a class="blog-nav-item focus" href="/blog/">BLOG</a>
                     <a class="blog-nav-item " href="/box/">BOX</a>
-                    <a class="blog-nav-item " href="/contact/">CONTACT</a>
+                    <a class="blog-nav-item " href="/blog/contact/">CONTACT</a>
                 </div>
                 <div class="clearfloat"></div>
             </div>
@@ -66,15 +65,16 @@
                 {% endblock %}
             </div>
             <div class="col-md-2 " style="margin:35px 5px 0 15px">
-                <div class="sidebar-module sidebar-module-inset">
+                <div >
                     <h4>About</h4>
-                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
-                        fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                    {% block about %}
+                    {% endblock %}
+
                 </div>
                 <div class="sidebar-module">
                     <h4>Mangement</h4>
                     {% if user.is_authenticated %}
-                        <ol class="list-unstyled">
+                        <ol class="list-unstyled" style="font-size: 18px">
                             <li>
                                 <a href="{% url 'new' %}">New article</a>
                             </li>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="sidebar-module">
                     <h4>Archives</h4>
-                    <ol class="list-unstyled">
+                    <ol class="list-unstyled" style="font-size: 18px">
                         {% for ar in ARCHIVES %}
                             <li>
                                 <a href="{% url 'Earth.views.archives' y=ar.year m=ar.month %}">
@@ -129,7 +129,7 @@
 
                 <div class="sidebar-module">
                     <h4>Elsewhere</h4>
-                    <ol class="list-unstyled">
+                    <ol class="list-unstyled" style="font-size: 18px">
                         <li><a href="https://github.com/xiajieok/Star">GitHub</a></li>
                         <li><a href="https://twitter.com/xiajieok">Twitter</a></li>
                         <li><a href="https://www.facebook.com/profile.php?id=100012864398323">Facebook</a></li>
@@ -154,6 +154,8 @@
 <script type="text/javascript" src="/statics/bootstrap/js/jquery-2.1.4.js" async=""></script>
 <script type="text/javascript" src="/statics/bootstrap/js/bootstrap.min.js" async=""></script>
 <script type="text/javascript" src="/statics/bootstrap/js/custom.js" async=""></script>
+<script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
 <script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shBrushBash.js"></script>
 <script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shBrushSql.js"></script>
 <script type="text/javascript" src="/statics/plugin/syntaxhighlighter/scripts/shBrushCss.js"></script>

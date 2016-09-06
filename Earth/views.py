@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
-from Earth.forms import ArticleFrom, handle_uploaded_file, CategoryFrom
+from Earth.forms import ArticleFrom, handle_uploaded_file, CategoryFrom, AboutFrom
 from django.http import Http404
 
 
@@ -49,9 +49,9 @@ def index(request):
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
             '-published_date')
     # blog_all = models.Article.objects.all()
-    print('---blog_all--->', blog_all)
     posts = pages(request, blog_all)
-    return render(request, 'blog/post_list.html', {'posts': posts, 'page': True})
+    about_obj = models.About.objects.filter(id=1)
+    return render(request, 'blog/post_list.html', {'posts': posts, 'page': True, 'about_obj': about_obj})
 
 
 def pages(request, blog_all):
@@ -76,7 +76,8 @@ def pages(request, blog_all):
 
 def post_detail(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    about_obj = models.About.objects.filter(id=1)
+    return render(request, 'blog/post_detail.html', {'post': post, 'is_post': True, 'about_obj': about_obj})
 
 
 @login_required
@@ -116,19 +117,20 @@ def blog_new(request):
 def blog_publish(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
     post.publish()
-    return redirect('Earth.views.post_detail', pk=pk)
-
-
-def post_draft_list(request):
-    posts = models.Article.objects.filter(published_date__isnull=True).order_by('-created_date')
-    return render(request, 'blog/post_draft_list.html', {'posts': posts})
+    # return redirect('Earth.views.post_detail', pk=pk)
+    blog_all = models.Article.objects.filter(published_date__isnull=True).order_by('-created_date')
+    posts = pages(request, blog_all)
+    return render(request, 'blog/table.html', {'posts': posts})
 
 
 @login_required
 def blog_remove(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
     post.delete()
-    return redirect('Earth.views.blog_list')
+    blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
+            '-published_date')
+    posts = pages(request, blog_all)
+    return render(request, 'blog/table.html', {'posts': posts})
 
 
 @login_required
@@ -189,8 +191,8 @@ def blog_edit(request, pk):
         category_id = models.Article.objects.filter(id=pk)[0].category_id
         # print('--category_list-->',category_list[0].category_id)
         # print('如果是get的方式,那就先查询')
-    return render(request, 'blog/blog_edit.html',
-                  {'edit_article': edit_article, 'category_list': category_list, 'category_id': category_id})
+        return render(request, 'blog/blog_edit.html',
+                      {'edit_article': edit_article, 'category_list': category_list, 'category_id': category_id})
 
 
 def archives(request, y, m):
@@ -201,14 +203,17 @@ def archives(request, y, m):
             published_date__month=m).prefetch_related().order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
-    print('--post_ar-->', posts_ar)
-    for i in posts_ar:
-        print(i.published_date)
-    print(posts_ar.query)
+    # print('--post_ar-->', posts_ar)
+    # for i in posts_ar:
+    #     print(i.published_date)
+    # print(posts_ar.query)
     return render(request, 'blog/post_list.html',
                   {'posts_ar': posts_ar, 'list_header': '{0}年{1}月'.format(y, m)})
 
+
 category_obj = models.Category.objects.all()
+
+
 @login_required
 def blog_category(request):
     # global category_obj
@@ -233,13 +238,70 @@ def blog_category(request):
         category_obj = models.Category.objects.all()
         # print('-->', category_obj)
         # posts = pages(request, blog_all)
-    return render(request, 'blog/category_list.html', {'category_obj': category_obj,'category_from':category_from})
+        return render(request, 'blog/category_list.html',
+                      {'category_obj': category_obj, 'category_from': category_from})
+
+
 def post_list_by_category(request, cg):
     """根据目录列表已发布文章"""
     posts = models.Article.objects.annotate().filter(
-        published_date__isnull=False, category__name=cg).prefetch_related(
-        'category').order_by('-published_date')
+            published_date__isnull=False, category__name=cg).prefetch_related(
+            'category').order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     return render(request, 'blog/post_list.html',
                   {'posts': posts, 'list_header': '\'{}\' 分类的存档'.format(cg)})
+
+
+@login_required
+def blog_category_del(request, pk):
+    post = get_object_or_404(models.Category, pk=pk)
+    post.delete()
+    category_obj = models.Category.objects.all()
+    # posts = pages(request, blog_all)
+    return render(request, 'blog/table_category.html', {'category_obj': category_obj})
+
+
+def about(request):
+    post = get_object_or_404(models.About, pk=1)
+    if request.method == "POST":
+        form = AboutFrom(request.POST, instance=post)
+        print(form)
+        if form.is_valid():
+            form.save()
+            print('ok')
+            return HttpResponseRedirect('/blog')
+            # return render(request, 'blog/blog_about.html', {'about_obj': form})
+    else:
+        print('no')
+        about_obj = AboutFrom(instance=post)
+        # about_obj = models.About.objects.all()
+        print(about_obj)
+        return render(request, 'blog/blog_about.html', {'about_obj': about_obj, 'is_about': True})
+
+
+def contact(request):
+    contact = models.About.objects.filter(id=2)
+    about_obj = models.About.objects.filter(id=1)
+    return render(request, 'blog/post_detail.html',
+              {'about_obj': about_obj, 'contact': contact})
+
+
+def contact_edit(request):
+    post = get_object_or_404(models.About, pk=2)
+    if request.method == "POST":
+        form = AboutFrom(request.POST, instance=post)
+        # print(form)
+        if form.is_valid():
+            form.save()
+            # print('ok')
+            return HttpResponseRedirect('/blog')
+            # return render(request, 'blog/blog_about.html', {'about_obj': form})
+    else:
+        # print('no')
+        contact_obj = AboutFrom(instance=post)
+        # about_obj = models.About.objects.all()
+        # print(about_obj.content)
+        about_obj = models.About.objects.filter(id=1)
+
+        return render(request, 'blog/blog_about.html', {'contact_obj': contact_obj, 'about_obj': about_obj})

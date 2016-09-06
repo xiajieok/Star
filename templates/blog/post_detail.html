@@ -1,44 +1,51 @@
 {% extends 'base.html' %}
 {#{% load custom %}#}
-{% block head-cs %}
-    <link rel="stylesheet" href="http://7xp77w.com1.z0.glb.clouddn.com/monokai-sublime.css">
 
+{% block about %}
+    {% for i in about_obj %}
+        {{ i.content|safe }}
+    {% endfor %}
 {% endblock %}
 {% block content %}
     <div class="row">
         <div class="col-md-11">
-            <div class="blog-detail-title">
-                {{ post.title }}
-                <hr/>
-            </div>
-            <div class="date" style="margin-top: 20px;height: 30px">
-                posted @
-                {% if post.published_date %}
-                    {{ post.published_date |date:"Y-m-d H:i:s" }} &nbsp;
-                    {{ post.author }}
-                {% else %}
+            {% if is_post %}
+                <div class="blog-detail-title">
+                    {{ post.title }}
+                    <hr/>
+                </div>
+                <div class="date" style="margin-top: 20px;height: 30px">
+                    posted @
+                    {% if post.published_date %}
+                        {{ post.published_date |date:"Y-m-d H:i:s" }} &nbsp;
+                        {{ post.author }}
+                    {% else %}
+                        {% if user.is_authenticated %}
+                            <a class="btn btn-default"
+                               href="{% url 'Earth.views.post_publish' pk=post.pk %}">Publish</a>
+                        {% endif %}
+
+                    {% endif %}
                     {% if user.is_authenticated %}
-                        <a class="btn btn-default"
-                           href="{% url 'Earth.views.post_publish' pk=post.pk %}">Publish</a>
+                        <div style="float: right">
+                            <a class="btn btn-default" href="{% url 'edit' pk=post.pk %}"><span
+                                    class="glyphicon glyphicon-pencil"></span></a>
+                        </div>
                     {% endif %}
 
-                {% endif %}
-                {% if user.is_authenticated %}
-                    <div style="float: right">
-                        <a class="btn btn-default" href="{% url 'edit' pk=post.pk %}"><span
-                                class="glyphicon glyphicon-pencil"></span></a>
-                        <a class="btn btn-default" href="{% url 'remove' pk=post.pk %}"><span
-                                class="glyphicon glyphicon-trash"></span></a>
-                    </div>
-                {% endif %}
+                </div>
+                <div style="margin: 30px 0 60px 0 ;">
+                    <p>{{ post.brief }}</p>
+                    <p>{{ post.content |safe }}</p>
+                </div>
+            {% else %}
+                <div style="margin-top: 30px">
+                    {% for i in contact %}
+                        {{ i.content|safe }}
+                    {% endfor %}
+                </div>
 
-            </div>
-
-
-            <div style="margin: 30px 0 60px 0 ;">
-                <p>{{ post.brief }}</p>
-                <p>{{ post.content |safe }}</p>
-            </div>
+            {% endif %}
         </div>
     </div>
 

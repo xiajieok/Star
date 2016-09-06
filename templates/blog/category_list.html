@@ -8,24 +8,7 @@
                     box-header
                 </div>
                 <div class="box-body">
-                    <table id="tb1" class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-{#                            <th>ID</th>#}
-                            <th width="400px">Name</th>
-                            <th>Brief</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for item in category_obj %}
-                            <tr id={{ item.id }}>
-{#                                <td>{{ item.id }}</td>#}
-                                <td class="editbox">{{ item.name }}</td>
-                                <td>{{ item.name }}</td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                    {% include 'blog/table_category.html' %}
                 </div>
             </div>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">
@@ -120,8 +103,9 @@
         var editText;
         function setEditHTML(value) {
             editHTML = '<input type="text" value="' + value + '" />';
-            editHTML += '<input type="button" onclick="ok(this)" value="修改" />';
-            editHTML += '<input type="button" onclick="cancel(this)" value="取消" />';
+            editHTML += '<input type="button" onclick="ok(this)" value="Edit" />';
+            editHTML += '<input type="button" onclick="del(this)" value="Del" />';
+            editHTML += '<input type="button" onclick="cancel(this)" value="Cancel" />';
         }
 
         //绑定事件
@@ -152,6 +136,23 @@
             });
 
         }
+        //删除
+        function del(ths) {
+            var $obj = $(ths).parent(); //'修改'按钮的上一级，即单元格td
+            var cid = $obj.parent().attr("id").replace("tr_", ""); //取得该行数据的ID，此例ID绑定在tr中
+            //console.log(cid);
+            $('#tb1').html("");
+            $.ajax({
+                type: 'POST',
+                url: "/blog/category/" + cid + "/del/",
+                data: {pk: cid},
+                success: function (data) {
+              //      console.log(data);
+                    $("#tb1").html(data);
+                }
+            });
+        }
+
         //修改
         function ok(obtn) {
             var $obj = $(obtn).parent(); //'修改'按钮的上一级，即单元格td

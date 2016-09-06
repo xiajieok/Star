@@ -8,39 +8,10 @@
                     box-header
                 </div>
                 <div class="box-body">
-                    <table id="example2" class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th style="width: 400px">Title</th>
-                            <th style="width: 140px">date</th>
-                            <th style="width: 80px">Status</th>
-                            {% if not is_list  %}
-                                <th style="width: 80px">Handle</th>
-                            {% endif %}
-                            <th style="width: 80px">Handle</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for item in posts %}
-                            <tr>
-                                <td><a href="{% url 'detail' pk=item.id %}">{{ item.title }}</a></td>
-                                <td>{{ item.created_date |date:"Y-m-d H:i:s" }}</td>
-                                <td><a href="{% url 'publish' pk=item.id %}"><span
-                                        class="fa fa-send"></span></a></td>
-                                {% if not is_list %}
-                                    <td><a href="{% url 'edit' pk=item.id %}"><span
-                                            class="fa fa-edit"></span></a></td>
-                                {% endif %}
-                                <td><a href="{% url 'remove' pk=item.id %}">
-                                    <span class="fa fa-trash"></span></a></td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-
+                    {% include 'blog/table.html' %}
                 </div>
-            </div>
 
+            </div>
             <div>
                 <nav>
                     <ul class="pagination">
@@ -71,33 +42,36 @@
 
 {% block admin-js %}
     <script>
-        {#        function Remove_td(ths, id) {#}
-        {#            var val_td = id;#}
-        {#            console.log(val_td);#}
-        {#            $('#list-body').html("");#}
-        {#            $.ajax({#}
-        {#                url: "http://127.0.0.1:8000/blog/post/" + val_td + "/remove",#}
-        {#                type: 'GET',#}
-        {#                success: function (data) {#}
-        {#                    console.log(data);#}
-        {#                    $("#list-body").html(data);#}
-        {#                    location.reload();#}
-        {#                }#}
-        {#            })#}
-        {#        }#}
-        {#        function Publish_td(ths, id) {#}
-        {#            var val_td = id;#}
-        {#            console.log(val_td);#}
-        {#            $('#list-body').html("");#}
-        {#            $.ajax({#}
-        {#                url: "http://127.0.0.1:8000/blog/post/" + val_td + "/publish",#}
-        {#                type: 'GET',#}
-        {#                success: function (data) {#}
-        {#                    console.log(data);#}
-        {#                    $("#list-body").html(data);#}
-        {#                    location.reload();#}
-        {#                }#}
-        {#            })#}
-        {#        }#}
+        function Remove_td(ths, id) {
+            val_td = id;
+            console.log(val_td);
+            $('#tb').html("");
+            $.ajax({
+                url: "http://127.0.0.1:8000/blog/post/" + val_td + "/remove",
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    $("#tb").html(data);
+                }
+            });
+
+        }
     </script>
+    <script>
+        function Publish_td(ths, id) {
+            var val_td = id;
+            console.log(val_td);
+            $('#tb').html("");
+            $.ajax({
+                url: "http://127.0.0.1:8000/blog/post/" + val_td + "/publish",
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    $("#tb").html(data);
+                }
+            })
+        }
+    </script>
+
+
 {% endblock %}

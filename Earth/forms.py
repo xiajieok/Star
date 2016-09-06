@@ -1,12 +1,12 @@
 import os
 from django import forms
 from django.core.exceptions import NON_FIELD_ERRORS
-from Earth.models import Article,Category
+from Earth.models import Article,Category,About
 
 
 class ArticleFrom(forms.ModelForm):
     # title = forms.CharField(max_length=30, min_length=5)
-    title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','width':'900px'}))
+    title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     brief = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     # head_img = forms.ImageField
     # content = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','value':'{{ new_article.content|safe }}'}))
@@ -25,6 +25,11 @@ class CategoryFrom(forms.ModelForm):
     class Meta:
         model = Category
         fields = ('id','name')
+class AboutFrom(forms.ModelForm):
+    name = forms.Textarea()
+    class Meta:
+        model = About
+        fields = ('id','content')
 def handle_uploaded_file(request, f):
     print('-->', f.name)
     base_img_upload_path = 'static/imgs'

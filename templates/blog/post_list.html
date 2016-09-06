@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load custom %}
+{% block about %}
+    {% for i in about_obj %}
+        {{ i.content|safe }}
+    {% endfor %}
+{% endblock %}
 {% block content %}
     {% if list_header %}
         <div>

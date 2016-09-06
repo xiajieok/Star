@@ -7,7 +7,7 @@
         {% if is_new %}
             <form enctype="multipart/form-data" method="post">{% csrf_token %}
                 <p>Category:
-                    <select name='category_id' class="form-control" style="width: 80%">
+                    <select name='category_id' class="form-control" style="width: 60px">
                         {% for item in category_list %}
                             <option value="{{ item.id }}">{{ item.name }}</option>
                         {% endfor %}
@@ -15,11 +15,11 @@
                 </p>
                 <p>
                     Title:
-                    <input name="title" type="text" class="form-control" placeholder="文章标题" style="width: 300px">
+                    <input name="title" type="text" class="form-control" placeholder="文章标题" >
                 </p>
                 <p>
                     Brief:
-                    <input name="brief" type="text" class="form-control" placeholder="文章简介" style="width: 300px">
+                    <input name="brief" type="text" class="form-control" placeholder="文章简介" >
                 </p>
                 <textarea id='id_content' name="content" class="form-control"></textarea>
                 <button type="submit" class="save btn btn-success " style="float: right;margin-bottom: 10px;">Save

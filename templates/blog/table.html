@@ -1,0 +1,30 @@
+<table id="tb" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th style="width: 400px">Title</th>
+        <th style="width: 140px">date</th>
+        <th style="width: 80px">Status</th>
+        {% if not is_list %}
+            <th style="width: 80px">Handle</th>
+        {% endif %}
+        <th style="width: 80px">Handle</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in posts %}
+        <tr>
+            <td><a href="{% url 'detail' pk=item.id %}">{{ item.title }}</a></td>
+            <td>{{ item.created_date |date:"Y-m-d H:i:s" }}</td>
+            <td onclick="Publish_td(this,{{ item.id }});"><a><span
+                    class="fa fa-send"></span></a></td>
+            {% if not is_list %}
+                <td><a href="{% url 'edit' pk=item.id %}"><span
+                        class="fa fa-edit"></span></a></td>
+            {% endif %}
+            <td onclick="Remove_td(this,{{ item.id }});"><a><span
+                    class="fa fa-trash"></span></a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
