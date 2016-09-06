@@ -25,7 +25,7 @@
                         {% for page_num in posts.paginator.page_range %}
                             {% guess_page posts.number page_num %}
                         {% endfor %}
-                        {% if shcool_list.has_next %}
+                        {% if posts.has_next %}
                             <li class="">
                                 <a href="?page={{ posts.next_page_number }}" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
@@ -47,7 +47,7 @@
             console.log(val_td);
             $('#tb').html("");
             $.ajax({
-                url: "http://127.0.0.1:8000/blog/post/" + val_td + "/remove",
+                url: "/blog/post/" + val_td + "/remove",
                 type: 'GET',
                 success: function (data) {
                     console.log(data);
@@ -63,7 +63,7 @@
             console.log(val_td);
             $('#tb').html("");
             $.ajax({
-                url: "http://127.0.0.1:8000/blog/post/" + val_td + "/publish",
+                url: "/blog/post/" + val_td + "/publish",
                 type: 'GET',
                 success: function (data) {
                     console.log(data);

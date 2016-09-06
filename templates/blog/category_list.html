@@ -161,7 +161,7 @@
             //AJAX 修改数据
             $.ajax({
                 type: "POST",
-                url: "http://127.0.0.1:8000/blog/category/",
+                url: "/blog/category/",
                 data: {name: value, id: cid},//data:版块名称/版块ID
                 success: function (msg) {
                     //alert("Data Saved: " + msg);
