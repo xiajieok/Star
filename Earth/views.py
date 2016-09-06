@@ -261,7 +261,7 @@ def blog_category_del(request, pk):
     # posts = pages(request, blog_all)
     return render(request, 'blog/table_category.html', {'category_obj': category_obj})
 
-
+@login_required
 def about(request):
     post = get_object_or_404(models.About, pk=1)
     if request.method == "POST":
@@ -286,7 +286,7 @@ def contact(request):
     return render(request, 'blog/post_detail.html',
               {'about_obj': about_obj, 'contact': contact})
 
-
+@login_required
 def contact_edit(request):
     post = get_object_or_404(models.About, pk=2)
     if request.method == "POST":
