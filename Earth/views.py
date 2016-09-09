@@ -135,7 +135,7 @@ def blog_remove(request, pk):
 
 @login_required
 def blog_admin(request):
-    return render(request, 'blog/admin.html')
+    return render(request, 'blog/blog_list.html')
 
 
 @login_required

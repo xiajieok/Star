@@ -15,17 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from Earth import views
+from Earth import views as Earth
 from django.contrib.auth import views as user_views
 
 urlpatterns = [
 
-    url(r'^$', views.index),
+    url(r'^$', Earth.index),
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('Earth.urls')),
-    url(r'^login/', views.acc_login, name='login'),
-    url(r'^logout/', views.acc_logout, name='logout'),
-    url(r'^archives/$', views.archives, name='archives'),
+    url(r'^cmdb/', include('Moon.urls')),
+    url(r'^login/', Earth.acc_login, name='login'),
+    url(r'^logout/', Earth.acc_logout, name='logout'),
+    # url(r'^archives/$', Earth.archives, name='archives'),
 
     # url(r'^accounts/login/$', user_views.login),
     # url(r'^accounts/logout/$', user_views.logout, {'next_page': '/blog'})
