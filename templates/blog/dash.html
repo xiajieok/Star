@@ -44,8 +44,8 @@
                 <span class="info-box-icon bg-green"><i class="fa fa-safari"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Sales</span>
-                    <span class="info-box-number">760</span>
+                    <span class="info-box-text">Event</span>
+                    <span class="info-box-number">{{ event_count }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -83,9 +83,11 @@
                         <td>{{ item.name }}</td>
                         <td>{{ item.hostid }}</td>
                         {% if  item.status != '1' %}
-                            <td style="color: rgb(5,155,69)" onclick="Change_Status(this)">启用</td>
+                            <td id="{{ item.hostid }}" style="color: rgb(5,155,69)" onclick="Change_Status(this)">启用
+                            </td>
                         {% else %}
-                            <td style="color: rgb(213,51,38)" onclick="Change_Status(this)">禁用</td>
+                            <td id="{{ item.hostid }}" style="color: rgb(213,51,38)" onclick="Change_Status(this)">禁用
+                            </td>
                         {% endif %}
                     </tr>
                 {% endfor %}
@@ -93,21 +95,28 @@
             </table>
         </div>
     </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        New Host
+    </button>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Warning Modal</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
-                    <button type="button" class="btn btn-primary">取消</button>
-                </div>
+                <form enctype="multipart/form-data" method="post">{% csrf_token %}
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Warning Modal</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>One fine body&hellip;</p>
+                        <p><input type="text" value="ip"></p>
+                        <p>One fine body&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                        <button type="button" class="btn btn-primary">取消</button>
+                    </div>
+                </form>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
@@ -115,21 +124,77 @@
 {% endblock %}
 {% block admin-js %}
     <script>
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var csrftoken = getCookie('csrftoken');
+        console.log(csrftoken);
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function (xhr, settings) {
+                var csrftoken = getCookie('csrftoken');
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
         function Change_Status(ths) {
             var val_status = $(ths).text();
+            var val_id = $(ths).siblings().last().text();
             console.log(val_status);
+            console.log(val_id);
+
             if (val_status == '启用') {
                 $('#myModal').modal('show');
                 $('.modal-body').html('<p>确定禁用该主机?</p>');
+                var val_status = 1;
+                $.ajax({
+                    url: "/cmdb/update/",
+                    type: 'POST',
+                    data: {status: val_status, hostid: val_id},
+                    success: function (data) {
+                        console.log(data);
+                        console.log('禁用主机 success !');
+                    }
+                });
                 $(ths).text('禁用').css("color", "rgb(213,51,38)");
+
             } else {
                 $('#myModal').modal('show');
                 $('.modal-body').html('<p>确定启用该主机?</p>');
+                var val_status = 0;
+                var val_id = $(ths).siblings().last().text();
+
+                console.log(val_id);
                 $(ths).text('启用').css("color", "rgb(5,155,69)");
-
-
+                $.ajax({
+                    url: "/cmdb/update/",
+                    type: 'POST',
+                    data: {status: val_status, hostid: val_id},
+                    success: function (data) {
+                        console.log(data);
+                        console.log('启用主机 success !');
+                    }
+                })
+                ;
             }
         }
     </script>
-
 {% endblock %}

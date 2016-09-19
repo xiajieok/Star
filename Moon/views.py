@@ -44,28 +44,78 @@ def acc_logout(request):
     return HttpResponseRedirect('/cmdb')
 
 
+# z = ZabbixAPI(url='http://172.16.0.1:9270', user='Admin', password='41hcH7XAVu2vuP9F')
+
+z = ZabbixAPI(url='http://192.168.40.11/zabbix', user='admin', password='zabbix')
+
+
+def up(request):
+    print('----post---->', request.POST)
+    id = request.POST.get('hostid')
+    print('hostid', id)
+    new_status = request.POST.get('status')
+    print('status', new_status)
+    try:
+        host_obj = z.do_request(
+                'host.update',
+                {
+                    "hostid": id,
+                    "status": new_status
+                }
+        )
+        #res = zapi.host.update(hostid=hostid,templates=template_new)
+    except Exception as e:
+        print(e)
+        return HttpResponse('no')
+    else:
+        print(host_obj)
+        return HttpResponse('ok')
+        # hosts = host_obj['result']
+
+
+        # print(type(host_obj['result']))
+
+        # for i in host_obj['result']:
+        #     print(i)
+
+
+def add(request):
+    pass
+
+
+def event(request):
+    event_obj = z.do_request("event.get", {
+        "output": "extend",
+        "select_acknowledges": "extend",
+        "sortfield": ["clock", "eventid"],
+        "sortorder": "DESC"
+    })
+    event_count = len(event_obj['result'])
+    for i in event_obj['result']:
+        print(i)
+    return event_count
+    pass
 def index(request):
-    z = ZabbixAPI(url='http://172.16.0.1:9270', user='Admin', password='41hcH7XAVu2vuP9F')
     # print(z.api_version())
     # return HttpResponse(z.api_version())
     host_obj = z.do_request('host.get',
-                             {
-                                 # 'filter': {'status': 0},
-                                 'output': 'extend',
-                             })
+                            {
+                                # 'filter': {'status': 0},
+                                'output': 'extend',
+                            })
     # hostnames = [host['host'] for host in host_obj['result']]
-    hosts =  host_obj['result']
+    hosts = host_obj['result']
+
 
     # print(type(host_obj['result']))
 
-    for i in host_obj['result']:
-        print(i)
+
 
     host_count = len(host_obj['result'])
     print(host_count)
     # hostnames = [host['hostid'] for host in host_list['result']]
     # for i in host_list['result']:
-        # print(i['host'])
+    # print(i['host'])
     # print(hostnames)
 
     user_count = z.do_request('user.get',
@@ -74,8 +124,11 @@ def index(request):
                               }
                               )
     user_count = len(user_count)
+    event_count = event(request)
+    return render(request, 'blog/dash.html', {'hosts': hosts, 'user_count': user_count, 'host_count': host_count,'event_count':event_count})
 
-    return render(request, 'blog/dash.html', {'hosts': hosts,'user_count':user_count,'host_count':host_count})
+
+
 
 
 def info(req):
