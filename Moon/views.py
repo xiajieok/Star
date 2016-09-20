@@ -11,124 +11,201 @@ from django.http import Http404
 import json
 import urllib
 from zabbix.api import ZabbixAPI
+import logging
+
+# 用字典保存日志级别
+format_dict = {
+    1: logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'),
+    2: logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'),
+    3: logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'),
+    4: logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'),
+    5: logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+}
 
 
-def acc_login(request):
-    '''
-    登录,如果没有登录就先登录
-    :param request:
-    :return:
-    '''
-    if request.method == 'POST':
-        print(request.POST)
-        user = authenticate(username=request.POST.get('username'),
-                            password=request.POST.get('password'))
-        if user is not None:
-            # pass authentication
-            login(request, user)
-            return HttpResponseRedirect(request.GET.get('next') or '/blog')
+class zabbix:
+    def __init__(self):
+        try:
+            self.__z__ = ZabbixAPI(url='http://192.168.40.11/zabbix', user='admin', password='zabbix')
+            # self.__z__ = ZabbixAPI(url='http://172.16.0.1:9270', user='Admin', password='41hcH7XAVu2vuP9F')
+
+        except Exception as e:
+            print('用户认证失败,请检查 !!!', e)
+
+    def host_get(self, hostName='', hostStatus='', hostId=''):
+        '''
+        如果status没有值,说明只是查询所有主机记录;
+        否则判断ID是否存在,有则输出;
+        否则就是在更新主机状态,0为启用,1为禁用.
+        :param hostName:
+        :param hostStatus:
+        :param hostId:
+        :return:
+        '''
+        if hostStatus == '':
+            host_get_obj = self.__z__.do_request('host.get',
+                                                 {
+                                                     'output': 'extend',
+                                                 })
+            hosts = host_get_obj['result']
+            return hosts
+        elif hostId is True:
+            try:
+                print('开始查询主机...')
+                host_get_obj = self.__z__.do_request('host.get',
+                                                     {
+                                                         'filter': {'host': hostName},
+                                                         'output': 'extend',
+                                                     })
+                hosts = host_get_obj['result']
+                return hosts
+            except Exception as e:
+                print('主机不存在或者输入主机名错误 !!!', e)
         else:
-            login_err = "Wrong username or password!"
-            print('---else request-->', request)
-            return render(request, 'login.html', {'login_err': login_err})
-    return render(request, 'login.html')
+            try:
+                print('开始禁用/启用主机 !!!')
+
+                host_get_obj = self.__z__.do_request('host.update',
+                                                     {
+                                                         "hostid": hostId,
+                                                         "status": hostStatus
+                                                     }
+                                                     )
+                hosts = host_get_obj['result']
+                return hosts
+            except Exception as e:
+                print('主机不存在或者输入主机名错误 啊 !!!', e)
+
+    def user_get(self, userName=''):
+        if userName == '':
+            user_get_obj = self.__z__.do_request('user.get',
+                                                 {
+                                                     'output': 'extend',
+                                                 })
+        else:
+            try:
+                user_get_obj = self.__z__.do_request('user.get',
+                                                     {
+                                                         'filter': {'name': userName},
+                                                         'output': 'extend',
+                                                     })
+            except Exception as e:
+                print('主机不存在或者输入主机名错误 !!!', e)
+
+        users = user_get_obj['result']
+        return users
+
+    def group_get(self, groupName=''):
+        if groupName == '':
+            group_get_obj = self.__z__.do_request('hostgroup.get',
+                                                  {
+                                                      'output': 'extend'
+                                                  })
+        else:
+            try:
+                group_get_obj = self.__z__.do_request('hostgroup.get',
+                                                      {
+                                                          'filter': {'name': groupName},
+                                                          'output': 'extend'
+                                                      })
+            except Exception as e:
+                print('主机分组不存在 !!!', e)
+        groups = group_get_obj['result']
+        return groups
+
+    def template_get(self, templateName=''):
+        if templateName == '':
+            template_get_obj = self.__z__.do_request('template.get',
+                                                     {
+                                                         'output': 'extend'
+                                                     })
+        else:
+            try:
+                template_get_obj = self.__z__.do_request('template.get',
+                                                         {
+                                                             'filter': {"name": templateName},
+                                                             'output': 'extend'
+                                                         })
+            except Exception as e:
+                print('模板不存在 !!!', e)
+        templates = template_get_obj['result']
+        return templates
+
+    def event_get(self):
+        try:
+            event_get_obj = self.__z__.do_request("event.get", {
+                "output": "extend",
+                # "select_acknowledges": "extend",
+                # "sortfield": ["clock", "eventid"],
+                # "sortorder": "DESC"
+            })
+        except Exception as e:
+            print('事件查询错误 !!!', e)
+        else:
+            events = event_get_obj['result']
+            return events
 
 
-def acc_logout(request):
-    '''
-    退出,返回到首页
-    :param request:
-    :return:
-    '''
-    logout(request)
-    return HttpResponseRedirect('/cmdb')
+class Logger():
+    def __init__(self, logname, loglevel, logger):
+        """
+            指定保存日志的文件路径,日志级别,以及调用文件;
+            将日志存入到指定文件中
+        """
+        # 创建一个logger
+        self.logger = logging.getLogger(logger)
+        self.logger.setLevel(logging.DEBUG)
+
+        # 创建一个handler,用于写入日志文件
+        fh = logging.FileHandler(logname)
+        fh.setLevel(logging.DEBUG)
+
+        # 再创建一个handle,用于输出到控制台
+        ch = logging.StreamHandler()
+        ch.setLevel(logging.DEBUG)
+
+        # 定义handler的输出格式
+        formatter = format_dict[int(loglevel)]
+        fh.setFormatter(formatter)
+        ch.setFormatter(formatter)
+
+        # 给logger添加handler
+        self.logger.addHandler(fh)
+        self.logger.addHandler(ch)
+
+    def getlog(self):
+        return self.logger
 
 
-# z = ZabbixAPI(url='http://172.16.0.1:9270', user='Admin', password='41hcH7XAVu2vuP9F')
+logger = Logger(logname='cmdb_log.txt', loglevel=1, logger="cmdb").getlog()
 
 z = ZabbixAPI(url='http://192.168.40.11/zabbix', user='admin', password='zabbix')
 
 
 def up(request):
-    print('----post---->', request.POST)
+    # print('----post---->', request.POST)
     id = request.POST.get('hostid')
-    print('hostid', id)
+    # print('hostid', id)
     new_status = request.POST.get('status')
-    print('status', new_status)
+    # print('status', new_status)
+    logger.info(request.POST)
     try:
-        host_obj = z.do_request(
-                'host.update',
-                {
-                    "hostid": id,
-                    "status": new_status
-                }
-        )
-        #res = zapi.host.update(hostid=hostid,templates=template_new)
+        host_obj = zabbix().host_get(hostId=id, hostStatus=new_status)
     except Exception as e:
-        print(e)
+        logger.warning(e)
         return HttpResponse('no')
     else:
-        print(host_obj)
+        logger.warning(host_obj)
         return HttpResponse('ok')
-        # hosts = host_obj['result']
 
 
-        # print(type(host_obj['result']))
-
-        # for i in host_obj['result']:
-        #     print(i)
-
-
-def add(request):
-    pass
-
-
-def event(request):
-    event_obj = z.do_request("event.get", {
-        "output": "extend",
-        "select_acknowledges": "extend",
-        "sortfield": ["clock", "eventid"],
-        "sortorder": "DESC"
-    })
-    event_count = len(event_obj['result'])
-    for i in event_obj['result']:
-        print(i)
-    return event_count
-    pass
 def index(request):
-    # print(z.api_version())
-    # return HttpResponse(z.api_version())
-    host_obj = z.do_request('host.get',
-                            {
-                                # 'filter': {'status': 0},
-                                'output': 'extend',
-                            })
-    # hostnames = [host['host'] for host in host_obj['result']]
-    hosts = host_obj['result']
-
-
-    # print(type(host_obj['result']))
-
-
-
-    host_count = len(host_obj['result'])
-    print(host_count)
-    # hostnames = [host['hostid'] for host in host_list['result']]
-    # for i in host_list['result']:
-    # print(i['host'])
-    # print(hostnames)
-
-    user_count = z.do_request('user.get',
-                              {
-                                  "output": "extend",
-                              }
-                              )
-    user_count = len(user_count)
-    event_count = event(request)
-    return render(request, 'blog/dash.html', {'hosts': hosts, 'user_count': user_count, 'host_count': host_count,'event_count':event_count})
-
-
-
+    hosts = zabbix().host_get()
+    groups = zabbix().group_get()
+    users = zabbix().user_get()
+    events = zabbix().event_get()
+    return render(request, 'blog/dash.html',
+                  {'hosts': hosts, 'users': users, 'events': events, 'groups': groups})
 
 
 def info(req):
