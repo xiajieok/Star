@@ -163,17 +163,17 @@ a:hover, a:active, a:focus {
     margin-top: 20px;
 }
 
-.header .header-nav .header-nav-content {
-    width: 98%;
-    margin: 0 auto;
-    padding: 10px 0px;
-    border-top-style: solid;
-    border-top-color: #005059;
-    border-top-width: 2px;
-    border-bottom-style: solid;
-    border-bottom-color: #005059;
-    border-bottom-width: 2px;
-}
+/*.header .header-nav .header-nav-content {*/
+    /*width: 98%;*/
+    /*margin: 0 auto;*/
+    /*padding: 10px 0px;*/
+    /*border-top-style: solid;*/
+    /*border-top-color: #005059;*/
+    /*border-top-width: 2px;*/
+    /*border-bottom-style: solid;*/
+    /*border-bottom-color: #005059;*/
+    /*border-bottom-width: 2px;*/
+/*}*/
 
 .header .header-nav .header-nav-content .logo-click {
     text-decoration: none;

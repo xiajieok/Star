@@ -4,7 +4,8 @@ from Moon import views
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^update/$', views.up,name='update'),
-    # url(r'^add/$', views.add,name='add'),
+    url(r'^add/$', views.add,name='add'),
+    url(r'^graph/$', views.graphs,name='graph'),
     # url(r'^list/$', views.blog_list, name='list'),
     # url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='detail'),
     # url(r'^post/new/$', views.blog_new, name='new'),

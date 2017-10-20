@@ -16,45 +16,34 @@
 <body>
 {% block main %}
     <div class="header">
-        <div class="header-nav">
-            <div class="header-nav-content">
-                <a class="logo-click" href="/">
-                    <div class="logo fltlft">
-                        <div class="logo-top">
-                            <span>MEDIVH</span>
-                        </div>
-                        <div class="logo-buttom">
-                            <span>SITE</span>
-                        </div>
-                    </div>
-                </a>
-                <a class="menu-btn fltrt" id="menu_btn">
-                    {#                    <img src="//dannysite.oss-cn-hongkong.aliyuncs.com/dcom/media/site/theme/image/6bf43b39-6cb1-41c7-9303-943d65d52d92.png"#}
-                    width="40">
-                </a>
-                <div class="nav-bar fltrt" id="nav_bar" style="float: right">
-                    <a class="blog-nav-item " href="/">HOME</a>
-                    <a class="blog-nav-item focus" href="/blog/">BLOG</a>
-                    <a class="blog-nav-item " href="/box/">BOX</a>
-                    <a class="blog-nav-item " href="/blog/contact/">CONTACT</a>
-                </div>
-                <div class="clearfloat"></div>
+    <div class="header-nav">
+        <div class="header-nav-content">
+            <div class="nav-bar " id="nav_bar" style="float: right">
+                <a class="blog-nav-item focus" href="/">HOME</a>
+                <a class="blog-nav-item focus" href="/blog/">BLOG</a>
+                <a class="blog-nav-item focus" href="/box/">BOX</a>
+                <a class="blog-nav-item focus" href="/blog/contact/">CONTACT</a>
             </div>
-            <!-- end .header-nav --></div>
-        <div class="header-page-title">
-            <div class="page-title">
-                <span>BLOG</span>
-            </div>
-            <div class="page-desc">
-                <span>Enjoy when you can, and endure when you must.</span>
-            </div>
-            <!-- end .header-bg --></div>
-        <div class="header-bg">
-            <img id="header_bg_image"
-                 src="http://7xp3xc.com1.z0.glb.clouddn.com/2016/1472737103450.png"
-                 width="100%"
-                 height="560">
-            <!-- end .header-bg --></div>
+            <div class="clearfloat"></div>
+        </div>
+        <!-- end .header-nav --></div>
+    <div class="header-page-title">
+        <div class="page-title">
+            <span>BLOG</span>
+        </div>
+        <div class="page-desc">
+            <span>Enjoy when you can, and endure when you must.</span>
+        </div>
+        <!-- end .header-bg --></div>
+    <div class="header-bg">
+        <div style="height: 150px">
+
+        </div>
+        {#            <img id="header_bg_image"#}
+        {#                 src="http://7xp3xc.com1.z0.glb.clouddn.com/2016/1472737103450.png"#}
+        {#                 width="100%"#}
+        {#                 height="560">#}
+        {#            <!-- end .header-bg --></div>#}
     </div>
     <div class="container">
         <div class="row">
@@ -65,40 +54,40 @@
                 {% endblock %}
             </div>
             <div class="col-md-2 " style="margin:35px 5px 0 15px">
-                <div >
+                <div>
                     <h4>About</h4>
                     {% block about %}
                     {% endblock %}
 
                 </div>
-                <div class="sidebar-module">
-                    <h4>Mangement</h4>
-                    {% if user.is_authenticated %}
-                        <ol class="list-unstyled" style="font-size: 18px">
-                            <li>
-                                <a href="{% url 'new' %}">New article</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'admin' %}">Backend</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'drafts' %}">Drafts</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'Earth.views.acc_logout' %}">Logout</a>
-                            </li>
-                            <li>
-                                {#                                <a href="{% url "search_tag" tag=post.category %}">{{post.category}}</a>#}
-                            </li>
-                        </ol>
-                    {% else %}
-                        <ol class="list-unstyled">
-                            <li><a href="{% url 'Earth.views.acc_login' %}" class="top-menu"><span
-                                    class="glyphicon glyphicon-lock"></span></a>
-                            </li>
-                        </ol>
-                    {% endif %}
-                </div>
+                {#                <div class="sidebar-module">#}
+                {#                    <h4>Mangement</h4>#}
+                {#                    {% if user.is_authenticated %}#}
+                {#                        <ol class="list-unstyled" style="font-size: 18px">#}
+                {#                            <li>#}
+                {#                                <a href="{% url 'new' %}">New article</a>#}
+                {#                            </li>#}
+                {#                            <li>#}
+                {#                                <a href="{% url 'admin' %}">Backend</a>#}
+                {#                            </li>#}
+                {#                            <li>#}
+                {#                                <a href="{% url 'drafts' %}">Drafts</a>#}
+                {#                            </li>#}
+                {#                            <li>#}
+                {#                                <a href="{% url 'Earth.views.acc_logout' %}">Logout</a>#}
+                {#                            </li>#}
+                {#                            <li>#}
+                {#                                <a href="{% url "search_tag" tag=post.category %}">{{post.category}}</a>#}
+                {#                            </li>#}
+                {#                        </ol>#}
+                {#                    {% else %}#}
+                {#                        <ol class="list-unstyled">#}
+                {#                            <li><a href="{% url 'Earth.views.acc_login' %}" class="top-menu"><span#}
+                {#                                    class="glyphicon glyphicon-lock"></span></a>#}
+                {#                            </li>#}
+                {#                        </ol>#}
+                {#                    {% endif %}#}
+                {#                </div>#}
                 <div class="sidebar-module">
                     <h4>Category</h4>
                     <ol class="list-unstyled" style="margin-top: 30px;font-size: 18px">
@@ -145,7 +134,7 @@
 {% endblock %}
 <footer class="blog-footer">
     <p>
-        Copyright © Medivh 2013 - 2016 All Rights Reserved.
+        Copyright © Medivh 2016 - 2017 All Rights Reserved.
     </p>
 
 </footer>

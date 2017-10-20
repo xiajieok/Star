@@ -249,7 +249,7 @@ def post_list_by_category(request, cg):
             'category').order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
-    return render(request, 'blog/post_list.html',
+    return render(request, 'blog/index.html',
                   {'posts': posts, 'list_header': '\'{}\' 分类的存档'.format(cg)})
 
 
