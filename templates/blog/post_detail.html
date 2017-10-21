@@ -1,17 +1,17 @@
-{% extends 'base.html' %}
-{#{% load custom %}#}
+{% extends './index.html' %}
+{% load custom %}
 
 {% block about %}
     {% for i in about_obj %}
         {{ i.content|safe }}
     {% endfor %}
 {% endblock %}
-{% block content %}
+{% block main %}
     <div class="row">
-        <div class="col-md-11">
+        <div class="col-md-11 article container well">
             {% if is_post %}
-                <div class="blog-detail-title">
-                    {{ post.title }}
+                <div class="title-article" >
+                    <h1>{{ post.title }}</h1>
                     <hr/>
                 </div>
                 <div class="date" style="margin-top: 20px;height: 30px">
@@ -34,12 +34,12 @@
                     {% endif %}
 
                 </div>
-                <div style="margin: 30px 0 60px 0 ;">
+                <div style="margin: 30px 0 60px 0 ;" class="centent-article" >
                     <p>{{ post.brief }}</p>
                     <p>{{ post.content |safe }}</p>
                 </div>
             {% else %}
-                <div style="margin-top: 30px">
+                <div style="margin-top: 30px" >
                     {% for i in contact %}
                         {{ i.content|safe }}
                     {% endfor %}

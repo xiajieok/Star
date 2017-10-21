@@ -11,10 +11,11 @@ class ArticleFrom(forms.ModelForm):
     # head_img = forms.ImageField
     # content = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','value':'{{ new_article.content|safe }}'}))
     content = forms.CharField(widget=forms.Textarea)
+    md = forms.CharField(widget=forms.Textarea)
 
     class Meta:
         model = Article
-        fields = ('title', 'brief', 'head_img', 'content')
+        fields = ('title', 'brief', 'head_img', 'content','md')
         error_messages = {
             NON_FIELD_ERRORS: {
                 'unique_together': "%(model_name)s's %(field_labels)s are not unique.",

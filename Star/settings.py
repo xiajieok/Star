@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'Earth',
-    'Moon',
+
 ]
 
 MIDDLEWARE_CLASSES = [

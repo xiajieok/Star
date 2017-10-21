@@ -41,19 +41,6 @@ def acc_logout(request):
     return HttpResponseRedirect('/blog')
 
 
-def index(request):
-    #     return HttpResponse('hello')
-    # # def index(request):
-    # # # def post_list(request):
-    '''所有已发布文章'''
-    blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-            '-published_date')
-    # blog_all = models.Article.objects.all()
-    posts = pages(request, blog_all)
-    about_obj = models.About.objects.filter(id=1)
-    return render(request, 'blog/post_list.html', {'posts': posts, 'page': True, 'about_obj': about_obj})
-
-
 def pages(request, blog_all):
     '''
     分页功能实现,根据SQL查询内容,设定分多少页,输出
@@ -74,36 +61,65 @@ def pages(request, blog_all):
     return posts
 
 
+def index(request):
+    #     return HttpResponse('hello')
+    # # def index(request):
+    # # # def post_list(request):
+    '''所有已发布文章'''
+    blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
+        '-published_date')
+    # blog_all = models.Article.objects.all()
+    posts = pages(request, blog_all)
+    about_obj = models.About.objects.values().all()
+    tag_obj = models.Tag.objects.values().all()
+    category_obj = models.Category.objects.values().all()
+    return render(request, 'blog/index.html',
+                  {'posts': posts, 'page': True, 'about_obj': about_obj, 'category_obj': category_obj,
+                   'tag_obj': tag_obj})
+
+
 def post_detail(request, pk):
+    res = request.POST
+    print(res)
+    print('11111111111111111111')
     post = get_object_or_404(models.Article, pk=pk)
-    about_obj = models.About.objects.filter(id=1)
-    return render(request, 'blog/post_detail.html', {'post': post, 'is_post': True, 'about_obj': about_obj})
+    about_obj = models.About.objects.values().all()
+    tag_obj = models.Tag.objects.values().all()
+    category_obj = models.Category.objects.values().all()
+    return render(request, 'blog/post_detail.html',
+                  {'post': post, 'is_post': True, 'about_obj': about_obj, 'category_obj': category_obj,
+                   'tag_obj': tag_obj})
 
 
 @login_required
 def blog_new(request):
+    print(request.method)
     if request.method == "POST":
         form = ArticleFrom(request.POST)
         print('这里是post的request', request.POST)
-        # print('这里是post的form', form)
-        if form.is_valid():
-            form_data = form.cleaned_data
-            form_data['author_id'] = request.user.userprofile.id
-            # print('ID--->',request.POST.get('category_id'))
-            form_data['category_id'] = request.POST.get('category_id')
-            # 不知道咋回事,反正就是category_id必须手动加进去
-            print('--->form_data', form_data)
-            # form_data['category_id'] = request.user.userprofile.id
-            # new_img_path = handle_uploaded_file(request,request.FILES['head_img'])
-            # print('---->',form_data)
-            # print('---->',new_img_path)
-            # form_data['head_img'] = new_img_path
-            new_article_obj = models.Article(**form_data)
-            # print('----obj-->',new_article_obj.category_id)
-            new_article_obj.save()
-            # post = form.save(commit=False)
-            print(new_article_obj)
-            return redirect('Earth.views.blog_drafts')
+        print('这里是post的form', form)
+        # if form.is_valid():
+        form_data = form.cleaned_data
+        form_data['author_id'] = request.user.userprofile.id
+        print('ID--->', request.POST.get('category_id'))
+        form_data['category_id'] = request.POST.get('category_id')
+        form_data['content'] = request.POST.get('text')
+        form_data['md'] = request.POST.get('editormd-markdown-doc')
+        # 不知道咋回事,反正就是category_id必须手动加进去
+        print('--->form_data', form_data)
+        # form_data['category_id'] = request.user.userprofile.id
+        # new_img_path = handle_uploaded_file(request,request.FILES['head_img'])
+        # print('---->',form_data)
+        # print('---->',new_img_path)
+        # form_data['head_img'] = new_img_path
+        new_article_obj = models.Article(**form_data)
+        # print('----obj-->',new_article_obj.category_id)
+        new_article_obj.save()
+        # post = form.save(commit=False)
+        print(new_article_obj)
+        return redirect('/blog/drafts')
+        # else:
+        #     print('NO !!!!!!!!!!!!!!!')
     else:
         # form = models.Post.objects.all()
         new_article = ArticleFrom()
@@ -128,7 +144,7 @@ def blog_remove(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
     post.delete()
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-            '-published_date')
+        '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'blog/table.html', {'posts': posts})
 
@@ -146,7 +162,7 @@ def blog_list(request):
     :return:
     '''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-            '-published_date')
+        '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'blog/blog_list.html', {'posts': posts, 'page': True, 'is_list': True})
 
@@ -165,42 +181,65 @@ def blog_drafts(request):
 
 @login_required
 def blog_edit(request, pk):
+    print(request.method, request.POST)
     post = get_object_or_404(models.Article, pk=pk)
-    # print(post)
+    print(post)
     # print(request.method,"-------->")
     if request.method == "POST":
-        form = ArticleFrom(request.POST, instance=post)
+
+        content = request.POST.get('text')
+        md = request.POST.get('editormd-markdown-doc')
+        print(pk, md)
+        s = models.Article.objects.filter(id=pk).values('md')
+        print('sss',s)
+        obj = models.Article.objects.filter(id=pk).update(md=md,content=content)
+        print(obj)
+
+        # 不知道咋回事,反正就是category_id必须手动加进去
+
+        # form_data['category_id'] = request.user.userprofile.id
+        # new_img_path = handle_uploaded_file(request,request.FILES['head_img'])
+        # print('---->',form_data)
+        # print('---->',new_img_path)
+        # form_data['head_img'] = new_img_path
+        # new_article_obj = models.Article(**form_data)
         # print('---------->',form)
         # print('判断form')
-        if form.is_valid():
-            post = form.save(commit=False)
-            # print('表单正常')
-            # post.text = request.POST.get('text')
-            post.author = request.user
-            # print('开始保存')
-            post.save()
-            # return render(request,'blog/admin.html')
-            # print('ok')
-            '''
-            保存成功后跳转到详情页
-            '''
-            return redirect('Earth.views.post_detail', pk=post.pk)
+        # if form.is_valid():
+        # post = form.save(commit=False)
+        # print('表单正常')
+        # post.text = request.POST.get('text')
+        # post.author = request.user
+        # print('开始保存')
+
+        # return render(request,'blog/admin.html')
+        # print('ok')
+        '''
+        保存成功后跳转到详情页
+        '''
+        return redirect(reverse('detail', args=[pk]))
     else:
         edit_article = ArticleFrom(instance=post)
         category_list = models.Category.objects.all()
         category_id = models.Article.objects.filter(id=pk)[0].category_id
         # print('--category_list-->',category_list[0].category_id)
         # print('如果是get的方式,那就先查询')
+        ss = edit_article
+        print('sssssssssssss',ss)
+
+        ar = models.Article.objects.filter(id=pk).values('md')
+        print('ar',ar)
+
         return render(request, 'blog/blog_edit.html',
-                      {'edit_article': edit_article, 'category_list': category_list, 'category_id': category_id})
+                      {'edit_article': ar})
 
 
 def archives(request, y, m):
     """根据年月份列出已发布文章"""
     # posts = models.Article.objects.annotate(num_comment=Count('comment')).filter(
     posts_ar = models.Article.objects.annotate().filter(
-            published_date__isnull=False, published_date__year=y,
-            published_date__month=m).prefetch_related().order_by('-published_date')
+        published_date__isnull=False, published_date__year=y,
+        published_date__month=m).prefetch_related().order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     # print('--post_ar-->', posts_ar)
@@ -245,8 +284,8 @@ def blog_category(request):
 def post_list_by_category(request, cg):
     """根据目录列表已发布文章"""
     posts = models.Article.objects.annotate().filter(
-            published_date__isnull=False, category__name=cg).prefetch_related(
-            'category').order_by('-published_date')
+        published_date__isnull=False, category__name=cg).prefetch_related(
+        'category').order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     return render(request, 'blog/index.html',
@@ -260,6 +299,7 @@ def blog_category_del(request, pk):
     category_obj = models.Category.objects.all()
     # posts = pages(request, blog_all)
     return render(request, 'blog/table_category.html', {'category_obj': category_obj})
+
 
 @login_required
 def about(request):
@@ -284,7 +324,8 @@ def contact(request):
     contact = models.About.objects.filter(id=2)
     about_obj = models.About.objects.filter(id=1)
     return render(request, 'blog/post_detail.html',
-              {'about_obj': about_obj, 'contact': contact})
+                  {'about_obj': about_obj, 'contact': contact})
+
 
 @login_required
 def contact_edit(request):

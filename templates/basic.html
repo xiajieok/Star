@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN"><!--<![endif]-->
 <head>
@@ -14,26 +13,29 @@
     <!-- 设置描述性标签和关键词标签 -->
 
     <meta content="python,运维自动化,运维平台化,saltstack,ansible,docker" name="description">
-    <meta content="                                                                                                                                                                                                                                                                                                                                                     Golang,python,运维自动化,运维平台化,saltstack,ansible,docker                                                                                                                                                                                                                       Golang,python,运维自动化,运维平台化,saltstack,ansible运维,docker,zabbix                                                                                                                                                                                                                                                                                                                           "
-          name="keywords">
+    {#    <meta content="                                                                                                                                                                                                                                                                                                                                                     Golang,python,运维自动化,运维平台化,saltstack,ansible,docker                                                                                                                                                                                                                       Golang,python,运维自动化,运维平台化,saltstack,ansible运维,docker,zabbix                                                                                                                                                                                                                                                                                                                           "#}
+    {#          name="keywords">#}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="stylesheet" id="crayon-css" href="./statics/sstmp_files/crayon.min.css" type="text/css" media="all">
-    <link rel="stylesheet" id="crayon-theme-solarized-light-css" href="./statics/sstmp_files/solarized-light.css"
+    <link rel="stylesheet" id="crayon-css" href="/statics/sstmp_files/crayon.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-theme-solarized-light-css" href="/statics/sstmp_files/solarized-light.css"
           type="text/css" media="all">
-    <link rel="stylesheet" id="crayon-font-monaco-css" href="./statics/sstmp_files/monaco.css" type="text/css"
+    <link rel="stylesheet" id="crayon-font-monaco-css" href="/statics/sstmp_files/monaco.css" type="text/css"
           media="all">
-    <link rel="stylesheet" id="zanblog-style-css" href="./statics/sstmp_files/style.css" type="text/css" media="all">
-    <link rel="stylesheet" id="bootstrap-style-css" href="./statics/sstmp_files/bootstrap.css" type="text/css"
+    <link rel="stylesheet" id="zanblog-style-css" href="/statics/sstmp_files/style.css" type="text/css" media="all">
+    <link rel="stylesheet" id="bootstrap-style-css" href="/statics/sstmp_files/bootstrap.css" type="text/css"
           media="all">
-    <link rel="stylesheet" id="fontawesome-style-css" href="./statics/sstmp_files/font-awesome.min.css" type="text/css"
+    <link rel="stylesheet" id="fontawesome-style-css" href="/statics/sstmp_files/font-awesome.min.css" type="text/css"
           media="all">
-    <link rel="stylesheet" id="icheck-style-css" href="./statics/sstmp_files/red.css" type="text/css" media="all">
-    <link rel="stylesheet" id="custom-style-css" href="./statics/sstmp_files/custom.css" type="text/css" media="all">
+    <link rel="stylesheet" id="icheck-style-css" href="/statics/sstmp_files/red.css" type="text/css" media="all">
+    <link rel="stylesheet" id="custom-style-css" href="/statics/sstmp_files/custom.css" type="text/css" media="all">
     <script src="http://hm.baidu.com/hm.js?9649ba087c5e1b56082526e05beeb609"></script>
-    <script type="text/javascript" src="./statics/sstmp_files/jquery.js"></script>
-    <script type="text/javascript" src="./statics/sstmp_files/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="/statics/sstmp_files/jquery.js"></script>
+    <script type="text/javascript" src="/statics/sstmp_files/jquery-migrate.min.js"></script>
+    {% block css %}
+
+    {% endblock %}
     <script type="text/javascript">
         /* <![CDATA[ */
         var CrayonSyntaxSettings = {
@@ -119,44 +121,11 @@
         <section class="row">
             <section id="mainstay" class="col-md-8">
 
+                {% block main %}
 
-                <div class="article well clearfix">
-                    <div class="data-article hidden-xs">
-                        <span class="month">4月</span>
-                        <span class="day">10</span>
-                    </div>
-                    <!-- PC端设备文章属性 -->
-                    <section class="visible-md visible-lg">
-                        {% for i in posts %}
-                        <div class="title-article">
-                            <h1>
-                                <a href="http://xiaorui.cc/2017/04/10/%e5%88%86%e5%b8%83%e5%bc%8fcdn%e5%88%b7%e6%96%b0%e9%a2%84%e7%bc%93%e5%ad%98%e7%b3%bb%e7%bb%9f%e9%81%87%e5%88%b0%e7%9a%84%e5%9d%91/">
-                                    {{ i.title }} </a></h1>
-                        </div>
-                        <div class="tag-article container">
-                            <span class="label label-zan"><i class="fa fa-tags"></i> <a
-                                    href="http://xiaorui.cc/category/%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1/"
-                                    title="{{ i.title }}" rel="category tag">架构设计</a></span>
-                            <span class="label label-zan"><i class="fa fa-user"></i> <a
-                                    href="#" title="由medivh发布" rel="author">medivh</a></span>
-                            <span class="label label-zan"><i class="fa fa-eye"></i> 1,167 views</span>
-                        </div>
-                        <div class="content-article">
-                            <figure class="thumbnail"><a
-                                    href="http://xiaorui.cc/2017/04/10/%e5%88%86%e5%b8%83%e5%bc%8fcdn%e5%88%b7%e6%96%b0%e9%a2%84%e7%bc%93%e5%ad%98%e7%b3%bb%e7%bb%9f%e9%81%87%e5%88%b0%e7%9a%84%e5%9d%91/"></a>
-                            </figure>
-                            <div class="alert alert-zan">
 
-                                {{ i.brief }}
-                            </div>
-                        </div>
-                        <a class="btn btn-danger pull-right read-more"
-                           href="http://xiaorui.cc/2017/04/10/%e5%88%86%e5%b8%83%e5%bc%8fcdn%e5%88%b7%e6%96%b0%e9%a2%84%e7%bc%93%e5%ad%98%e7%b3%bb%e7%bb%9f%e9%81%87%e5%88%b0%e7%9a%84%e5%9d%91/"
-                           title="详细阅读 分布式cdn刷新预缓存系统遇到的坑">阅读全文 <span class="badge">0</span></a>
-                        {% endfor %}
-                    </section>
+                {% endblock %}
 
-                </div>
             </section>
             <aside id="sidebar" class="col-md-4">
                 <h2 class="widgettitle">公告</h2>
@@ -166,26 +135,15 @@
                     {% endblock %}
                 </div>
                 <h2 class="widgettitle">标签</h2>
-                <div class="tagcloud"><a href="http://xiaorui.cc/tag/ansible/" class="tag-link-43" title="6个话题"
-                                         style="color:#1270d6;font-size: 12.06976744186pt;;">ansible</a>
-                    <a href="http://xiaorui.cc/tag/ansible-api/" class="tag-link-44" title="4个话题"
-                       style="color:#4a6641;font-size: 9.6279069767442pt;;">ansible api</a>
+                {% block tags %}
 
-                    <a href="http://xiaorui.cc/tag/zabbix%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/" class="tag-link-81"
-                       title="7个话题" style="color:#9b2849;font-size: 12.883720930233pt;;">zabbix二次开发</a>
-                    <a href="http://xiaorui.cc/tag/zabbix%e5%bc%80%e5%8f%91/" class="tag-link-85" title="3个话题"
-                       style="color:#736e68;font-size: 8pt;;">zabbix开发</a></div>
+
+                {% endblock %}
                 <h2 class="widgettitle">分类目录</h2>
-                <ul>
+                {% block category %}
+                    category
+                {% endblock %}
 
-                    <li class="cat-item cat-item-313"><a
-                            href="http://xiaorui.cc/category/%e8%bf%90%e7%bb%b4%e5%bc%80%e5%8f%91/"
-                            title="查看运维开发下的所有文章">运维开发</a>
-                    </li>
-                    <li class="cat-item cat-item-1424"><a href="http://xiaorui.cc/category/%e9%ab%98%e6%80%a7%e8%83%bd/"
-                                                          title="查看高性能下的所有文章">高性能</a>
-                    </li>
-                </ul>
                 <!-- 最热文章模块-->
                 <div class="panel panel-zan hot">
                     <div class="panel-heading">
@@ -195,19 +153,9 @@
                     </div>
                     <!-- 大屏PC端、手机端 -->
                     <ul class="list-group list-group-flush visible-lg visible-xs">
-                        <li class="list-group-item"><a
-                                href="http://xiaorui.cc/2017/06/20/python-cffi%e8%b0%83%e7%94%a8gcc%e5%ae%9e%e7%8e%b0%e5%8e%9f%e5%ad%90%e8%ae%a1%e6%95%b0%e5%8f%8acas/"
-                                rel="bookmark" title="python cffi调用sync实现原子计数及cas">python cffi调用sync实现原子计数及cas</a><span
-                                class="badge">0</span></li>
-                        <li class="list-group-item"><a
-                                href="http://xiaorui.cc/2017/06/24/%e8%ae%be%e8%ae%a1%e5%ae%9e%e7%8e%b0ringbuffer%e6%97%a0%e9%94%81%e9%98%9f%e5%88%97lock-free-queue/"
-                                rel="bookmark" title="设计实现ringbuffer无锁队列(lock free queue)">设计实现ringbuffer无锁队列(lock free
-                            queue)</a><span class="badge">0</span></li>
+                        {% block hot %}
+                        {% endblock %}
 
-                        <li class="list-group-item"><a
-                                href="http://xiaorui.cc/2017/04/26/%e7%ba%a0%e7%bb%93ps%e5%92%8ctop%e7%9a%84cpu%e5%8d%a0%e7%94%a8%e7%8e%87%e4%b8%8d%e4%b8%80%e8%87%b4%e9%97%ae%e9%a2%98/"
-                                rel="bookmark" title="纠结ps和top的cpu占用率不一致问题">纠结ps和top的cpu占用率不一致问题</a><span class="badge">0</span>
-                        </li>
                     </ul>
                     <!-- 小屏PC端 -->
                     <!-- 平板端 -->
@@ -313,49 +261,49 @@
                     </div>
                 </div> -->
                 <!-- 随机文章模块 -->
-                <div class="visible-md visible-lg">
-                    <div class="panel panel-zan random">
-                        <div class="panel-heading">
-                            <i class="fa fa-random"></i> 随机文章
-                            <i class="fa fa-times-circle panel-remove"></i>
-                            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2014/10/25/%e4%b8%aa%e4%ba%ba%e5%af%b9%e4%ba%8egolang%e7%9a%84goroutine%e5%b9%b6%e5%8f%91%e5%a4%84%e7%90%86%e4%bb%bb%e5%8a%a1%e6%97%b6%e7%9a%84%e7%90%86%e8%a7%a3/"
-                                   rel="bookmark" target="_blank">
-                                    <!-- 大屏PC端 -->
-                                    <div class="visible-lg">个人对于golang的goroutine...</div>
-                                    <!-- 小屏PC端 -->
-                                    <div class="visible-md">个人对于golang的goro...</div>
-                                </a>
-					<span class="badge">
-						0					</span>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2015/01/06/%e8%81%9a%e4%bc%9a_%e9%92%b1%e5%a8%81%e5%ad%97%e6%af%8d%e5%93%a5%e7%94%9f%e6%97%a5%e5%8f%8a%e6%89%be%e5%88%b0%e5%a5%bd%e5%b7%a5%e4%bd%9c/"
-                                   rel="bookmark" target="_blank">
-                                    <!-- 大屏PC端 -->
-                                    <div class="visible-lg">聚会_庆祝 钱威(字母哥)生日快乐</div>
-                                    <!-- 小屏PC端 -->
-                                    <div class="visible-md">聚会_庆祝 钱威(字母哥)生日...</div>
-                                </a>
-
-                            </li>
-                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2014/12/17/python%e8%b0%83%e7%94%a8zookeeper%e7%ae%a1%e7%90%86thrift%e9%9b%86%e7%be%a4%e7%9a%84%e5%8f%af%e7%94%a8%e6%80%a7%e9%98%9f%e5%88%97/"
-                                   rel="bookmark" target="_blank">
-                                    <!-- 大屏PC端 -->
-                                    <div class="visible-lg">python调用zookeeper管理t...</div>
-                                    <!-- 小屏PC端 -->
-                                    <div class="visible-md">python调用zookeep...</div>
-                                </a>
-					<span class="badge">
-						1					</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                {#                <div class="visible-md visible-lg">#}
+                {#                    <div class="panel panel-zan random">#}
+                {#                        <div class="panel-heading">#}
+                {#                            <i class="fa fa-random"></i> 随机文章#}
+                {#                            <i class="fa fa-times-circle panel-remove"></i>#}
+                {#                            <i class="fa fa-chevron-circle-up panel-toggle"></i>#}
+                {#                        </div>#}
+                {#                        <ul class="list-group list-group-flush">#}
+                {#                            <li class="list-group-item">#}
+                {#                                <a href="http://xiaorui.cc/2014/10/25/%e4%b8%aa%e4%ba%ba%e5%af%b9%e4%ba%8egolang%e7%9a%84goroutine%e5%b9%b6%e5%8f%91%e5%a4%84%e7%90%86%e4%bb%bb%e5%8a%a1%e6%97%b6%e7%9a%84%e7%90%86%e8%a7%a3/"#}
+                {#                                   rel="bookmark" target="_blank">#}
+                {#                                    <!-- 大屏PC端 -->#}
+                {#                                    <div class="visible-lg">个人对于golang的goroutine...</div>#}
+                {#                                    <!-- 小屏PC端 -->#}
+                {#                                    <div class="visible-md">个人对于golang的goro...</div>#}
+                {#                                </a>#}
+                {#                                <span class="badge">#}
+                {#						0					</span>#}
+                {#                            </li>#}
+                {#                            <li class="list-group-item">#}
+                {#                                <a href="http://xiaorui.cc/2015/01/06/%e8%81%9a%e4%bc%9a_%e9%92%b1%e5%a8%81%e5%ad%97%e6%af%8d%e5%93%a5%e7%94%9f%e6%97%a5%e5%8f%8a%e6%89%be%e5%88%b0%e5%a5%bd%e5%b7%a5%e4%bd%9c/"#}
+                {#                                   rel="bookmark" target="_blank">#}
+                {#                                    <!-- 大屏PC端 -->#}
+                {#                                    <div class="visible-lg">聚会_庆祝 钱威(字母哥)生日快乐</div>#}
+                {#                                    <!-- 小屏PC端 -->#}
+                {#                                    <div class="visible-md">聚会_庆祝 钱威(字母哥)生日...</div>#}
+                {#                                </a>#}
+                {##}
+                {#                            </li>#}
+                {#                            <li class="list-group-item">#}
+                {#                                <a href="http://xiaorui.cc/2014/12/17/python%e8%b0%83%e7%94%a8zookeeper%e7%ae%a1%e7%90%86thrift%e9%9b%86%e7%be%a4%e7%9a%84%e5%8f%af%e7%94%a8%e6%80%a7%e9%98%9f%e5%88%97/"#}
+                {#                                   rel="bookmark" target="_blank">#}
+                {#                                    <!-- 大屏PC端 -->#}
+                {#                                    <div class="visible-lg">python调用zookeeper管理t...</div>#}
+                {#                                    <!-- 小屏PC端 -->#}
+                {#                                    <div class="visible-md">python调用zookeep...</div>#}
+                {#                                </a>#}
+                {#                                <span class="badge">#}
+                {#						1					</span>#}
+                {#                            </li>#}
+                {#                        </ul>#}
+                {#                    </div>#}
+                {#                </div>#}
                 <!-- 分类目录、热门标签、友情链接模块-->
                 <div class="panel hidden-xs">
                     <ul class="nav nav-pills pills-zan">
@@ -556,39 +504,14 @@
                                style="color:#a9742b;font-size: 8pt;;">zabbix开发</a></div>
                         <div class="tab-pane nav bs-sidenav fade" id="sidebar-links">
                             <li><a href="http://blog.51reboot.com/" target="_blank">51reboot</a></li>
-                            <li><a href="http://aljun.me/">aljun.me</a></li>
-                            <li><a href="http://www.simlinux.com/">Geekwolf</a></li>
-                            <li><a href="https://blog.imdst.com/">imdst</a></li>
-                            <li><a href="https://www.linux178.com/">linux178</a></li>
-                            <li><a href="http://www.cnblogs.com/lxmhhy/">lxmhhy</a></li>
-                            <li><a href="http://www.magedu.com/" target="_blank">mage</a></li>
-                            <li><a href="http://solos.so/" target="_blank">solos</a></li>
-                            <li><a href="http://timd.cn/">井江大神</a></li>
-                            <li><a href="http://yuhongchun.blog.51cto.com/">余洪春 (牛人)</a></li>
-                            <li><a href="http://www.xdays.info/">向军</a></li>
-                            <li><a href="https://garland.moe/" target="_blank">嘎烂的</a></li>
-                            <li><a href="http://n4mine.github.io/" target="_blank">字母哥n4mine</a></li>
-                            <li><a href="http://www.pydevops.com/">少志</a></li>
-                            <li><a href="http://laoguang.blog.51cto.com/">广宏伟</a></li>
-                            <li><a href="http://www.zmzblog.com/" target="_blank">张世峰</a></li>
-                            <li><a href="http://rfyiamcool.blog.51cto.com/">我的51cto</a></li>
-                            <li><a href="http://blog.csdn.net/woshiaotian" rel="friend" target="_blank">朱伟大神</a></li>
-                            <li><a href="http://www.iamle.com/">李爽</a></li>
-                            <li><a href="http://www.itlipeng.cn/">李鹏</a></li>
-                            <li><a href="http://shencan.net/" rel="friend" target="_blank">沈灿</a></li>
-                            <li><a href="http://onlineness.com/">泽志</a></li>
-                            <li><a href="http://blog.timger.info/">海波</a></li>
-                            <li><a href="http://www.the5fire.com/">胡阳</a></li>
-                            <li><a href="http://www.chenqing.org/">陈庆</a></li>
-                            <li><a href="http://bigbo.github.io/">静波</a></li>
-                            <li><a href="http://www.furion.info/">黄思聪</a></li>
+
                         </div>
                     </div>
                 </div>
             </aside>
             <div class="col-md-8">
                 <ul class="pagination pull-right">
-                    <li class="active"><a href="http://xiaorui.cc/" class="inactive">1</a></li>
+                    <li class="active"><a href="/" class="inactive">1</a></li>
 
                 </ul>
             </div>
@@ -635,13 +558,15 @@
                 if ((d.scrollTop + b.scrollTop) == 0) clearInterval(btn.timer, window.onscroll = set);
             }, 10);
         };
+
         function set() {
             btn.style.display = (d.scrollTop + b.scrollTop > 100) ? 'block' : "none"
         }
     };
     backTop('gotop');
 </script>
-
+{% block js %}
+{% endblock %}
 
 <!-- Dynamic page generated in 6.257 seconds. -->
 <!-- Cached page generated by WP-Super-Cache on 2017-10-20 11:24:54 -->

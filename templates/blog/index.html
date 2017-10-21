@@ -11,6 +11,33 @@
 
     <br>
 {% endblock %}
+{% block tags %}
+    {% for i in tag_obj %}
+
+        <div class="tagcloud"><a href="http://xiaorui.cc/tag/ansible/" class="tag-link-43" title="6个话题"
+                                 style="color:#1270d6;font-size: 12.06976744186pt;;">{{ i.name }}</a>
+
+        </div>
+    {% endfor %}
+{% endblock %}
+{% block category %}
+    <ul>
+        {% for i in category_obj %}
+            <li class="cat-item cat-item-313"><a
+                    href="{% url 'list_by_cg' cg=i.id %}"
+                    title="">{{ i.name }}</a>
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}
+{% block hot %}
+    <li class="list-group-item"><a
+            href="http://xiaorui.cc/2017/06/20/python-cffi%e8%b0%83%e7%94%a8gcc%e5%ae%9e%e7%8e%b0%e5%8e%9f%e5%ad%90%e8%ae%a1%e6%95%b0%e5%8f%8acas/"
+            rel="bookmark" title="python cffi调用sync实现原子计数及cas">python cffi调用sync实现原子计数及cas</a><span
+            class="badge">0</span></li>
+
+{% endblock %}
 {% block navbar-nav %}
     hhhh
     <ul class="nav navbar-nav">
@@ -29,7 +56,51 @@
                 <li><a href="/">运维开发</a></li>
             </ul>
         </li>
-        <li><a href="/">About me</a></li>
+        <li><a href="/">About</a></li>
     </ul>
 {% endblock %}
 
+{% block main %}
+    {% for i in posts %}
+        <div class="article well clearfix">
+            <div class="data-article hidden-xs">
+                <span class="month">4月</span>
+                <span class="day">10</span>
+            </div>
+            <!-- PC端设备文章属性 -->
+            <section class="visible-md visible-lg">
+
+                <div class="title-article">
+                    <h1>
+                        <a class="blog-title"
+                           href="{% url 'detail' pk=i.id %}">{{ i.title }} </a></h1>
+                </div>
+                <div class="tag-article container">
+                            <span class="label label-zan"><i class="fa fa-tags"></i> <a
+                                    href="{% url 'detail' pk=i.id %}"
+                                    title="{{ i.title }}" rel="category tag"></a></span>
+                    <span class="label label-zan"><i class="fa fa-user"></i> <a
+                            href="#" title="由medivh发布" rel="author">medivh</a></span>
+                    <span class="label label-zan"><i class="fa fa-eye"></i> 1,167 views</span>
+                </div>
+                <div class="content-article">
+                    <figure class="thumbnail"><a
+                            href="{% url 'detail' pk=i.id %}"></a>
+
+                    </figure>
+                    <div class="alert alert-zan">
+
+                        {{ i.brief }}
+                    </div>
+                </div>
+                <a class="btn btn-danger pull-right read-more"
+                   href="{% url 'detail' pk=i.id %}"
+                   title="详细阅读  {{ i.brief }}">阅读全文 <span class="badge">0</span></a>
+            </section>
+
+        </div>
+
+    {% endfor %}
+
+
+{% endblock %}
