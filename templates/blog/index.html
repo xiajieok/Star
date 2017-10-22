@@ -3,18 +3,19 @@
     Medivh' blog ...
 {% endblock %}
 {% block blog-textwidget %}
-    <br>
+    <hr>
+    <p style="font-size: 1pc;line-height: 30px;">
+        博客使用阿里云主机，大家可以使用我的幸运券 <a style="font-size: 1.5pc"
+                                 href="https://promotion.aliyun.com/ntms/act/ambassador/sharetouser.html?userCode=yw1joxsh&utm_source=yw1joxsh">点击获取~~~百分百中奖
+        ！！！</a>
 
-    <br>
-    博客使用阿里云主机服务，大家可以使用我的优惠推荐码购买主机... 九折优惠哦 &nbsp;&nbsp; pmcp6m
-    <br>
-
-    <br>
+    </p>
+    <hr>
 {% endblock %}
 {% block tags %}
     {% for i in tag_obj %}
 
-        <div class="tagcloud"><a href="/blog/tag/ansible/" class="tag-link-43" title="6个话题"
+        <div class="tagcloud"><a href="/blog/tags/{{ i.name }}/" class="tag-link-43" title="6个话题"
                                  style="color:#1270d6;font-size: 12.06976744186pt;;">{{ i.name }}</a>
 
         </div>
@@ -39,24 +40,28 @@
 
 {% endblock %}
 {% block navbar-nav %}
-    hhhh
     <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/">Python</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/#"> DB <b
-                class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="/">ElasticSearch</a></li>
-                <li><a href="/blog/category/db/">Other</a></li>
-            </ul>
-        </li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/blog/#">Devops<b
-                class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="/">运维开发</a></li>
-            </ul>
-        </li>
-        <li><a href="/about">About</a></li>
+        <li><a href="/">首页</a></li>
+
+        {% for i in  category_obj %}
+            <li><a href="/blog/category/{{ i.name }}">{{ i.brief }}</a></li>
+        {% endfor %}
+        <li><a href="/">关于</a></li>
+        {#        <li><a href="/">业界</a></li>#}
+        {#        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/#"> 运维 <b#}
+        {#                class="caret"></b></a>#}
+        {#            <ul class="dropdown-menu">#}
+        {#                <li><a href="/">ElasticSearch</a></li>#}
+        {#                <li><a href="/blog/category/db/">Other</a></li>#}
+        {#            </ul>#}
+        {#        </li>#}
+        {#        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/blog/#">Devops<b#}
+        {#                class="caret"></b></a>#}
+        {#            <ul class="dropdown-menu">#}
+        {#                <li><a href="/">运维开发</a></li>#}
+        {#            </ul>#}
+        {#        </li>#}
+        {#        <li><a href="/about">关于</a></li>#}
     </ul>
 {% endblock %}
 

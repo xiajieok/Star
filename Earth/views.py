@@ -67,12 +67,12 @@ def index(request):
     # # # def post_list(request):
     '''所有已发布文章'''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date')
+        '-published_date').exclude(title='About')
     # blog_all = models.Article.objects.all()
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
     tag_obj = models.Tag.objects.values().all()
-    category_obj = models.Category.objects.values().all()
+    category_obj = models.Category.objects.values().all().exclude(name='About')
     return render(request, 'blog/index.html',
                   {'posts': posts, 'page': True, 'about_obj': about_obj, 'category_obj': category_obj,
                    'tag_obj': tag_obj})
@@ -103,7 +103,7 @@ def blog_new(request):
         form_data['author_id'] = request.user.userprofile.id
         print('ID--->', request.POST.get('category_id'))
         form_data['category_id'] = request.POST.get('category_id')
-
+        form_data['tags_id'] = request.POST.get('tags_id')
         form_data['content'] = request.POST.get('text')
         form_data['md'] = request.POST.get('editormd-markdown-doc')
         # 不知道咋回事,反正就是category_id必须手动加进去
@@ -117,8 +117,6 @@ def blog_new(request):
         # print('----obj-->',new_article_obj.category_id)
         new_article_obj.save()
 
-
-
         # post = form.save(commit=False)
         print(new_article_obj)
         return redirect('/blog/drafts')
@@ -131,7 +129,7 @@ def blog_new(request):
         tags_list = models.Tag.objects.all()
         # print('这里是get的form',form)
     return render(request, 'blog/blog_edit.html',
-                  {'new_article': new_article, 'category_list': category_list,'tags_list': tags_list, 'is_new': True})
+                  {'new_article': new_article, 'category_list': category_list, 'tags_list': tags_list, 'is_new': True})
 
 
 @login_required
@@ -196,8 +194,8 @@ def blog_edit(request, pk):
         md = request.POST.get('editormd-markdown-doc')
         print(pk, md)
         s = models.Article.objects.filter(id=pk).values('md')
-        print('sss',s)
-        obj = models.Article.objects.filter(id=pk).update(md=md,content=content)
+        print('sss', s)
+        obj = models.Article.objects.filter(id=pk).update(md=md, content=content)
         print(obj)
 
         # 不知道咋回事,反正就是category_id必须手动加进去
@@ -230,10 +228,10 @@ def blog_edit(request, pk):
         # print('--category_list-->',category_list[0].category_id)
         # print('如果是get的方式,那就先查询')
         ss = edit_article
-        print('sssssssssssss',ss)
+        print('sssssssssssss', ss)
 
         ar = models.Article.objects.filter(id=pk).values('md')
-        print('ar',ar)
+        print('ar', ar)
 
         return render(request, 'blog/blog_edit.html',
                       {'edit_article': ar})
@@ -330,8 +328,6 @@ def contact(request):
     about_obj = models.About.objects.filter(id=1)
     return render(request, 'blog/post_detail.html',
                   {'about_obj': about_obj, 'contact': contact})
-
-
 @login_required
 def contact_edit(request):
     post = get_object_or_404(models.About, pk=2)
@@ -351,3 +347,30 @@ def contact_edit(request):
         about_obj = models.About.objects.filter(id=1)
 
         return render(request, 'blog/blog_about.html', {'contact_obj': contact_obj, 'about_obj': about_obj})
+
+
+def category(request, arg):
+    arg = arg
+    print(arg)
+    blog_all = models.Article.objects.filter(category__name=arg).order_by(
+        '-published_date')
+    print(blog_all)
+    posts = pages(request, blog_all)
+    about_obj = models.About.objects.values().all()
+    tag_obj = models.Tag.objects.values().all()
+    category_obj = models.Category.objects.values().all()
+    return render(request, 'blog/index.html',
+                  {'posts': posts, 'is_post': True, 'about_obj': about_obj, 'category_obj': category_obj,
+                   'tag_obj': tag_obj})
+def tags(request, tag):
+    tag = tag
+    blog_all = models.Article.objects.filter(tags__name=tag).order_by(
+        '-published_date')
+    print(blog_all)
+    posts = pages(request, blog_all)
+    about_obj = models.About.objects.values().all()
+    tag_obj = models.Tag.objects.values().all()
+    category_obj = models.Category.objects.values().all()
+    return render(request, 'blog/index.html',
+                  {'posts': posts, 'is_post': True, 'about_obj': about_obj, 'category_obj': category_obj,
+                   'tag_obj': tag_obj})
