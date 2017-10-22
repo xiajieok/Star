@@ -103,6 +103,7 @@ def blog_new(request):
         form_data['author_id'] = request.user.userprofile.id
         print('ID--->', request.POST.get('category_id'))
         form_data['category_id'] = request.POST.get('category_id')
+
         form_data['content'] = request.POST.get('text')
         form_data['md'] = request.POST.get('editormd-markdown-doc')
         # 不知道咋回事,反正就是category_id必须手动加进去
@@ -115,6 +116,9 @@ def blog_new(request):
         new_article_obj = models.Article(**form_data)
         # print('----obj-->',new_article_obj.category_id)
         new_article_obj.save()
+
+
+
         # post = form.save(commit=False)
         print(new_article_obj)
         return redirect('/blog/drafts')
@@ -124,9 +128,10 @@ def blog_new(request):
         # form = models.Post.objects.all()
         new_article = ArticleFrom()
         category_list = models.Category.objects.all()
+        tags_list = models.Tag.objects.all()
         # print('这里是get的form',form)
     return render(request, 'blog/blog_edit.html',
-                  {'new_article': new_article, 'category_list': category_list, 'is_new': True})
+                  {'new_article': new_article, 'category_list': category_list,'tags_list': tags_list, 'is_new': True})
 
 
 @login_required

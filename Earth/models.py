@@ -33,8 +33,8 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     brief = models.CharField(null=True, blank=True, max_length=255)
     content = models.TextField(u"文章内容")
-    md = models.TextField(u"文章内容")
-    tags = models.ManyToManyField(Tag)
+    md = models.TextField(u"文章内容",default='')
+    tags = models.ForeignKey(Tag)
     # 分类目录
     category = models.ForeignKey(Category)
     created_date = models.DateTimeField(default=timezone.now)

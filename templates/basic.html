@@ -17,6 +17,8 @@
     {#          name="keywords">#}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- icon -->
+    <link rel="stylesheet" href="/statics/bootstrap/dist/css/font-awesome.min.css">
 
     <link rel="stylesheet" id="crayon-css" href="/statics/sstmp_files/crayon.min.css" type="text/css" media="all">
     <link rel="stylesheet" id="crayon-theme-solarized-light-css" href="/statics/sstmp_files/solarized-light.css"
@@ -30,7 +32,7 @@
           media="all">
     <link rel="stylesheet" id="icheck-style-css" href="/statics/sstmp_files/red.css" type="text/css" media="all">
     <link rel="stylesheet" id="custom-style-css" href="/statics/sstmp_files/custom.css" type="text/css" media="all">
-    <script src="http://hm.baidu.com/hm.js?9649ba087c5e1b56082526e05beeb609"></script>
+    {#    <script src="http://hm.baidu.com/hm.js?9649ba087c5e1b56082526e05beeb609"></script>#}
     <script type="text/javascript" src="/statics/sstmp_files/jquery.js"></script>
     <script type="text/javascript" src="/statics/sstmp_files/jquery-migrate.min.js"></script>
     {% block css %}
@@ -56,15 +58,15 @@
         };
         /* ]]> */
     </script>
-    <script type="text/javascript" src="./statics/sstmp_files/crayon.min.js"></script>
-    <script type="text/javascript" src="./statics/sstmp_files/bootstrap.js"></script>
-    <script type="text/javascript" src="./statics/sstmp_files/jquery.icheck.js"></script>
-    <script type="text/javascript" src="./statics/sstmp_files/zanblog.js"></script>
-    <script type="text/javascript" src="./statics/sstmp_files/custom.js"></script>
+    <script type="text/javascript" src="/statics/sstmp_files/crayon.min.js"></script>
+    <script type="text/javascript" src="/statics/sstmp_files/bootstrap.js"></script>
+    <script type="text/javascript" src="/statics/sstmp_files/jquery.icheck.js"></script>
+    <script type="text/javascript" src="/statics/sstmp_files/zanblog.js"></script>
+    <script type="text/javascript" src="/statics/sstmp_files/custom.js"></script>
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://xiaorui.cc/xmlrpc.php?rsd">
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://xiaorui.cc/wp-includes/wlwmanifest.xml">
     <meta name="generator" content="WordPress 3.8.22">
-    <link rel="stylesheet" type="text/css" href="./statics/sstmp_files/wp-code-highlight.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/statics/sstmp_files/wp-code-highlight.css" media="screen">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements Responsive IE8-->
     <!--[if lt IE 9]>
@@ -119,7 +121,7 @@
 <section id="zan-bodyer">
     <div class="container">
         <section class="row">
-            <section id="mainstay" class="col-md-8">
+            <section id="mainstay" class="col-md-9">
 
                 {% block main %}
 
@@ -127,7 +129,7 @@
                 {% endblock %}
 
             </section>
-            <aside id="sidebar" class="col-md-4">
+            <aside id="sidebar" class="col-md-3">
                 <h2 class="widgettitle">公告</h2>
                 <div class="textwidget">
                     {% block blog-textwidget %}
@@ -314,24 +316,7 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active nav bs-sidenav fade in" id="sidebar-categories">
-                            <li class="cat-item cat-item-43"><a href="http://xiaorui.cc/category/ansible/"
-                                                                title="查看ansible下的所有文章">ansible</a>
-                            </li>
-                            <li class="cat-item cat-item-92"><a href="http://xiaorui.cc/category/backbone/"
-                                                                title="查看backbone下的所有文章">backbone</a>
-                            </li>
-                            <li class="cat-item cat-item-410"><a href="http://xiaorui.cc/category/db/"
-                                                                 title="查看DB下的所有文章">DB</a>
-                            </li>
-                            <li class="cat-item cat-item-139"><a href="http://xiaorui.cc/category/docker/"
-                                                                 title="查看docker下的所有文章">docker</a>
-                            </li>
-                            <li class="cat-item cat-item-33"><a href="http://xiaorui.cc/category/easyui/"
-                                                                title="查看easyui下的所有文章">easyui</a>
-                            </li>
-                            <li class="cat-item cat-item-626"><a href="http://xiaorui.cc/category/elasticsearch/"
-                                                                 title="查看elasticsearch下的所有文章">elasticsearch</a>
-                            </li>
+
                             <li class="cat-item cat-item-486"><a href="http://xiaorui.cc/category/etcd/"
                                                                  title="查看etcd下的所有文章">etcd</a>
                             </li>
@@ -344,62 +329,7 @@
                             <li class="cat-item cat-item-57"><a href="http://xiaorui.cc/category/mongodb/"
                                                                 title="查看mongodb下的所有文章">mongodb</a>
                             </li>
-                            <li class="cat-item cat-item-73"><a href="http://xiaorui.cc/category/postgresql/"
-                                                                title="查看postgresql下的所有文章">postgresql</a>
-                            </li>
-                            <li class="cat-item cat-item-15"><a href="http://xiaorui.cc/category/python/"
-                                                                title="查看python下的所有文章">python</a>
-                            </li>
-                            <li class="cat-item cat-item-613"><a href="http://xiaorui.cc/category/redis/"
-                                                                 title="查看redis下的所有文章">redis</a>
-                            </li>
-                            <li class="cat-item cat-item-3"><a href="http://xiaorui.cc/category/saltstack/"
-                                                               title="牛叉的分布式集群管理工具">saltstack</a>
-                            </li>
-                            <li class="cat-item cat-item-10"><a href="http://xiaorui.cc/category/tornado/"
-                                                                title="查看tornado下的所有文章">tornado</a>
-                            </li>
-                            <li class="cat-item cat-item-291"><a href="http://xiaorui.cc/category/web/"
-                                                                 title="查看web下的所有文章">web</a>
-                            </li>
-                            <li class="cat-item cat-item-4"><a href="http://xiaorui.cc/category/zabbix/"
-                                                               title="可以扩展开发的分布式监控系统">zabbix</a>
-                            </li>
-                            <li class="cat-item cat-item-1363"><a href="http://xiaorui.cc/category/%e5%86%85%e6%a0%b8/"
-                                                                  title="查看内核下的所有文章">内核</a>
-                            </li>
-                            <li class="cat-item cat-item-1410"><a
-                                    href="http://xiaorui.cc/category/%e6%8a%80%e6%9c%af%e5%88%86%e4%ba%ab/"
-                                    title="查看技术分享下的所有文章">技术分享</a>
-                            </li>
-                            <li class="cat-item cat-item-560"><a href="http://xiaorui.cc/category/%e6%96%87%e8%89%ba/"
-                                                                 title="查看文艺下的所有文章">文艺</a>
-                            </li>
-                            <li class="cat-item cat-item-1"><a href="http://xiaorui.cc/category/uncategorized/"
-                                                               title="查看未分类下的所有文章">未分类</a>
-                            </li>
-                            <li class="cat-item cat-item-1457"><a
-                                    href="http://xiaorui.cc/category/%e6%9e%b6%e6%9e%84%e8%ae%be%e8%ae%a1/"
-                                    title="查看架构设计下的所有文章">架构设计</a>
-                            </li>
-                            <li class="cat-item cat-item-149"><a href="http://xiaorui.cc/category/%e8%bf%90%e7%bb%b4/"
-                                                                 title="查看运维下的所有文章">运维</a>
-                            </li>
-                            <li class="cat-item cat-item-201"><a
-                                    href="http://xiaorui.cc/category/%e8%bf%90%e7%bb%b4%e5%9f%ba%e7%a1%80/"
-                                    title="查看运维基础下的所有文章">运维基础</a>
-                            </li>
-                            <li class="cat-item cat-item-5"><a
-                                    href="http://xiaorui.cc/category/%e8%bf%90%e7%bb%b4%e5%b9%b3%e5%8f%b0%e5%8c%96/"
-                                    title="更加sx的操作">运维平台化</a>
-                            </li>
-                            <li class="cat-item cat-item-313"><a
-                                    href="http://xiaorui.cc/category/%e8%bf%90%e7%bb%b4%e5%bc%80%e5%8f%91/"
-                                    title="查看运维开发下的所有文章">运维开发</a>
-                            </li>
-                            <li class="cat-item cat-item-1424"><a
-                                    href="http://xiaorui.cc/category/%e9%ab%98%e6%80%a7%e8%83%bd/" title="查看高性能下的所有文章">高性能</a>
-                            </li>
+
                         </div>
                         <div class="tab-pane fade" id="sidebar-tags"><a href="http://xiaorui.cc/tag/ansible/"
                                                                         class="tag-link-43" title="6个话题"
@@ -524,7 +454,7 @@
         prettyPrint();
     };
 </script>
-<script type="text/javascript" src="./statics/sstmp_files/wp-code-highlight.js"></script>
+<script type="text/javascript" src="/statics/sstmp_files/wp-code-highlight.js"></script>
 <!--WP Code Highlight_end-->
 <footer id="zan-footer">
     Copyright © Medivh 2016 - 2017 All Rights Reserved.

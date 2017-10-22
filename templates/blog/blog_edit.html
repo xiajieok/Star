@@ -3,43 +3,53 @@
     <h2>{% if is_new %}New article{% else %}Edit article{% endif %}</h2>
 {% endblock %}
 {% block admin-content %}
-    <div style="margin-bottom: 40px" id="edit">
+    <div class="col-md-13" style="margin: 0 auto">
         {% if is_new %}
             <form enctype="multipart/form-data" method="post">{% csrf_token %}
-                <p>Category:
-                    <select name='category_id' class="form-control" style="width: 60px">
-                        {% for item in category_list %}
-                            <option value="{{ item.id }}">{{ item.name }}</option>
-                        {% endfor %}
-                    </select>
-                </p>
-                <p>
-                    Title:
-                    <input name="title" type="text" class="form-control" placeholder="文章标题">
-                </p>
-                <p>
-                    Brief:
-                    <input name="brief" type="text" class="form-control" placeholder="文章简介">
-                </p>
-                <div class="editormd" id="editormd">
-                    <textarea class="editormd-markdown-textarea" name="editormd-markdown-doc"></textarea>
-                    <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
-                    <textarea class="editormd-html-textarea" name="text"></textarea>
-                </div>
+                <div class="col-md-11" style="margin: 0 auto">
+                    <p style="width: 819px;margin:0 auto">
+                        <button type="submit" class="save btn btn-success " style="float: right;">
+                            Save
+                        </button>
+                        <select name='category_id' class="form-control" style="width: 100px">
+                            {% for item in category_list %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <select name='tags_id' class="form-control" style="width: 100px">
+                            {% for item in tags_list %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </p>
 
-                <button type="submit" class="save btn btn-success " style="float: right;margin-bottom: 10px;">Save
-                </button>
+                    <p style="width: 819px;margin:0 auto">
+                        <input name="title" type="text" class="form-control" placeholder="文章标题">
+                    </p>
+                    <p style="width: 819px;margin:0 auto">
+
+                        <input name="brief" type="text" class="form-control" placeholder="文章简介">
+                    </p>
+                    <div class="editormd" id="editormd">
+                        <textarea class="editormd-markdown-textarea" name="editormd-markdown-doc"></textarea>
+                        <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+                        <textarea class="editormd-html-textarea" name="text"></textarea>
+                    </div>
+
+
+                </div>
             </form>
         {% else %}
             <div>
                 <form enctype="multipart/form-data" method="post">{% csrf_token %}
                     {#                    {{ edit_article.as_p }}#}
                     {% for i in edit_article %}
-                    <div class="editormd" id="editormd">
-                        <textarea class="editormd-markdown-textarea" name="editormd-markdown-doc">{{ i.md }}</textarea>
-                        <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
-                        <textarea class="editormd-html-textarea" name="text"></textarea>
-                    </div>
+                        <div class="editormd" id="editormd">
+                            <textarea class="editormd-markdown-textarea"
+                                      name="editormd-markdown-doc">{{ i.md }}</textarea>
+                            <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+                            <textarea class="editormd-html-textarea" name="text"></textarea>
+                        </div>
                     {% endfor %}
                     <button type="submit" class="save btn btn-success " style="float: right;margin-bottom: 10px;">Save
                     </button>
@@ -57,7 +67,7 @@
 
 {% block js %}
     <script type="text/javascript">
-         $("CodeMirror-code").removeClass("pre");
+        $("CodeMirror-code").removeClass("pre");
 
         $(function () {
             editormd("editormd", {
