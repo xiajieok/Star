@@ -24,7 +24,7 @@ class Category(models.Model):
         verbose_name_plural = '分类目录'
 
     name = models.CharField(max_length=40)
-    brief = models.CharField(max_length=40,default='')
+    alias = models.CharField(max_length=40,default='')
 
     def __str__(self):
         return self.name

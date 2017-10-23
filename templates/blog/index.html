@@ -11,23 +11,12 @@
     </p>
 {% endblock %}
 {% block tags %}
-    {% for i in tag_obj %}
 
-        <div class="tagcloud"><a href="/blog/tags/{{ i.name }}/" class="tag-link-43" title="6个话题"
-                                 style="color:#1270d6;font-size: 12.06976744186pt;;">{{ i.name }}</a>
-
-        </div>
-    {% endfor %}
+    <div class="tagcloud">
+    </div>
 {% endblock %}
 {% block category %}
-    <ul>
-        {% for i in category_obj %}
-            <li class="cat-item cat-item-313"><a
-                    href="{% url 'list_by_cg' cg=i.id %}"
-                    title="">{{ i.name }}</a>
-            </li>
-        {% endfor %}
-
+    <ul id="side_category">
     </ul>
 {% endblock %}
 {% block hot %}
@@ -38,31 +27,10 @@
 
 {% endblock %}
 {% block navbar-nav %}
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav" id="nav_head">
         <li><a href="/">首页</a></li>
-
-        {% for i in  category_obj %}
-            <li><a href="/blog/category/{{ i.name }}">{{ i.brief }}</a></li>
-        {% endfor %}
-        <li><a href="/">关于</a></li>
-        {#        <li><a href="/">业界</a></li>#}
-        {#        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/#"> 运维 <b#}
-        {#                class="caret"></b></a>#}
-        {#            <ul class="dropdown-menu">#}
-        {#                <li><a href="/">ElasticSearch</a></li>#}
-        {#                <li><a href="/blog/category/db/">Other</a></li>#}
-        {#            </ul>#}
-        {#        </li>#}
-        {#        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/blog/#">Devops<b#}
-        {#                class="caret"></b></a>#}
-        {#            <ul class="dropdown-menu">#}
-        {#                <li><a href="/">运维开发</a></li>#}
-        {#            </ul>#}
-        {#        </li>#}
-        {#        <li><a href="/about">关于</a></li>#}
     </ul>
 {% endblock %}
-
 {% block main %}
     {% for i in posts %}
         <div class="article well clearfix">
@@ -109,4 +77,43 @@
     {% endfor %}
 
 
+{% endblock %}
+{% block js %}
+
+    <script>
+        //获取标签
+        function Tags(obj) {
+            $.get("/blog/side/", {name: 'tag'}, function (data) {
+                var tmp = JSON.parse(data);
+                for (let i = 0; i < tmp.length; i++) {
+                    var tag = tmp[i].name;
+                    html = '<a href="/blog/tags/' + tag + '/" class="tag-link-43" title="6个话题" style="color:#1270d6;font-size: 12.06976744186pt;">' + tag + '</a>'
+                    $('.tagcloud').append(html);
+                }
+            });
+        }
+        ;
+        //获取版块
+        function Category(obj) {
+            $.get("/blog/side/", {name: 'category'}, function (data) {
+                var tmp = JSON.parse(data);
+                for (let i = 0; i < tmp.length; i++) {
+                    var category_name = tmp[i].name;
+                    var category_alias = tmp[i].alias;
+                    html = ' <li><a href="/blog/category/' + category_name + '">' + category_alias + '</a></li> '
+                    $("#nav_head").append(html);
+                    side = ' <li class="cat-item cat-item-313"><a href="/blog/category/' + category_name + '>' + category_alias + '</a> </li>'
+                    $("#side_category").append(html);
+
+
+                }
+            });
+
+
+        }
+        ;
+        Tags();
+        Category();
+
+    </script>
 {% endblock %}

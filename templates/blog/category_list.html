@@ -1,49 +1,72 @@
-{% extends './index.html' %}
+{% extends 'blog/admin.html' %}
 {% load custom %}
-{% block main %}
-    {% for i in posts %}
-        <div class="article well clearfix">
-            <div class="data-article hidden-xs">
-                <span class="month">4月</span>
-                <span class="day">10</span>
+{% block admin-content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    box-header
+                </div>
+                <div class="box-body">
+                    {% include 'blog/table_category.html' %}
+                </div>
             </div>
-            <!-- PC端设备文章属性 -->
-            <section class="visible-md visible-lg">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">
+                New Category
+            </button>
 
-                <div class="title-article">
-                    <h1>
-                        <a class="blog-title"
-                           href="{% url 'detail' pk=i.id %}">{{ i.title }} </a></h1>
-                </div>
-                <div class="tag-article container">
-                            <span class="label label-zan"><i class="fa fa-tags"></i> <a
-                                    href="{% url 'detail' pk=i.id %}"
-                                    title="{{ i.title }}" rel="category tag"></a></span>
-                    <span class="label label-zan"><i class="fa fa-user"></i> <a
-                            href="#" title="由medivh发布" rel="author">medivh</a></span>
-                    <span class="label label-zan"><i class="fa fa-eye"></i> 1,167 views</span>
-                </div>
-                <div class="content-article">
-                    <figure class="thumbnail"><a
-                            href="{% url 'detail' pk=i.id %}"></a>
-
-                    </figure>
-                    <div class="alert alert-zan">
-
-                        {{ i.brief }}
+            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content" style="padding: 10px;width: 600px">
+                        <form enctype="multipart/form-data" method="post">{% csrf_token %}
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <p class="box-header">New Category</p>
+                                    <div class="col-sm-10">
+                                        <p><input type="text" class="form-control" name="name" placeholder="版块名称">
+                                        </p>
+                                        <p><input type="text" class="form-control" name="brief" placeholder="版块简介">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-success pull-right">Create</button>
+                            </div>
+                            <!-- /.box-footer -->
+                        </form>
                     </div>
                 </div>
-                <a class="btn btn-danger pull-right read-more"
-                   href="{% url 'detail' pk=i.id %}"
-                   title="详细阅读  {{ i.brief }}">阅读全文 <span class="badge">0</span></a>
-            </section>
-
+            </div>
+            <div>
+                <nav>
+                    <ul class="pagination">
+                        {% if posts.has_previous %}
+                            <li class="">
+                                <a href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% for page_num in posts.paginator.page_range %}
+                            {% guess_page posts.number page_num %}
+                        {% endfor %}
+                        {% if shcool_list.has_next %}
+                            <li class="">
+                                <a href="?page={{ posts.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
         </div>
 
-    {% endfor %}
-
-
+    </div>
 {% endblock %}
+
 {% block admin-js %}
     <script type="text/javascript">
         function getCookie(name) {

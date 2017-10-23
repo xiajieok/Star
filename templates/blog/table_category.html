@@ -2,14 +2,14 @@
     <thead>
     <tr>
         <th width="400px">Name</th>
-        <th>Brief</th>
+        <th>Alias</th>
     </tr>
     </thead>
     <tbody>
     {% for item in category_obj %}
         <tr id={{ item.id }}>
             <td class="editbox">{{ item.name }}</td>
-            <td>{{ item.name }}</td>
+            <td>{{ item.alias }}</td>
         </tr>
     {% endfor %}
     </tbody>

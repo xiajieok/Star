@@ -8,6 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
 from Earth.forms import ArticleFrom, handle_uploaded_file, CategoryFrom, AboutFrom
 from django.http import Http404
+import json
 
 
 def acc_login(request):
@@ -67,7 +68,7 @@ def index(request):
     # # # def post_list(request):
     '''所有已发布文章'''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date').exclude(title='About')
+            '-published_date').exclude(title='About')
     # blog_all = models.Article.objects.all()
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
@@ -76,6 +77,20 @@ def index(request):
     return render(request, 'blog/index.html',
                   {'posts': posts, 'page': True, 'about_obj': about_obj, 'category_obj': category_obj,
                    'tag_obj': tag_obj})
+
+
+def side(request):
+    res = request.GET.get('name')
+    print(request)
+    if res == 'tag':
+        obj = models.Tag.objects.values().all()
+    else:
+        obj = models.Category.objects.values().all()
+        # print(obj)
+
+    data = list(obj)
+    data = json.dumps(data)
+    return HttpResponse(data)
 
 
 def post_detail(request, pk):
@@ -147,7 +162,7 @@ def blog_remove(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
     post.delete()
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date')
+            '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'blog/table.html', {'posts': posts})
 
@@ -165,7 +180,7 @@ def blog_list(request):
     :return:
     '''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date')
+            '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'blog/blog_list.html', {'posts': posts, 'page': True, 'is_list': True})
 
@@ -241,8 +256,8 @@ def archives(request, y, m):
     """根据年月份列出已发布文章"""
     # posts = models.Article.objects.annotate(num_comment=Count('comment')).filter(
     posts_ar = models.Article.objects.annotate().filter(
-        published_date__isnull=False, published_date__year=y,
-        published_date__month=m).prefetch_related().order_by('-published_date')
+            published_date__isnull=False, published_date__year=y,
+            published_date__month=m).prefetch_related().order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     # print('--post_ar-->', posts_ar)
@@ -257,7 +272,7 @@ category_obj = models.Category.objects.all()
 
 
 @login_required
-def blog_category(request):
+def admin_category(request):
     # global category_obj
     '''
     管理版块列表
@@ -287,8 +302,8 @@ def blog_category(request):
 def post_list_by_category(request, cg):
     """根据目录列表已发布文章"""
     posts = models.Article.objects.annotate().filter(
-        published_date__isnull=False, category__name=cg).prefetch_related(
-        'category').order_by('-published_date')
+            published_date__isnull=False, category__name=cg).prefetch_related(
+            'category').order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     return render(request, 'blog/index.html',
@@ -328,6 +343,8 @@ def contact(request):
     about_obj = models.About.objects.filter(id=1)
     return render(request, 'blog/post_detail.html',
                   {'about_obj': about_obj, 'contact': contact})
+
+
 @login_required
 def contact_edit(request):
     post = get_object_or_404(models.About, pk=2)
@@ -353,7 +370,7 @@ def category(request, arg):
     arg = arg
     print(arg)
     blog_all = models.Article.objects.filter(category__name=arg).order_by(
-        '-published_date')
+            '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
@@ -362,10 +379,12 @@ def category(request, arg):
     return render(request, 'blog/index.html',
                   {'posts': posts, 'is_post': True, 'about_obj': about_obj, 'category_obj': category_obj,
                    'tag_obj': tag_obj})
+
+
 def tags(request, tag):
     tag = tag
     blog_all = models.Article.objects.filter(tags__name=tag).order_by(
-        '-published_date')
+            '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()

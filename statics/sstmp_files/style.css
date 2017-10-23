@@ -21,7 +21,7 @@ body.nav-fixed {
 
 body {
 	background-color: #f0f0f0;
-	background: url("ui/images/bg.jpg");
+	/*background: url("ui/images/bg.jpg");*/
 }
 
 h1,h2,h3,h4,h5 {
@@ -734,7 +734,7 @@ html.ie body,
 html.ie #mainstay,
 html.ie #sidebar,
 html.ie #zan-footer {
-	background: url("ui/images/bg.jpg");
+	/*background: url("ui/images/bg.jpg");*/
 }
 
 #ie-warning {
