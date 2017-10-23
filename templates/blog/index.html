@@ -3,14 +3,12 @@
     Medivh' blog ...
 {% endblock %}
 {% block blog-textwidget %}
-    <hr>
     <p style="font-size: 1pc;line-height: 30px;">
-        博客使用阿里云主机，大家可以使用我的幸运券 <a style="font-size: 1.5pc"
+        博客使用阿里云主机，大家可以使用我的幸运券 <a style="font-size: 1.5pc;color: #d9534f;"
                                  href="https://promotion.aliyun.com/ntms/act/ambassador/sharetouser.html?userCode=yw1joxsh&utm_source=yw1joxsh">点击获取~~~百分百中奖
         ！！！</a>
 
     </p>
-    <hr>
 {% endblock %}
 {% block tags %}
     {% for i in tag_obj %}
@@ -85,7 +83,7 @@
                 <div class="tag-article container">
 
 
-                    <span class="label label-zan"><i class="fa fa-tags">{{ i.tags }}</i> <a
+                    <span class="label label-zan"><i class="fa fa-tags"></i>{{ i.tags }} <a
                             href="{% url 'detail' pk=i.id %}"
                             title="{{ i.title }}" rel="category tag"></a></span>
                     <span class="label label-zan"><i class="fa fa-user"></i> <a
@@ -98,7 +96,6 @@
 
                     </figure>
                     <div class="alert alert-zan">
-
                         {{ i.brief }}
                     </div>
                 </div>

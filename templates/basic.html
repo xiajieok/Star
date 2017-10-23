@@ -130,38 +130,50 @@
 
             </section>
             <aside id="sidebar" class="col-md-3">
-                <h2 class="widgettitle">公告</h2>
-                <div class="textwidget">
-                    {% block blog-textwidget %}
+                <div class="panel hidden-xs " style="padding: 10px">
+
+                    <h2 class="widgettitle">公告</h2>
+                    <hr>
+
+                    <div class="textwidget">
+                        {% block blog-textwidget %}
+
+                        {% endblock %}
+                    </div>
+                </div>
+                <div class="panel hidden-xs " style="padding: 10px">
+
+                    <h2 class="widgettitle">标签</h2>
+                    <hr>
+                    {% block tags %}
+
 
                     {% endblock %}
                 </div>
-                <h2 class="widgettitle">标签</h2>
-                {% block tags %}
+                <div class="panel hidden-xs " style="padding: 10px">
 
-
-                {% endblock %}
-                <h2 class="widgettitle">分类目录</h2>
-                {% block category %}
-                    category
-                {% endblock %}
-
-                <!-- 最热文章模块-->
-                <div class="panel panel-zan hot">
-                    <div class="panel-heading">
-                        <i class="fa fa-fire"></i> 最热文章
-                        <i class="fa fa-times-circle panel-remove"></i>
-                        <i class="fa fa-chevron-circle-up panel-toggle"></i>
-                    </div>
-                    <!-- 大屏PC端、手机端 -->
-                    <ul class="list-group list-group-flush visible-lg visible-xs">
-                        {% block hot %}
-                        {% endblock %}
-
-                    </ul>
-                    <!-- 小屏PC端 -->
-                    <!-- 平板端 -->
+                    <h2 class="widgettitle">分类目录</h2>
+                    <hr>
+                    {% block category %}
+                        category
+                    {% endblock %}
                 </div>
+                <!-- 最热文章模块-->
+                {#                <div class="panel panel-zan hot">#}
+                {#                    <div class="panel-heading">#}
+                {#                        <i class="fa fa-fire"></i> 最热文章#}
+                {#                        <i class="fa fa-times-circle panel-remove"></i>#}
+                {#                        <i class="fa fa-chevron-circle-up panel-toggle"></i>#}
+                {#                    </div>#}
+                {#                    <!-- 大屏PC端、手机端 -->#}
+                {#                    <ul class="list-group list-group-flush visible-lg visible-xs">#}
+                {#                        {% block hot %}#}
+                {#                        {% endblock %}#}
+                {##}
+                {#                    </ul>#}
+                {#                    <!-- 小屏PC端 -->#}
+                {#                    <!-- 平板端 -->#}
+                {#                </div>#}
                 <!-- 广告模块 -->
                 <!--     <div class="visible-md visible-lg">
                         <div class="panel panel-zan host">
@@ -307,131 +319,36 @@
                 {#                    </div>#}
                 {#                </div>#}
                 <!-- 分类目录、热门标签、友情链接模块-->
-                <div class="panel hidden-xs">
-                    <ul class="nav nav-pills pills-zan">
-                        <li class="active"><a href="http://xiaorui.cc/#sidebar-categories" data-toggle="tab">分类目录</a>
+                <div class="panel hidden-xs " style="padding: 10px">
+
+
+                    <h2 class="widgettitle">友情链接</h2>
+                    <hr>
+
+
+                    {#                    <ul class="nav nav-pills pills-zan">#}
+                    {#                        <li class="active"><a href="http://xiaorui.cc/#sidebar-categories" data-toggle="tab">分类目录</a>#}
+                    {#                        </li>#}
+                    {#                        <li><a href="http://xiaorui.cc/#sidebar-tags" data-toggle="tab">热门标签</a></li>#}
+                    {#                        <li><a href="http://xiaorui.cc/#sidebar-links" data-toggle="tab">友情链接</a></li>#}
+                    {#                    </ul>#}
+                    {#                    <div class="tab-content">#}
+                    <div class="tab-pane active nav bs-sidenav fade in" id="sidebar-categories">
+
+                        <li class="cat-item cat-item-486"><a href="http://xiaorui.cc/category/etcd/"
+                                                             title="查看etcd下的所有文章">etcd</a>
                         </li>
-                        <li><a href="http://xiaorui.cc/#sidebar-tags" data-toggle="tab">热门标签</a></li>
-                        <li><a href="http://xiaorui.cc/#sidebar-links" data-toggle="tab">友情链接</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active nav bs-sidenav fade in" id="sidebar-categories">
+                        <li class="cat-item cat-item-148"><a href="http://xiaorui.cc/category/git/"
+                                                             title="查看git下的所有文章">git</a>
+                        </li>
+                        <li class="cat-item cat-item-266"><a href="http://xiaorui.cc/category/golang/"
+                                                             title="查看Golang下的所有文章">Golang</a>
+                        </li>
+                        <li class="cat-item cat-item-57"><a href="http://xiaorui.cc/category/mongodb/"
+                                                            title="查看mongodb下的所有文章">mongodb</a>
+                        </li>
 
-                            <li class="cat-item cat-item-486"><a href="http://xiaorui.cc/category/etcd/"
-                                                                 title="查看etcd下的所有文章">etcd</a>
-                            </li>
-                            <li class="cat-item cat-item-148"><a href="http://xiaorui.cc/category/git/"
-                                                                 title="查看git下的所有文章">git</a>
-                            </li>
-                            <li class="cat-item cat-item-266"><a href="http://xiaorui.cc/category/golang/"
-                                                                 title="查看Golang下的所有文章">Golang</a>
-                            </li>
-                            <li class="cat-item cat-item-57"><a href="http://xiaorui.cc/category/mongodb/"
-                                                                title="查看mongodb下的所有文章">mongodb</a>
-                            </li>
-
-                        </div>
-                        <div class="tab-pane fade" id="sidebar-tags"><a href="http://xiaorui.cc/tag/ansible/"
-                                                                        class="tag-link-43" title="6个话题"
-                                                                        style="color:#7c57e6;font-size: 12.651162790698pt;;">ansible</a>
-                            <a href="http://xiaorui.cc/tag/ansible-api/" class="tag-link-44" title="4个话题"
-                               style="color:#5f852c;font-size: 9.8604651162791pt;;">ansible api</a>
-                            <a href="http://xiaorui.cc/tag/docker/" class="tag-link-139" title="13个话题"
-                               style="color:#fa1e8f;font-size: 18.232558139535pt;;">docker</a>
-                            <a href="http://xiaorui.cc/tag/docker-api/" class="tag-link-171" title="4个话题"
-                               style="color:#83a2cb;font-size: 9.8604651162791pt;;">docker api</a>
-                            <a href="http://xiaorui.cc/tag/elasticsearch/" class="tag-link-626" title="17个话题"
-                               style="color:#e7100a;font-size: 20.279069767442pt;;">elasticsearch</a>
-                            <a href="http://xiaorui.cc/tag/elk/" class="tag-link-603" title="3个话题"
-                               style="color:#46c19c;font-size: 8pt;;">elk</a>
-                            <a href="http://xiaorui.cc/tag/epoll/" class="tag-link-1383" title="3个话题"
-                               style="color:#cd74a2;font-size: 8pt;;">epoll</a>
-                            <a href="http://xiaorui.cc/tag/etcd/" class="tag-link-486" title="8个话题"
-                               style="color:#92e6d6;font-size: 14.511627906977pt;;">etcd</a>
-                            <a href="http://xiaorui.cc/tag/gevent/" class="tag-link-122" title="7个话题"
-                               style="color:#b2106d;font-size: 13.581395348837pt;;">gevent</a>
-                            <a href="http://xiaorui.cc/tag/golang-2/" class="tag-link-268" title="19个话题"
-                               style="color:#fb45c9;font-size: 21.023255813953pt;;">golang</a>
-                            <a href="http://xiaorui.cc/tag/golang-redis/" class="tag-link-275" title="3个话题"
-                               style="color:#6136ed;font-size: 8pt;;">golang redis</a>
-                            <a href="http://xiaorui.cc/tag/grafana/" class="tag-link-529" title="3个话题"
-                               style="color:#58c11d;font-size: 8pt;;">grafana</a>
-                            <a href="http://xiaorui.cc/tag/gunicorn/" class="tag-link-503" title="4个话题"
-                               style="color:#673505;font-size: 9.8604651162791pt;;">gunicorn</a>
-                            <a href="http://xiaorui.cc/tag/happybase/" class="tag-link-262" title="3个话题"
-                               style="color:#695c13;font-size: 8pt;;">happybase</a>
-                            <a href="http://xiaorui.cc/tag/influxdb/" class="tag-link-527" title="10个话题"
-                               style="color:#1bf45e;font-size: 16.186046511628pt;;">Influxdb</a>
-                            <a href="http://xiaorui.cc/tag/influxdb-%e6%80%a7%e8%83%bd/" class="tag-link-532"
-                               title="3个话题" style="color:#11774d;font-size: 8pt;;">InfluxDB 性能</a>
-                            <a href="http://xiaorui.cc/tag/kibana/" class="tag-link-615" title="5个话题"
-                               style="color:#14eaed;font-size: 11.348837209302pt;;">kibana</a>
-                            <a href="http://xiaorui.cc/tag/kibana4/" class="tag-link-668" title="5个话题"
-                               style="color:#f19875;font-size: 11.348837209302pt;;">kibana4</a>
-                            <a href="http://xiaorui.cc/tag/logstash/" class="tag-link-609" title="3个话题"
-                               style="color:#61fd6;font-size: 8pt;;">logstash</a>
-                            <a href="http://xiaorui.cc/tag/mysql/" class="tag-link-727" title="28个话题"
-                               style="color:#e1e882;font-size: 24pt;;">mysql</a>
-                            <a href="http://xiaorui.cc/tag/peewee/" class="tag-link-950" title="5个话题"
-                               style="color:#b3ad20;font-size: 11.348837209302pt;;">peewee</a>
-                            <a href="http://xiaorui.cc/tag/peewee-%e6%ba%90%e7%a0%81/" class="tag-link-1165"
-                               title="3个话题" style="color:#a88085;font-size: 8pt;;">peewee 源码</a>
-                            <a href="http://xiaorui.cc/tag/python/" class="tag-link-15" title="24个话题"
-                               style="color:#a952f3;font-size: 22.883720930233pt;;">python</a>
-                            <a href="http://xiaorui.cc/tag/python-ctypes/" class="tag-link-1279" title="3个话题"
-                               style="color:#4a3f88;font-size: 8pt;;">python ctypes</a>
-                            <a href="http://xiaorui.cc/tag/python-docker/" class="tag-link-173" title="3个话题"
-                               style="color:#a44f3a;font-size: 8pt;;">python docker</a>
-                            <a href="http://xiaorui.cc/tag/python-elasticsearch/" class="tag-link-130" title="10个话题"
-                               style="color:#9659fa;font-size: 16.186046511628pt;;">python elasticsearch</a>
-                            <a href="http://xiaorui.cc/tag/python-epoll/" class="tag-link-443" title="4个话题"
-                               style="color:#faf562;font-size: 9.8604651162791pt;;">python epoll</a>
-                            <a href="http://xiaorui.cc/tag/python-etcd/" class="tag-link-594" title="5个话题"
-                               style="color:#eb7936;font-size: 11.348837209302pt;;">python etcd</a>
-                            <a href="http://xiaorui.cc/tag/python-gevent/" class="tag-link-121" title="11个话题"
-                               style="color:#61f2e4;font-size: 16.93023255814pt;;">python gevent</a>
-                            <a href="http://xiaorui.cc/tag/python-happybase/" class="tag-link-261" title="3个话题"
-                               style="color:#961dac;font-size: 8pt;;">python happybase</a>
-                            <a href="http://xiaorui.cc/tag/python-hbase/" class="tag-link-187" title="4个话题"
-                               style="color:#5ee79f;font-size: 9.8604651162791pt;;">python hbase</a>
-                            <a href="http://xiaorui.cc/tag/python-influxdb/" class="tag-link-530" title="4个话题"
-                               style="color:#de4aca;font-size: 9.8604651162791pt;;">python influxdb</a>
-                            <a href="http://xiaorui.cc/tag/python-mongodb/" class="tag-link-58" title="3个话题"
-                               style="color:#f5a2d8;font-size: 8pt;;">python mongodb</a>
-                            <a href="http://xiaorui.cc/tag/python-multiprocessing/" class="tag-link-177" title="5个话题"
-                               style="color:#59062e;font-size: 11.348837209302pt;;">python multiprocessing</a>
-                            <a href="http://xiaorui.cc/tag/python-peewee/" class="tag-link-949" title="4个话题"
-                               style="color:#61ed96;font-size: 9.8604651162791pt;;">python peewee</a>
-                            <a href="http://xiaorui.cc/tag/python-redis/" class="tag-link-86" title="5个话题"
-                               style="color:#dcb2e3;font-size: 11.348837209302pt;;">python redis</a>
-                            <a href="http://xiaorui.cc/tag/python-requests/" class="tag-link-1070" title="6个话题"
-                               style="color:#9fc7ca;font-size: 12.651162790698pt;;">python requests</a>
-                            <a href="http://xiaorui.cc/tag/python-rq/" class="tag-link-357" title="5个话题"
-                               style="color:#2f6238;font-size: 11.348837209302pt;;">python rq</a>
-                            <a href="http://xiaorui.cc/tag/python-thrift/" class="tag-link-186" title="6个话题"
-                               style="color:#6f99b9;font-size: 12.651162790698pt;;">python thrift</a>
-                            <a href="http://xiaorui.cc/tag/python-zabbix/" class="tag-link-214" title="4个话题"
-                               style="color:#51d837;font-size: 9.8604651162791pt;;">python zabbix</a>
-                            <a href="http://xiaorui.cc/tag/python-%e4%bb%bb%e5%8a%a1%e9%98%9f%e5%88%97/"
-                               class="tag-link-182" title="3个话题" style="color:#2aa801;font-size: 8pt;;">python 任务队列</a>
-                            <a href="http://xiaorui.cc/tag/redis/" class="tag-link-613" title="23个话题"
-                               style="color:#d0d0a7;font-size: 22.511627906977pt;;">redis</a>
-                            <a href="http://xiaorui.cc/tag/redis-cluster/" class="tag-link-729" title="6个话题"
-                               style="color:#aa9955;font-size: 12.651162790698pt;;">redis cluster</a>
-                            <a href="http://xiaorui.cc/tag/redis-%e6%ba%90%e7%a0%81/" class="tag-link-1377" title="3个话题"
-                               style="color:#91dd07;font-size: 8pt;;">redis 源码</a>
-                            <a href="http://xiaorui.cc/tag/saltstack/" class="tag-link-3" title="9个话题"
-                               style="color:#3a2cba;font-size: 15.441860465116pt;;">saltstack</a>
-                            <a href="http://xiaorui.cc/tag/saltstack-api/" class="tag-link-38" title="3个话题"
-                               style="color:#c68db3;font-size: 8pt;;">saltstack api</a>
-                            <a href="http://xiaorui.cc/tag/tokudb/" class="tag-link-1049" title="3个话题"
-                               style="color:#a35454;font-size: 8pt;;">tokudb</a>
-                            <a href="http://xiaorui.cc/tag/zabbix/" class="tag-link-4" title="5个话题"
-                               style="color:#4f17a8;font-size: 11.348837209302pt;;">zabbix</a>
-                            <a href="http://xiaorui.cc/tag/zabbix%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/"
-                               class="tag-link-81" title="7个话题" style="color:#b82628;font-size: 13.581395348837pt;;">zabbix二次开发</a>
-                            <a href="http://xiaorui.cc/tag/zabbix%e5%bc%80%e5%8f%91/" class="tag-link-85" title="3个话题"
-                               style="color:#a9742b;font-size: 8pt;;">zabbix开发</a></div>
+                        {#                        </div>#}
                         <div class="tab-pane nav bs-sidenav fade" id="sidebar-links">
                             <li><a href="http://blog.51reboot.com/" target="_blank">51reboot</a></li>
 
