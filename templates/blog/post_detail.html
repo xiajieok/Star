@@ -1,4 +1,4 @@
-{% extends './blog/index.html' %}
+{% extends './index.html' %}
 {% load custom %}
 
 {% block about %}
@@ -6,6 +6,22 @@
         {{ i.content|safe }}
     {% endfor %}
 {% endblock %}
+{% block head_css %}
+    #rewardButton span{
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    font-stretch: normal;
+    font-size: 18px;
+    font-family: "Microsoft Yahei";
+    background: #f44336;}
+{% endblock %}
+
 {% block main %}
     <div class="row">
         <div class=" article container well" style="padding: 25px; margin-top: 3px; font-size: 1pc; line-height: 30px;">
@@ -34,7 +50,7 @@
                     {% endif %}
 
                 </div>
-                <div style="margin: 30px 0 60px 0 ;" class="centent-article" >
+                <div style="margin: 30px 0 60px 0 ;" class="centent-article">
                     <p>{{ post.brief }}</p>
                     <p>{{ post.content |safe }}</p>
                 </div>
@@ -46,8 +62,75 @@
                 </div>
 
             {% endif %}
+
+            <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+                <button id="rewardButton" disable="enable"
+                        onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                    <span>赏</span>
+                </button>
+                <div id="QR" style="display: none;">
+
+                    <div id="wechat" style="display: inline-block;width: 250px;">
+                        <img id="wechat_qr" src="http://7xp3xc.com1.z0.glb.clouddn.com/2016/1493362326446.png"
+                             alt="Medivh WeChat Pay"/>
+                        <p>微信打赏</p>
+                    </div>
+
+
+                    <div id="alipay" style="display: inline-block;width: 250px;">
+                        <img id="alipay_qr" src="http://7xp3xc.com1.z0.glb.clouddn.com/2016/1493362280843.png"
+                             alt="Medivh Alipay"/>
+                        <p>支付宝打赏</p>
+                    </div>
+
+                </div>
+            </div>
+            <hr>
         </div>
     </div>
 
+
+{% endblock %}
+{% block js %}
+
+
+    <script>
+        //获取标签
+        function Tags(obj) {
+            $.get("/blog/side/", {name: 'tag'}, function (data) {
+                var tmp = JSON.parse(data);
+                for (let i = 0; i < tmp.length; i++) {
+                    var tag = tmp[i].name;
+                    html = '<a href="/blog/tags/' + tag + '/" class="tag-link-43" title="6个话题" style="color:#1270d6;font-size: 12.06976744186pt;">' + tag + '</a>'
+                    $('.tagcloud').append(html);
+                }
+            });
+        }
+        ;
+
+        //获取版块
+        function Category(obj) {
+            $.get("/blog/side/", {name: 'category'}, function (data) {
+                var tmp = JSON.parse(data);
+                for (let i = 0; i < tmp.length; i++) {
+                    var category_name = tmp[i].name;
+                    var category_alias = tmp[i].alias;
+                    html = ' <li><a href="/blog/category/' + category_name + '">' + category_alias + '</a></li> '
+                    $("#nav_head").append(html);
+                    side = ' <li class="cat-item cat-item-313"><a href="/blog/category/' + category_name + '>' + category_alias + '</a> </li>'
+                    $("#side_category").append(html);
+
+
+                }
+            });
+
+
+        }
+        ;
+        Tags();
+        Category();
+
+    </script>
 
 {% endblock %}

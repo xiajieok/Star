@@ -1,4 +1,7 @@
 {% extends 'basic.html' %}
+{% block head_css %}
+
+{% endblock %}
 {% block blog-title %}
     Medivh' blog ...
 {% endblock %}
@@ -93,6 +96,7 @@
             });
         }
         ;
+
         //获取版块
         function Category(obj) {
             $.get("/blog/side/", {name: 'category'}, function (data) {

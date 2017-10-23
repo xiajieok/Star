@@ -42,7 +42,13 @@
         {% else %}
             <div>
                 <form enctype="multipart/form-data" method="post">{% csrf_token %}
-                    {#                    {{ edit_article.as_p }}#}
+                    <div>
+                        <button type="submit" class="save btn btn-success " style="float: right;margin-bottom: 10px;">
+                            Save
+                        </button>
+
+                    </div>
+
                     {% for i in edit_article %}
                         <div class="editormd" id="editormd">
                             <textarea class="editormd-markdown-textarea"
@@ -51,8 +57,7 @@
                             <textarea class="editormd-html-textarea" name="text"></textarea>
                         </div>
                     {% endfor %}
-                    <button type="submit" class="save btn btn-success " style="float: right;margin-bottom: 10px;">Save
-                    </button>
+
                 </form>
             </div>
         {% endif %}
