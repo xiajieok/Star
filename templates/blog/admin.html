@@ -7,14 +7,17 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="/statics/AdminLTE/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/statics/bootstrap/dist/css/font-awesome.min.css">
-{#    <link rel="stylesheet" href="/statics/bootstrap/fonts/fontawesome-webfont.woff2">#}
+    {#    <link rel="stylesheet" href="/statics/bootstrap/fonts/fontawesome-webfont.woff2">#}
     <link rel="stylesheet" href="/statics/AdminLTE/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="/statics/bootstrap/dist/css/ionicons.min.css">
-{#    <link rel="stylesheet" href="/statics/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.css">#}
-{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">#}
+    {#    <link rel="stylesheet" href="/statics/AdminLTE/plugins/jvectormap/jquery-jvectormap-1.2.2.css">#}
+    {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">#}
     <link rel="stylesheet" href="/statics/AdminLTE/dist/css/skins/skin-blue.min.css">
     {% block admin-head %}
     {% endblock %}
+
+    <link rel="stylesheet" id="crayon-css" href="/statics/editor/css/editormd.css" type="text/css" media="all">
+    <link rel="stylesheet" id="crayon-css" href="/statics/editor/css/editormd.css" type="text/css" media="all">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -24,7 +27,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="{% url 'Earth.views.blog_admin' %}" class="logo">
+        <a href="{% url 'admin' %}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
@@ -177,7 +180,7 @@
                                 </div>
                                 <div class="pull-right">
                                     {#                                    <a href="{% url 'django.contrib.auth.views.logout' %}"#}
-                                    <a href="{% url 'Earth.views.acc_logout' %}"
+                                    <a href="{% url 'logout' %}"
                                        class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
@@ -213,7 +216,7 @@
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
+                    <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
               </span>
@@ -386,9 +389,25 @@
 <script src="/statics/bootstrap/js/bootstrap.min.js"></script>
 <script src="/statics/AdminLTE/dist/js/app.min.js"></script>
 <script src="/statics/AdminLTE/dist/js/demo.js"></script>
+<script src="/statics/editor/editormd.min.js"></script>
 <script>
 </script>
+
+
 {% block admin-js %}
 {% endblock %}
+{% block js %}
+    <script type="text/javascript">
+    //    调用编辑器
+    var testEditor;
+    $(function () {
+        testEditor = editormd("test-editormd", {
+            width: "1000px",
+            height: 640,
+            syncScrolling: "single",
+            path: "/statics/editor/css/editormd/lib/"
+        });
+    });
+{% endblock %}
 </body>
-</html>
+< /html>

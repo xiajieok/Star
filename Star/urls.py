@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^$', Earth.index),
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('Earth.urls')),
-    url(r'^cmdb/', include('Moon.urls')),
+
     url(r'^login/', Earth.acc_login, name='login'),
     url(r'^logout/', Earth.acc_logout, name='logout'),
     # url(r'^archives/$', Earth.archives, name='archives'),
