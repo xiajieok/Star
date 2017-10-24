@@ -1,4 +1,4 @@
-{% extends './blog/index.html' %}
+{% extends './index.html' %}
 {% load custom %}
 
 {% block about %}
@@ -98,11 +98,11 @@
     <script>
         //获取标签
         function Tags(obj) {
-            $.get("/blog/side/", {name: 'tag'}, function (data) {
+            $.get("/side/", {name: 'tag'}, function (data) {
                 var tmp = JSON.parse(data);
                 for (let i = 0; i < tmp.length; i++) {
                     var tag = tmp[i].name;
-                    html = '<a href="/blog/tags/' + tag + '/" class="tag-link-43" title="6个话题" style="color:#1270d6;font-size: 12.06976744186pt;">' + tag + '</a>'
+                    html = '<a href="/tags/' + tag + '/" class="tag-link-43" title="6个话题" style="color:#1270d6;font-size: 12.06976744186pt;">' + tag + '</a>'
                     $('.tagcloud').append(html);
                 }
             });
@@ -111,14 +111,14 @@
 
         //获取版块
         function Category(obj) {
-            $.get("/blog/side/", {name: 'category'}, function (data) {
+            $.get("/side/", {name: 'category'}, function (data) {
                 var tmp = JSON.parse(data);
                 for (let i = 0; i < tmp.length; i++) {
                     var category_name = tmp[i].name;
                     var category_alias = tmp[i].alias;
-                    html = ' <li><a href="/blog/category/' + category_name + '">' + category_alias + '</a></li> '
+                    html = ' <li><a href="/category/' + category_name + '">' + category_alias + '</a></li> '
                     $("#nav_head").append(html);
-                    side = ' <li class="cat-item cat-item-313"><a href="/blog/category/' + category_name + '>' + category_alias + '</a> </li>'
+                    side = ' <li class="cat-item cat-item-313"><a href="/category/' + category_name + '>' + category_alias + '</a> </li>'
                     $("#side_category").append(html);
 
 

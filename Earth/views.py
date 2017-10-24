@@ -24,7 +24,7 @@ def acc_login(request):
         if user is not None:
             # pass authentication
             login(request, user)
-            return HttpResponseRedirect(request.GET.get('next') or '/blog')
+            return HttpResponseRedirect(request.GET.get('next') or '/')
         else:
             login_err = "Wrong username or password!"
             print('---else request-->', request)
@@ -72,11 +72,11 @@ def index(request):
     # blog_all = models.Article.objects.all()
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
-    tag_obj = models.Tag.objects.values().all()
+    # tag_obj = models.Tag.objects.values().all()
     category_obj = models.Category.objects.values().all().exclude(name='About')
     return render(request, 'blog/index.html',
-                  {'posts': posts, 'page': True, 'about_obj': about_obj, 'category_obj': category_obj,
-                   'tag_obj': tag_obj})
+                  {'posts': posts, 'page': True, 'about_obj': about_obj,
+                   })
 
 
 def side(request):
@@ -84,9 +84,11 @@ def side(request):
     print(request)
     if res == 'tag':
         obj = models.Tag.objects.values().all()
-    else:
+    elif res == 'category':
         obj = models.Category.objects.values().all()
         # print(obj)
+    else:
+        obj = models.About.objects.values()
 
     data = list(obj)
     data = json.dumps(data)
