@@ -3,30 +3,30 @@
     <h2>{% if is_new %}New article{% else %}Edit article{% endif %}</h2>
 {% endblock %}
 {% block admin-content %}
-    <div class="col-md-13" style="margin: 0 auto">
+    <div class="col-md-15" style="margin: 0 auto">
         {% if is_new %}
             <form enctype="multipart/form-data" method="post">{% csrf_token %}
-                <div class="col-md-11" style="margin: 0 auto">
-                    <p style="width: 819px;margin:0 auto">
+                <div class="col-md-15" style="margin: 0 auto">
+                    <p style="width: 874px;margin:0 auto">
                         <button type="submit" class="save btn btn-success " style="float: right;">
                             Save
                         </button>
-                        <select name='category_id' class="form-control" style="width: 100px">
+                        <select name='category_id' class="form-control" style="width: 100px;display: inline;">
                             {% for item in category_list %}
                                 <option value="{{ item.id }}">{{ item.name }}</option>
                             {% endfor %}
                         </select>
-                        <select name='tags_id' class="form-control" style="width: 100px">
+                        <select name='tags_id' class="form-control" style="width: 100px;display: inline;">
                             {% for item in tags_list %}
                                 <option value="{{ item.id }}">{{ item.name }}</option>
                             {% endfor %}
                         </select>
                     </p>
 
-                    <p style="width: 819px;margin:0 auto">
+                    <p style="width: 874px;margin:0 auto">
                         <input name="title" type="text" class="form-control" placeholder="文章标题">
                     </p>
-                    <p style="width: 819px;margin:0 auto">
+                    <p style="width: 874px;margin:0 auto">
 
                         <input name="brief" type="text" class="form-control" placeholder="文章简介">
                     </p>

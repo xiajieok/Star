@@ -2,49 +2,52 @@
 {% load custom %}
 {% block admin-content %}
     <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    box-header
-                </div>
-                <div class="box-body">
-                    {% include 'blog/table.html' %}
-                </div>
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <p>博客列表</p>
+            </div>
 
+            <div class="box-body">
+                {% include 'blog/table.html' %}
             </div>
-            <button  class="btn btn-success pull-left" onclick="window.location.href='{% url 'new' %}'">New Article</button>
-            <div>
-                <nav>
-                    <ul class="pagination">
-                        {% if posts.has_previous %}
-                            <li class="">
-                                <a href="?page={{ posts.previous_page_number }}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                        {% for page_num in posts.paginator.page_range %}
-                            {% guess_page posts.number page_num %}
-                        {% endfor %}
-                        {% if posts.has_next %}
-                            <li class="">
-                                <a href="?page={{ posts.next_page_number }}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </nav>
-            </div>
+
         </div>
-
+        <div>
+            <button class="btn btn-success pull-left" onclick="window.location.href='{% url 'new' %}'"
+                    style="float: right">New Article
+            </button>
+        </div>
+        <div style="float: right;margin-top: -20px;">
+            <nav>
+                <ul class="pagination">
+                    {% if posts.has_previous %}
+                        <li class="">
+                            <a href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for page_num in posts.paginator.page_range %}
+                        {% guess_page posts.number page_num %}
+                    {% endfor %}
+                    {% if posts.has_next %}
+                        <li class="">
+                            <a href="?page={{ posts.next_page_number }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
     </div>
 {% endblock %}
 
 {% block admin-js %}
     <script>
         function Remove_td(ths, id) {
-            val_td = id;
+            var val_td = id;
             console.log(val_td);
             $('#tb').html("");
             $.ajax({
@@ -55,10 +58,7 @@
                     $("#tb").html(data);
                 }
             });
-
         }
-    </script>
-    <script>
         function Publish_td(ths, id) {
             var val_td = id;
             console.log(val_td);

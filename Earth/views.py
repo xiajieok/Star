@@ -166,6 +166,13 @@ def blog_remove(request, pk):
     posts = pages(request, blog_all)
     return render(request, 'blog/table.html', {'posts': posts})
 
+def blog_publishd(request,pk):
+
+
+    pass
+
+
+
 
 @login_required
 def blog_admin(request):
@@ -212,26 +219,6 @@ def blog_edit(request, pk):
         print('sss', s)
         obj = models.Article.objects.filter(id=pk).update(md=md, content=content)
         print(obj)
-
-        # 不知道咋回事,反正就是category_id必须手动加进去
-
-        # form_data['category_id'] = request.user.userprofile.id
-        # new_img_path = handle_uploaded_file(request,request.FILES['head_img'])
-        # print('---->',form_data)
-        # print('---->',new_img_path)
-        # form_data['head_img'] = new_img_path
-        # new_article_obj = models.Article(**form_data)
-        # print('---------->',form)
-        # print('判断form')
-        # if form.is_valid():
-        # post = form.save(commit=False)
-        # print('表单正常')
-        # post.text = request.POST.get('text')
-        # post.author = request.user
-        # print('开始保存')
-
-        # return render(request,'blog/admin.html')
-        # print('ok')
         '''
         保存成功后跳转到详情页
         '''

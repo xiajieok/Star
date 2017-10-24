@@ -2,6 +2,7 @@
 {% block head_css %}
 
 {% endblock %}
+{% load custom %}
 {% block blog-title %}
     Medivh' blog ...
 {% endblock %}
@@ -78,7 +79,29 @@
         </div>
 
     {% endfor %}
-
+           <div style="float: right;margin-top: -20px;">
+            <nav>
+                <ul class="pagination">
+                    {% if posts.has_previous %}
+                        <li class="">
+                            <a href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for page_num in posts.paginator.page_range %}
+                        {% guess_page posts.number page_num %}
+                    {% endfor %}
+                    {% if posts.has_next %}
+                        <li class="">
+                            <a href="?page={{ posts.next_page_number }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
 
 {% endblock %}
 {% block js %}
