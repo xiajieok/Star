@@ -74,7 +74,7 @@ def index(request):
     about_obj = models.About.objects.values().all()
     # tag_obj = models.Tag.objects.values().all()
     category_obj = models.Category.objects.values().all().exclude(name='About')
-    return render(request, 'blog/index.html',
+    return render(request, 'index.html',
                   {'posts': posts, 'page': True, 'about_obj': about_obj,
                    })
 
@@ -89,6 +89,7 @@ def side(request):
         # print(obj)
     else:
         obj = models.About.objects.values()
+        print(obj)
 
     data = list(obj)
     data = json.dumps(data)
@@ -103,7 +104,7 @@ def post_detail(request, pk):
     about_obj = models.About.objects.values().all()
     tag_obj = models.Tag.objects.values().all()
     category_obj = models.Category.objects.values().all()
-    return render(request, 'blog/post_detail.html',
+    return render(request, 'front/post_detail.html',
                   {'post': post, 'is_post': True, 'about_obj': about_obj, 'category_obj': category_obj,
                    'tag_obj': tag_obj})
 
@@ -145,7 +146,7 @@ def blog_new(request):
         category_list = models.Category.objects.all()
         tags_list = models.Tag.objects.all()
         # print('这里是get的form',form)
-    return render(request, 'blog/blog_edit.html',
+    return render(request, 'admin/blog_edit.html',
                   {'new_article': new_article, 'category_list': category_list, 'tags_list': tags_list, 'is_new': True})
 
 
@@ -156,7 +157,7 @@ def blog_publish(request, pk):
     # return redirect('Earth.views.post_detail', pk=pk)
     blog_all = models.Article.objects.filter(published_date__isnull=True).order_by('-created_date')
     posts = pages(request, blog_all)
-    return render(request, 'blog/table.html', {'posts': posts})
+    return render(request, 'admin/table.html', {'posts': posts})
 
 
 @login_required
@@ -166,19 +167,25 @@ def blog_remove(request, pk):
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
             '-published_date')
     posts = pages(request, blog_all)
-    return render(request, 'blog/table.html', {'posts': posts})
-
-def blog_publishd(request,pk):
+    return render(request, 'admin/table.html', {'posts': posts})
 
 
-    pass
+def edit(request):
+    print(request.POST)
+    res = request.POST.get('type')
+    name = request.POST.get('name')
+    if res == 'cg':
+        alias = request.POST.get('alias')
+        models.Category.objects.create(name=name, alias=alias)
+    else:
+        models.Tag.objects.create(name=request.POST.get('name'))
 
-
+    return HttpResponse(True)
 
 
 @login_required
 def blog_admin(request):
-    return render(request, 'blog/blog_list.html')
+    return render(request, 'admin/blog_list.html')
 
 
 @login_required
@@ -191,7 +198,7 @@ def blog_list(request):
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
             '-published_date')
     posts = pages(request, blog_all)
-    return render(request, 'blog/blog_list.html', {'posts': posts, 'page': True, 'is_list': True})
+    return render(request, 'admin/blog_list.html', {'posts': posts, 'page': True, 'is_list': True})
 
 
 @login_required
@@ -203,7 +210,7 @@ def blog_drafts(request):
     '''
     blog_all = models.Article.objects.filter(published_date__isnull=True).order_by('-created_date')
     posts = pages(request, blog_all)
-    return render(request, 'blog/blog_list.html', {'posts': posts, 'page': True})
+    return render(request, 'admin/blog_list.html', {'posts': posts, 'page': True})
 
 
 @login_required
@@ -237,7 +244,7 @@ def blog_edit(request, pk):
         ar = models.Article.objects.filter(id=pk).values('md')
         print('ar', ar)
 
-        return render(request, 'blog/blog_edit.html',
+        return render(request, 'admin/blog_edit.html',
                       {'edit_article': ar})
 
 
@@ -253,7 +260,7 @@ def archives(request, y, m):
     # for i in posts_ar:
     #     print(i.published_date)
     # print(posts_ar.query)
-    return render(request, 'blog/post_list.html',
+    return render(request, 'front/post_list.html',
                   {'posts_ar': posts_ar, 'list_header': '{0}年{1}月'.format(y, m)})
 
 
@@ -284,7 +291,7 @@ def admin_category(request):
         category_obj = models.Category.objects.all()
         # print('-->', category_obj)
         # posts = pages(request, blog_all)
-        return render(request, 'blog/category_list.html',
+        return render(request, 'admin/category_list.html',
                       {'category_obj': category_obj, 'category_from': category_from})
 
 
@@ -295,7 +302,7 @@ def post_list_by_category(request, cg):
             'category').order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
-    return render(request, 'blog/index.html',
+    return render(request, 'index.html',
                   {'posts': posts, 'list_header': '\'{}\' 分类的存档'.format(cg)})
 
 
@@ -305,7 +312,7 @@ def blog_category_del(request, pk):
     post.delete()
     category_obj = models.Category.objects.all()
     # posts = pages(request, blog_all)
-    return render(request, 'blog/table_category.html', {'category_obj': category_obj})
+    return render(request, 'admin/table_category.html', {'category_obj': category_obj})
 
 
 @login_required
@@ -324,13 +331,13 @@ def about(request):
         about_obj = AboutFrom(instance=post)
         # about_obj = models.About.objects.all()
         print(about_obj)
-        return render(request, 'blog/blog_about.html', {'about_obj': about_obj, 'is_about': True})
+        return render(request, 'admin/blog_about.html', {'about_obj': about_obj, 'is_about': True})
 
 
 def contact(request):
     contact = models.About.objects.filter(id=2)
     about_obj = models.About.objects.filter(id=1)
-    return render(request, 'blog/post_detail.html',
+    return render(request, 'front/post_detail.html',
                   {'about_obj': about_obj, 'contact': contact})
 
 
@@ -352,7 +359,7 @@ def contact_edit(request):
         # print(about_obj.content)
         about_obj = models.About.objects.filter(id=1)
 
-        return render(request, 'blog/blog_about.html', {'contact_obj': contact_obj, 'about_obj': about_obj})
+        return render(request, 'admin/blog_about.html', {'contact_obj': contact_obj, 'about_obj': about_obj})
 
 
 def category(request, arg):
@@ -365,7 +372,7 @@ def category(request, arg):
     about_obj = models.About.objects.values().all()
     tag_obj = models.Tag.objects.values().all()
     category_obj = models.Category.objects.values().all()
-    return render(request, 'blog/index.html',
+    return render(request, 'index.html',
                   {'posts': posts, 'is_post': True, 'about_obj': about_obj, 'category_obj': category_obj,
                    'tag_obj': tag_obj})
 
@@ -379,6 +386,25 @@ def tags(request, tag):
     about_obj = models.About.objects.values().all()
     tag_obj = models.Tag.objects.values().all()
     category_obj = models.Category.objects.values().all()
-    return render(request, 'blog/index.html',
+    return render(request, 'index.html',
                   {'posts': posts, 'is_post': True, 'about_obj': about_obj, 'category_obj': category_obj,
                    'tag_obj': tag_obj})
+
+
+def robot(request):
+    data = {'title': request.POST.get('title'),
+            'brief': request.POST.get('brief'),
+            'content': request.POST.get('article'),
+            'copyright': request.POST.get('copyright'),
+            'reprinted': request.POST.get('reprinted'),
+            'author_id': '1', 'category_id': '1', 'tags_id': '5'
+            }
+    # print(request.POST)
+    models.Article.objects.create(**data).publish()
+    # print('这里是post的request', request.POST)
+    # title = res.title
+    # print(title)
+    # models.Article.objects.create(**res)
+
+
+    return HttpResponse('ok')

@@ -1,0 +1,38 @@
+{% extends 'admin/admin.html' %}
+{% block admin-content-header %}
+{% endblock %}
+{% block admin-content %}
+    <div style="margin-bottom: 40px" id="edit">
+        <div>
+            <form enctype="multipart/form-data" method="post">{% csrf_token %}
+                {% if is_about %}
+                    {{ about_obj.as_p }}
+                {% else %}
+                    {{ contact_obj.as_p }}
+                {% endif %}
+                <button type="submit" class="save btn btn-success " style="float: right;margin-bottom: 10px;">Save
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block admin-js %}
+    <script src="/statics/plugin/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            //width: 800,
+            height: 300,
+            forced_root_block: false,
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor sh4tinymce upload",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter" +
+            " alignright alignjustify | bullist numlist outdent indent | preview link image sh4tinymce"
+        });
+    </script>
+
+{% endblock %}
+

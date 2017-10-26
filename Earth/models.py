@@ -11,7 +11,7 @@ class Tag(models.Model):
         verbose_name = '标签'
         verbose_name_plural = '标签'
 
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40,unique=True)
 
     def __str__(self):
         return self.name
@@ -23,8 +23,8 @@ class Category(models.Model):
         verbose_name = '分类目录'
         verbose_name_plural = '分类目录'
 
-    name = models.CharField(max_length=40)
-    alias = models.CharField(max_length=40,default='')
+    name = models.CharField(max_length=40,unique=True)
+    alias = models.CharField(max_length=40)
 
     def __str__(self):
         return self.name
@@ -46,7 +46,8 @@ class Article(models.Model):
                       ('hidden', u"隐藏"),
                       )
     status = models.CharField(choices=status_choices, default='published', max_length=32)
-
+    copyright = models.TextField(default='Medivh')
+    reprinted = models.CharField(default='http://www.mknight.cn',max_length=64)
     def publish(self):
         # self.published_date = timezone.now()
         self.published_date = datetime.now().strftime("%Y-%m-%d %H:%I:%S")

@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^contact/edit/$', views.contact_edit, name='contact_edit'),
     url(r'^about/$', views.about, name='about'),
     url(r'^side/$', views.side, name='side'),
+    url(r'^edit/$', views.side, name='edit'),
 
 
     # url(r'^tag(?P<tag>\w+)/$',views.search_tag,name='search_tag'),

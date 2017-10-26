@@ -40,9 +40,11 @@ urlpatterns = [
     url(r'^contact/edit/$', views.contact_edit, name='contact_edit'),
     url(r'^about/$', views.about, name='about'),
     url(r'^side/$', views.side, name='side'),
+    url(r'^edit/$', views.edit, name='edit'),
 
     url(r'^login/', views.acc_login, name='login'),
     url(r'^logout/', views.acc_logout, name='logout'),
+    url(r'^robot/', views.robot, name='robot'),
 
 
 

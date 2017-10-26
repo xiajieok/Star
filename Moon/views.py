@@ -384,7 +384,7 @@ def index(request):
     users = zabbix().user_get()
     templates = zabbix().template_get()
     events = zabbix().event_get()
-    return render(request, 'blog/dash.html',
+    return render(request, 'admin/dash.html',
                   {'hosts': hosts, 'users': users, 'events': events, 'groups': groups, 'templates': templates})
 
 
