@@ -395,12 +395,13 @@ def robot(request):
     data = {'title': request.POST.get('title'),
             'brief': request.POST.get('brief'),
             'content': request.POST.get('article'),
-            'copyright': request.POST.get('copyright'),
             'reprinted': request.POST.get('reprinted'),
+            'copyright': request.POST.get('copyright'),
+            'published_date': request.POST.get('date'),
             'author_id': '1', 'category_id': '1', 'tags_id': '5'
             }
     # print(request.POST)
-    models.Article.objects.create(**data).publish()
+    models.Article.objects.update_or_create(**data)
     # print('这里是post的request', request.POST)
     # title = res.title
     # print(title)

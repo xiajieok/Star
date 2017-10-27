@@ -28,34 +28,26 @@
             {% if is_post %}
                 <div class="title-article">
                     <h1>{{ post.title }}</h1>
-                    <hr/>
                 </div>
-                <div class="date" style="margin-top: 20px;height: 30px">
-                    posted @
-                    {% if post.published_date %}
-                        {{ post.published_date |date:"Y-m-d H:i:s" }} &nbsp;
-                        {{ post.author }}
-                    {% else %}
-                        {% if user.is_authenticated %}
-                            <a class="btn btn-default"
-                               href="{% url 'Earth.views.post_publish' pk=post.pk %}">Publish</a>
-                        {% endif %}
 
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                        <div style="float: right">
-                            <a class="btn btn-default" href="{% url 'edit' pk=post.pk %}"><span
-                                    class="glyphicon glyphicon-pencil"></span></a>
-                        </div>
-                    {% endif %}
+                <div class="tag-article container">
 
+                  <span class="label label-zan"><i class="fa fa-tags"></i>{{ post.tags }} <a
+                          title="{{ post.title }}" rel="category tag"></a></span>
+{#                    <span class="label label-zan"><i class="fa fa-user"></i> <a#}
+{#                            title="由medivh发布" rel="author">{{ post.author }}</a></span>#}
+                    <span class="label label-zan"><i class="fa fa-calendar"></i> {{ post.published_date|date:"Y-m-d H:i" }}</span>
+
+                    <span class="label label-zan"><i class="fa fa-eye"></i> 1,167 views</span>
                 </div>
+                <hr/>
+
                 <div style="margin: 30px 0 60px 0 ;" class="centent-article">
-                    <blockquote><p>{{ post.reprinted }}</p></blockquote>
-                    <blockquote><p>简介: {{ post.brief }}</p></blockquote>
+                    <blockquote>
+                        <p>转载: {{ post.reprinted }} </p>
+                        <p>简介: {{ post.brief }}</p></blockquote>
                     <p>{{ post.content |safe }}</p>
                     <hr>
-                    <p>{{ post.copyright |safe }}</p>
                 </div>
             {% else %}
                 <div style="margin-top: 30px">
@@ -67,7 +59,7 @@
             {% endif %}
 
             <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-                <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+                <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
                 <button id="rewardButton" disable="enable"
                         onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
                     <span>赏</span>
@@ -89,7 +81,6 @@
 
                 </div>
             </div>
-            <hr>
         </div>
     </div>
 
@@ -99,6 +90,8 @@
 
 
     <script>
+        //移除无关信息
+        $('')
         //获取标签
         function Tags(obj) {
             $.get("/side/", {name: 'tag'}, function (data) {
@@ -119,9 +112,9 @@
                 for (let i = 0; i < tmp.length; i++) {
                     var category_name = tmp[i].name;
                     var category_alias = tmp[i].alias;
-                    html = ' <li><a href="/category/' + category_name + '">' + category_alias + '</a></li> '
+                    html = ' <li><a href="/category/' + category_name + '/">' + category_alias + '</a></li> '
                     $("#nav_head").append(html);
-                    side = ' <li class="cat-item cat-item-313"><a href="/category/' + category_name + '>' + category_alias + '</a> </li>'
+                    side = ' <li class="cat-item cat-item-313"><a href="/category/' + category_name + '/>' + category_alias + '</a> </li>'
                     $("#side_category").append(html);
 
 

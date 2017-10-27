@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from datetime import datetime
+import django
 
 
 
@@ -31,7 +32,7 @@ class Category(models.Model):
 
 class Article(models.Model):
     author = models.ForeignKey(User)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200,unique=True)
     brief = models.CharField(null=True, blank=True, max_length=255)
     content = models.TextField(u"文章内容")
     md = models.TextField(u"文章内容",default='')
@@ -50,7 +51,7 @@ class Article(models.Model):
     reprinted = models.CharField(default='http://www.mknight.cn',max_length=64)
     def publish(self):
         # self.published_date = timezone.now()
-        self.published_date = datetime.now().strftime("%Y-%m-%d %H:%I:%S")
+        self.published_date = django.util.datetime.now().strftime("%Y-%m-%d %H:%I:%S")
         self.save()
 
     def __str__(self):
