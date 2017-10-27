@@ -51,7 +51,7 @@
             console.log(val_td);
             $('#tb').html("");
             $.ajax({
-                url: "/blog/post/" + val_td + "/remove",
+                url: "/post/" + val_td + "/remove/",
                 type: 'GET',
                 success: function (data) {
                     console.log(data);
@@ -64,7 +64,7 @@
             console.log(val_td);
             $('#tb').html("");
             $.ajax({
-                url: "/blog/post/" + val_td + "/publish",
+                url: "/post/" + val_td + "/publish/",
                 type: 'GET',
                 success: function (data) {
                     console.log(data);

@@ -137,7 +137,7 @@ def blog_new(request):
 
         # post = form.save(commit=False)
         print(new_article_obj)
-        return redirect('/blog/drafts')
+        return redirect('/drafts')
         # else:
         #     print('NO !!!!!!!!!!!!!!!')
     else:
@@ -152,6 +152,7 @@ def blog_new(request):
 
 @login_required
 def blog_publish(request, pk):
+    print(pk)
     post = get_object_or_404(models.Article, pk=pk)
     post.publish()
     # return redirect('Earth.views.post_detail', pk=pk)
