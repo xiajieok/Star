@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>新闻 ◆ 快讯|Linux中国开源社区</title>
+ 
+<meta name="keywords" content="Linux,操作系统,命令,下载,安装,Ubuntu,CentOS" />
+<meta name="description" content="Linux中国是一家创立于2003年的国内开源社区，主要关注方向在 Linux 推广、Linux 技术研究、Linux 业界事件的传播。Linux 中国包括网站、微博、微信和邮件列表等平台。 " />
+<meta name="copyright" content="2005-2017 Linux.cn" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="applicable-device" content="pc,mobile">
+<meta name="referrer" content="always">
+<base href="https://linux.cn/" /><link rel="stylesheet" type="text/css" href="https://dn-linuxcn.qbox.me/data/cache/style_1_common.css?S54" />
+<link rel="stylesheet" type="text/css" href="https://dn-linuxcn.qbox.me/data/cache/style_1_portal_list.css?S54" />
+<link href="https://dn-linuxcn.qbox.me/static/css/responsive.css?S54" rel="stylesheet">
+
+<script type="text/javascript">var STYLEID = '1', STATICURL = 'https://dn-linuxcn.qbox.me/static/', IMGDIR = 'https://dn-linuxcn.qbox.me/static/image/common', VERHASH = 'S54', charset = 'utf-8', discuz_uid = '0', cookiepre = 'dx_516d_', cookiedomain = '.linux.cn', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = '', creditnotice = '1|经验|,2|L币|,3|贡献|', defaultstyle = '', REPORTURL = 'aHR0cDovL2xpbnV4LmNuL25ld3MvaW5kZXgucGhwP3BhZ2U9MQ==', SITEURL = 'https://linux.cn/', JSPATH = 'https://dn-linuxcn.qbox.me/static/js/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
+<script src="https://dn-linuxcn.qbox.me/static/js/common.js?S54" type="text/javascript"></script>
+<script src="https://dn-linuxcn.qbox.me/static/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script src="https://dn-linuxcn.qbox.me/static/js/jquery.plugins.js?S54" type="text/javascript"></script>
+<script src="https://dn-linuxcn.qbox.me/static/js/bootstrap.min.js?S54" type="text/javascript"></script>
+<link rel="alternate" type="application/rss+xml" title="Linux中国开源社区 RSS" href="/rss.xml" />
+<link rel="shortcut icon" href="https://dn-linuxcn.qbox.me/favicon.ico"  sizes="32x32" />
+<script src="https://dn-linuxcn.qbox.me/static/js/portal.js?S54" type="text/javascript"></script>
+</head>
+
+<body id="nv_portal" class="pg_list pg_list_1" onkeydown="if(event.keyCode==27) return false;">
+<div id="append_parent"></div><div id="ajaxwaitid"></div>
+<div id="toptb" class="cl">
+<div class="wp">
+<div class="z"><a href="/rss.xml" target="_blank" >RSS</a><a href="https://linux.cn/rss-digest.xml" >DIGEST</a><a href="/tag/" >TAG</a></div>
+<div class="y">
+<a href="/aboutus.html" >关于我们/aboutus</a><a href="/business.html" >广告合作/AD</a><a href="https://linux.cn/article-8670-1.html" >帮助我们/contribute</a></div>
+</div>
+</div>
+
+
+<div id="hd">
+<div class="wp" style="box-shadow: 1px 1px 2px #666;">
+<h1 id="linuxcn_logo" style="display: block;margin: 24px;padding:0;position: absolute; width: 128px;height: 128px;background-image: url(https://dn-linuxcn.qbox.me/static/image/common/linuxcn_logo_2017.png);"><a href="https://linux.cn/" title="Linux.中国 - 开源社区"><img src="https://dn-linuxcn.qbox.me/static/image/common/linuxcn_logo_2017.png" class="logo_rotate" border="0" style="border-radius: 50%;text-indent: 0px;position: absolute;">
+<img src="https://dn-linuxcn.qbox.me/static/image/common/radio.png" style="border-radius: 50%; -webkit-animation: spin 60s linear infinite; animation: spin 60s linear infinite;transform: rotate(0deg);" /></a><style type="text/css">@-webkit-keyframes spin{100%{-webkit-transform:rotate(360deg);}}@keyframes spin{100%{transform:rotate(360deg);}}</style></h1>
+<div class="hdc cl"><div class="y"><script src="https://dn-linuxcn.qbox.me/static/js/logging.js?S54" type="text/javascript"></script>
+<form method="post" autocomplete="off" id="lsform" action="member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes" onsubmit="pwmd5('ls_password');return lsSubmit();">
+<div class="fastlg cl">
+<span id="return_ls" style="display:none"></span>
+<div class="y pns">
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td><label for="ls_username">帐号</label></td>
+<td><input type="text" name="username" id="ls_username" class="px vm xg1"  value="用户名/Email" onfocus="if(this.value == '用户名/Email'){this.value = '';this.className = 'px vm';}" onblur="if(this.value == ''){this.value = '用户名/Email';this.className = 'px vm xg1';}" tabindex="901" /></td>
+<td class="fastlg_l"><label for="ls_cookietime"><input type="checkbox" name="cookietime" id="ls_cookietime" class="pc" value="2592000" tabindex="903" />自动登录</label></td>
+<td>&nbsp;<a href="javascript:;" onclick="showWindow('login', 'member.php?mod=logging&action=login&viewlostpw=1')">找回密码</a></td>
+</tr>
+<tr>
+<td><label for="ls_password">密码</label></td>
+<td><input type="password" name="password" id="ls_password" class="px vm" autocomplete="off" tabindex="902" /></td>
+<td class="fastlg_l"><button type="submit" class="pn vm" tabindex="904"><em>登录</em></button></td>
+<td>&nbsp;<a href="member.php?mod=knight" class="xi2 xw1">骑士注册</a></td>
+</tr>
+</table>
+<input type="hidden" name="quickforward" value="yes" />
+<input type="hidden" name="handlekey" value="ls" />
+</div>
+
+<div class="fastlg_fm y" style="margin-right: 10px; padding-right: 10px">
+<p><a href="https://linux.cn/connect.php?mod=login&op=init&referer=index.php%3Fpage%3D1&statfrom=login_simple"><img src="https://dn-linuxcn.qbox.me/static/image/common/qq_login.gif" class="vm" alt="QQ登录" /></a></p>
+<p><a href="xwb.php?m=xwbAuth.login"><img src="https://dn-linuxcn.qbox.me/static/image/common/sina_login.gif" class="vm" style="padding: 2px 0;" alt="微博登录" /></a></p>
+</div>
+
+<script>
+try{
+(function(){
+var node = document.getElementById("lsform").firstChild;
+var i = 1;
+while(i < 3 && node.nodeType!=1){
+node=node.nextSibling;
+i++;
+}
+node.style.width = 'auto';
+})();
+}catch(e){}
+</script>
+</div>
+</form>
+
+<script src="https://dn-linuxcn.qbox.me/static/js/md5.js?S54" type="text/javascript" reload="1"></script>
+</div>
+<h2 style="float:right;width: 400px;height: 70px;overflow: hidden;margin: 5px 20px;">
+<div class="linuxcnad">
+    </div>
+</h2>
+</div>
+<div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div><div id="topmenu_wrapper">
+<div id="topmenu">
+<div id="nv">
+<ul><li id="mn_N6666" ><a href="/" hidefocus="true"   style="font-weight: bold;">Linux 中国</a></li><li id="mn_P3" onmouseover="navShow('P3')"><a href="https://linux.cn/tech/" hidefocus="true"   style="color: #FFFAE5;">技术 ◆ 学习</a></li><li id="mn_P1" ><a href="https://linux.cn/news/" hidefocus="true"   style="color: #FFFAE5;">新闻 ◆ 快讯</a></li><li id="mn_P4" onmouseover="navShow('P4')"><a href="https://linux.cn/talk/" hidefocus="true"   style="color: #FFFAE5;">观点 ◆ 热议</a></li><li id="mn_P8" onmouseover="navShow('P8')"><a href="https://linux.cn/share/" hidefocus="true"   style="color: #FFFAE5;">软件 ◆ 分享</a></li><li id="mn_N9be8" onmouseover="navShow('N9be8')"><a href="/forum/" hidefocus="true" target="_blank"   style="color: cyan;">论坛</a></li><li id="mn_N1fa1" ><a href="/lctt/" hidefocus="true" target="_blank"  >LCTT</a></li><li id="mn_Nb6ad" ><a href="https://contribute.linux.cn/" hidefocus="true" target="_blank"   style="color: red;">投稿</a></li></ul>
+</div>
+<div id="mu" class="cl">
+<ul class="cl " id="snav_mn_P3" style="display:none;">
+<li><a href="https://linux.cn/tech/desktop/" hidefocus="true" >桌面应用</a></li><li><a href="https://linux.cn/tech/sa/" hidefocus="true" >系统运维</a></li><li><a href="https://linux.cn/tech/program/" hidefocus="true" >软件开发</a></li><li><a href="https://linux.cn/tech/raspberrypi/" hidefocus="true" >树莓派</a></li><li><a href="https://linux.cn/tech/container/" hidefocus="true" >容器与云</a></li></ul>
+<ul class="cl " id="snav_mn_P4" style="display:none;">
+<li><a href="https://linux.cn/talk/comic/" hidefocus="true" >极客漫画</a></li><li><a href="https://linux.cn/talk/ossip/" hidefocus="true" >开源智慧</a></li></ul>
+<ul class="cl " id="snav_mn_P8" style="display:none;">
+<li><a href="https://linux.cn/share/distro/" hidefocus="true" >Linux 发行版</a></li></ul>
+<ul class="cl " id="snav_mn_N9be8" style="display:none;">
+<li><a href="/thread/" hidefocus="true"  style="color: blue;">全部话题</a></li><li><a href="javascript:showWindow('nav', 'forum.php?mod=misc&action=nav&special=0');" hidefocus="true"  style="color: red;">发新帖</a></li><li><a href="javascript:void();" hidefocus="true" >|</a></li><li><a href="/forum/news/" hidefocus="true" >新闻杂谈</a></li><li><a href="/forum/sa/" hidefocus="true" >系统运维</a></li><li><a href="/forum/program/" hidefocus="true" >编程开发</a></li></ul>
+<ul class="cl " id="snav_mn_N39f5" style="display:none;">
+<li><a href="/space.php" hidefocus="true" >首页</a></li><li><a href="/home.php?mod=space&do=home" hidefocus="true" >动态</a></li><li><a href="/home.php?mod=space&do=doing" hidefocus="true" >记录</a></li><li><a href="/home.php?mod=space&do=blog" hidefocus="true" >博客</a></li><li><a href="/home.php?mod=space&do=album" hidefocus="true" >相册</a></li><li><a href="/home.php?mod=space&do=favorite" hidefocus="true" >收藏</a></li><li><a href="/home.php?mod=space&do=friend" hidefocus="true" >好友</a></li><li><a href="/home.php?mod=spacecp&ac=invite" hidefocus="true" >邀请</a></li></ul>
+<ul class="cl " id="snav_mn_userapp" style="display:none;">
+</ul>
+</div></div>
+</div>
+<div id="scbar" class="cl" >
+<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="search.php?searchsubmit=yes" target="_blank">
+<input type="hidden" name="mod" id="scbar_mod" value="search" />
+<input type="hidden" name="formhash" value="8fb892f0" />
+<input type="hidden" name="srchtype" value="title" />
+<input type="hidden" name="srhfid" value="0" />
+<input type="hidden" name="srhlocality" value="portal::list" />
+<table id="scbar_table" cellspacing="0" cellpadding="0" style="float:right;">
+<tr>
+<td class="scbar_icon_td"></td>
+<td class="scbar_txt_td"><input type="text" name="srchtxt" id="scbar_txt" value="请注册后再搜索" autocomplete="off" speech /></td>
+<td class="scbar_type_td"><a href="javascript:;" id="scbar_type" class="xg1" onclick="showMenu(this.id)" hidefocus="true">搜索</a></td>
+<td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true"><strong class="xi2">搜索</strong></button></td>
+<td class="scbar_hot_td">
+<div id="scbar_hot">
+</div>
+</td>
+</tr>
+</table>
+</form>
+<span class="z titletext" style="padding: 0 10px 0 20px;">❏ <a href="http://locez.com" target="_blank">Locez</a> 新手指南：</span>
+<ul class="cl mutag z">
+<li><a class="hidefocus" hidefocus="true" href="https://linux.cn/article-4130-1.html">下载 Linux »</a></li>
+<li><a class="hidefocus" hidefocus="true" href="https://linux.cn/article-5893-1.html">安装 Linux »</a></li>
+<li><a class="hidefocus" hidefocus="true" href="https://linux.cn/article-6042-1.html">安装软件 »</a></li>
+<li><a class="hidefocus" hidefocus="true" href="https://linux.cn/article-6160-1.html">基础命令 »</a></li>
+
+</ul>
+</div>
+<br class="clear" />
+<ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="search">全站</a></li></ul>
+<script type="text/javascript">
+initSearchmenu('scbar', '');
+</script>
+<script type="text/javascript">
+(function($){
+$(window).load(function() {
+function logo_rotate() {
+var curdate = new Date();
+var minutes = curdate.getHours() * 60 + curdate.getMinutes();
+var r = (360 * (minutes % 720)) / 720;
+
+$('#hd h1 img.logo_rotate')
+.animate({textIndent: r }, {
+    step: function(now,fx) {
+      $(this).css('transform','rotate('+now+'deg)');
+    },
+    duration:'slow'
+});
+$('#hd h1')
+.unbind()
+.mouseout(function() {
+$('#hd h1 img.logo_rotate').animate({textIndent: r }, {
+    step: function(now,fx) {
+      $(this).css('transform','rotate('+now+'deg)');
+    },
+    duration:'slow'
+})
+})
+.mouseover(function() {
+$('#hd h1 img.logo_rotate').animate({textIndent: 0 }, {
+    step: function(now,fx) {
+      $(this).css('transform','rotate('+now+'deg)');
+    },
+    duration:'slow'
+})
+});
+}
+logo_rotate();
+setInterval(logo_rotate,60000);
+/*function logo_radio() {
+var curdate = new Date();
+var seconds = curdate.getSeconds() + curdate.getMilliseconds() / 1000;
+var r = 360 * (seconds / 60);
+$('#logo_radio').css({
+//	'-webkit-transform':'rotate('+r+'deg)',
+//	'-moz-transform':'rotate('+r+'deg)',
+'transform':'rotate('+r+'deg)'});
+}
+setInterval(logo_radio,1000);
+*/
+$("#topmenu").affix({offset : {
+top : $("#topmenu").offset().top,
+bottom: 218}});
+$('#topmenu_wrapper').height($("#topmenu").height());
+$("#topmenu").on('affixed.bs.affix',function() {
+if ($('#linuxcn_logo').is(':visible')) {
+$('#mn_N6666').css({'display': 'block','width': '179px'});
+$('#mn_N6666 a').css({'padding': '0 45px'});
+$(this).css({'padding-left': 0,'width':'1200px'});
+}
+});
+$("#topmenu").on('affixed-top.bs.affix',function() {
+if ($('#linuxcn_logo').is(':visible')) {
+$('#mn_N6666').css({'display': 'none'});
+$(this).css({'padding-left': '180px','width': '1020px'});
+}
+});
+})
+})(jQuery);
+</script>
+
+</div>
+</div>
+<div id="wp" class="wp">
+<div id="pt" class="bm cl">
+<div class="z">
+<a href="./" class="nvhm" title="首页">Linux中国开源社区</a> <em>&rsaquo;</em>新闻 ◆ 快讯</div>
+</div>
+
+<div class="linuxcnad"></div>
+<style id="diy_style" type="text/css">#frame2xkXyX {  border:#cccccc 1px solid !important;margin-top:0px !important;margin-right:0px !important;margin-bottom:5px !important;margin-left:0px !important;}#portal_block_213 {  margin:10px !important;}#frameNg6862 {  margin-top:0px !important;margin-right:0px !important;margin-bottom:5px !important;margin-left:0px !important;border:#cccccc 1px solid !important;}#portal_block_214 .dxb_bc {  margin:0px !important;}#frameJbf9BV {  border:#cccccc 1px solid !important;margin-top:0px !important;margin-right:0px !important;margin-bottom:5px !important;margin-left:0px !important;}#portal_block_296 {  margin-top:15px !important;margin-right:10px !important;margin-bottom:10px !important;margin-left:10px !important;}#portal_block_214 {  margin:5px !important;}#frame45oXJ6 {  background-color:transparent !important;background-image:none !important;}</style>
+<div class="wp">
+<div class="linuxcnad">
+        </div>
+<!--[diy=diy1]--><div id="diy1" class="area"><div id="frame45oXJ6" class="cl_frame_bm frame move-span cl frame-1"><div id="frame45oXJ6_left" class="column frame-1-c"><div id="frame45oXJ6_left_temp" class="move-span temp"></div><div id="portal_block_340" class="block move-span"><div id="portal_block_340_content" class="dxb_bc"><div class="topfocus" ><div class="item">
+         <a href="https://linux.cn/article-8972-1.html" target="_blank"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/17/231759at0c303ddcn750cc.jpeg.large.jpg" alt="Docker 宣布拥抱 Kubernetes"></a>
+         <div class="caption" onclick="window.open('https://linux.cn/article-8972-1.html','_blank');"><a href="https://linux.cn/article-8972-1.html" target="_blank">Docker 宣布拥抱 Kubernetes</a><div class="summary">Hykes 表示，默认的 Swarm 已经限制了 Docker 用户的完整体验，为此，Docker 公司计划提供一个无缝平台，同时支持包含 Swarm 和 Kubernetes 集群的异构部署。</div></div>
+      </div><div class="item">
+         <a href="https://linux.cn/article-8981-1.html" target="_blank"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/20/152554gxcz0o3gzzu0s3gb.jpg.large.jpg" alt="阿里巴巴 AliOS Things 正式开源"></a>
+         <div class="caption" onclick="window.open('https://linux.cn/article-8981-1.html','_blank');"><a href="https://linux.cn/article-8981-1.html" target="_blank">阿里巴巴 AliOS Things 正式开源</a><div class="summary">AliOS 总裁胡晓明谈及他的观点，他认为 AliOS 操作系统不应该仅仅是阿里的操作系统，希望通过把 AliOS 开源，让 OS 变成各行各业大家的 OS</div></div>
+      </div><div class="item">
+         <a href="https://linux.cn/article-8980-1.html" target="_blank"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/19/231242bhki55gchkis1cv5.png.large.jpg" alt="Ubuntu 17.10（AA）发布"></a>
+         <div class="caption" onclick="window.open('https://linux.cn/article-8980-1.html','_blank');"><a href="https://linux.cn/article-8980-1.html" target="_blank">Ubuntu 17.10（AA）发布</a><div class="summary">今天，Canonical 公司发布了 Ubuntu 17.10，这个版本不是 LTS 版本，因此其支持期只有 9 个月，支持到 2018 年 7 月。</div></div>
+      </div><div class="item">
+         <a href="https://linux.cn/article-8924-1.html" target="_blank"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/01/232254qf58x5ufed4uz407.jpg.large.jpg" alt="2700 万美金：阿里巴巴领投 MariaDB"></a>
+         <div class="caption" onclick="window.open('https://linux.cn/article-8924-1.html','_blank');"><a href="https://linux.cn/article-8924-1.html" target="_blank">2700 万美金：阿里巴巴领投 MariaDB</a><div class="summary">据知情人士透露，这家中国的电子商务巨头同意对 MariaDB 领投 2290 万欧元（2700 万美元）</div></div>
+      </div><div class="item">
+         <a href="https://linux.cn/article-8912-1.html" target="_blank"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201709/28/172107tq2qd4lyq2qqy24y.jpg.large.jpg" alt="KDE Plasma 5 已经基本准备好移植到 FreeBSD 了"></a>
+         <div class="caption" onclick="window.open('https://linux.cn/article-8912-1.html','_blank');"><a href="https://linux.cn/article-8912-1.html" target="_blank">KDE Plasma 5 已经基本准备好移植到 FreeBSD 了</a><div class="summary">在距离 Linux 上的 KDE Plasma 5 初次发布已经三年之后，而其对 FreeBSD 的支持正在逐渐成型。</div></div>
+      </div><div class="item">
+         <a href="https://linux.cn/article-8941-1.html" target="_blank"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/08/114802qnyu7knmrfmk5yac.jpg.large.jpg" alt="运行在树莓派和 Arduino 上的开源社交机器人套件"></a>
+         <div class="caption" onclick="window.open('https://linux.cn/article-8941-1.html','_blank');"><a href="https://linux.cn/article-8941-1.html" target="_blank">运行在树莓派和 Arduino 上的开源社交机器人套件</a><div class="summary">Thecorpora 的发布的 “Q.bo One” 机器人基于 RPi 3 和 Arduino，并提供立体相机、麦克风、扬声器，以及视觉和语言识别。</div></div>
+      </div></div> </div></div></div></div></div><!--[/diy]-->
+</div>
+
+<div id="ct" class="ct2 wp cl">
+<div class="mn">
+<div class="linuxcnad"></div>
+<!--[diy=listcontenttop]--><div id="listcontenttop" class="area"></div><!--[/diy]-->
+<div class="bm" style="margin-right:4px;">
+<div class="title frame-title">
+<h1 class="xs2">新闻 ◆ 快讯</h1>
+</div>
+<div class="block"><ul class="article-list leftpic">
+  <li >
+    <h2>
+   	<span class="y cat">
+				    
+</span>
+    <span class="title"><a href="https://linux.cn/article-9004-1.html" style="color:#0A0;" title="PingCAP 推出 TiDB 1.0" target="_blank"><span id="nt_9004">PingCAP 推出 TiDB 1.0</span></a>  <span class="original">原</span>   	</span>
+    </h2>
+    <div><a href="https://linux.cn/article-9004-1.html"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/26/221117lwwl5h9h80kyxgwk.jpg.thumb.jpg"></a></div>
+    <p id="ns_9004">TiDB 是一个开源的分布式混合事务/分析处理 （HTAP） 数据库，它使企业能够使用单个数据库来满足这两个负载。</p>
+    <p class="info">
+    <span class="function">
+        评论：0 
+    分享：0 
+    收藏：0 &nbsp;&nbsp;&nbsp;&nbsp; 
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,'#qrcode', SITEURL + 'article-9004-1-qr.html');" onmouseout="show_qrcode(event,'#qrcode','');"></a><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-9004-1-shareweibo.html','nt_9004','ns_9004') );" class="tsina"></a></span>
+    2017-10-27 08:09 &nbsp;&nbsp;&nbsp;&nbsp;
+    Pingcap, geekpi</p>
+  </li>
+</ul>
+
+<ul class="article-list leftpic">
+  <li >
+    <h2>
+   	<span class="y cat">
+				    
+</span>
+    <span class="title"><a href="https://linux.cn/article-9001-1.html" style="color:#07B;" title="阿里云携手 NVIDIA 拓展人工智能培训计划" target="_blank"><span id="nt_9001">阿里云携手 NVIDIA 拓展人工智能培训计划</span></a>     	</span>
+    </h2>
+    <div><a href="https://linux.cn/article-9001-1.html"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/25/203157qij1j1zggv8vjtt7.jpg.thumb.jpg"></a></div>
+    <p id="ns_9001">在“飞天·智能” 2017 杭州云栖大会期间，阿里云宣布将携手 NVIDIA 提供人工智能培训计划，双方将基于阿里云平台为人工智能领域的开发者、数据科学家和研究人员提供人工智能动手实验培训。  ...</p>
+    <p class="info">
+    <span class="function">
+        评论：0 
+    分享：0 
+    收藏：0 &nbsp;&nbsp;&nbsp;&nbsp; 
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,'#qrcode', SITEURL + 'article-9001-1-qr.html');" onmouseout="show_qrcode(event,'#qrcode','');"></a><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-9001-1-shareweibo.html','nt_9001','ns_9001') );" class="tsina"></a></span>
+    2017-10-25 20:33 &nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+  </li>
+</ul>
+
+<ul class="article-list leftpic">
+  <li >
+    <h2>
+   	<span class="y cat">
+				    
+</span>
+    <span class="title"><a href="https://linux.cn/article-9000-1.html" style="color:#0A0;" title="Ubuntu 18.04 LTS 定名为“仿生河狸”，将于明年 4 月 26 日发布" target="_blank"><span id="nt_9000">Ubuntu 18.04 LTS 定名为“仿生河狸”，将于明年 4 月 26 日发布</span></a>  <span class="original">原</span>   	</span>
+    </h2>
+    <div><a href="https://linux.cn/article-9000-1.html"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/25/003510yue4yc1i4y7yzmfh.jpeg.thumb.jpg"></a></div>
+    <p id="ns_9000">“为纪念这一孜孜不倦的辛劳，这次我们的吉祥物是一个以其精力充沛的态度、勤劳的天性和工程能力而闻名的哺乳动物。同时，我们给它赋予 21 世纪的新精神，以纪念永不停息的 Ubuntu Core 机器人们。女士们、先生们， ...</p>
+    <p class="info">
+    <span class="function">
+        评论：0 
+    分享：0 
+    收藏：0 &nbsp;&nbsp;&nbsp;&nbsp; 
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,'#qrcode', SITEURL + 'article-9000-1-qr.html');" onmouseout="show_qrcode(event,'#qrcode','');"></a><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-9000-1-shareweibo.html','nt_9000','ns_9000') );" class="tsina"></a></span>
+    2017-10-25 00:37 &nbsp;&nbsp;&nbsp;&nbsp;
+    Marius Nestor, wxy</p>
+  </li>
+</ul>
+
+<ul class="article-list leftpic">
+  <li >
+    <h2>
+   	<span class="y cat">
+				    
+</span>
+    <span class="title"><a href="https://linux.cn/article-8981-1.html" style="color:#07B;" title="阿里巴巴 AliOS Things 正式开源" target="_blank"><span id="nt_8981">阿里巴巴 AliOS Things 正式开源</span></a>     	</span>
+    </h2>
+    <div><a href="https://linux.cn/article-8981-1.html"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/20/152554gxcz0o3gzzu0s3gb.jpg.thumb.jpg"></a></div>
+    <p id="ns_8981">AliOS 总裁胡晓明谈及他的观点，他认为 AliOS 操作系统不应该仅仅是阿里的操作系统，希望通过把 AliOS 开源，让 OS 变成各行各业大家的 OS</p>
+    <p class="info">
+    <span class="function">
+        评论：0 
+    分享：0 
+    收藏：0 &nbsp;&nbsp;&nbsp;&nbsp; 
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,'#qrcode', SITEURL + 'article-8981-1-qr.html');" onmouseout="show_qrcode(event,'#qrcode','');"></a><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-8981-1-shareweibo.html','nt_8981','ns_8981') );" class="tsina"></a></span>
+    2017-10-20 15:26 &nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+  </li>
+</ul>
+
+<ul class="article-list leftpic">
+  <li >
+    <h2>
+   	<span class="y cat">
+				    
+</span>
+    <span class="title"><a href="https://linux.cn/article-8980-1.html" style="color:#0A0;" title="Ubuntu 17.10（AA）发布" target="_blank"><span id="nt_8980">Ubuntu 17.10（AA）发布</span></a>  <span class="original">原</span>   	</span>
+    </h2>
+    <div><a href="https://linux.cn/article-8980-1.html"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/19/231242bhki55gchkis1cv5.png.thumb.jpg"></a></div>
+    <p id="ns_8980">今天，Canonical 公司发布了 Ubuntu 17.10，这个版本不是 LTS 版本，因此其支持期只有 9 个月，支持到 2018 年 7 月。</p>
+    <p class="info">
+    <span class="function">
+        评论：0 
+    分享：0 
+    收藏：0 &nbsp;&nbsp;&nbsp;&nbsp; 
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,'#qrcode', SITEURL + 'article-8980-1-qr.html');" onmouseout="show_qrcode(event,'#qrcode','');"></a><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-8980-1-shareweibo.html','nt_8980','ns_8980') );" class="tsina"></a></span>
+    2017-10-20 00:46 &nbsp;&nbsp;&nbsp;&nbsp;
+    Wxy</p>
+  </li>
+</ul>
+
+<ul class="article-list leftpic">
+  <li >
+    <h2>
+   	<span class="y cat">
+				    
+</span>
+    <span class="title"><a href="https://linux.cn/article-8979-1.html" style="color:#07B;" title="飞天专有云敏捷版 2.0，容器引领新一代敏捷革命" target="_blank"><span id="nt_8979">飞天专有云敏捷版 2.0，容器引领新一代敏捷革命</span></a>     	</span>
+    </h2>
+    <div><a href="https://linux.cn/article-8979-1.html"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/19/213526eyczj04ccczgkj7l.png.thumb.jpg"></a></div>
+    <p id="ns_8979">飞天专有云敏捷版（简称敏捷版）是企业级容器应用平台，可以在用户自有数据中心的物理机和已有 IaaS 环境中部署。敏捷版包含从容器应用的构建到运行的全生命周期管理，并且提供开放的接口，为客户提供敏捷、弹性、开 ...</p>
+    <p class="info">
+    <span class="function">
+        评论：0 
+    分享：0 
+    收藏：0 &nbsp;&nbsp;&nbsp;&nbsp; 
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,'#qrcode', SITEURL + 'article-8979-1-qr.html');" onmouseout="show_qrcode(event,'#qrcode','');"></a><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-8979-1-shareweibo.html','nt_8979','ns_8979') );" class="tsina"></a></span>
+    2017-10-19 21:41 &nbsp;&nbsp;&nbsp;&nbsp;
+    阿里云</p>
+  </li>
+</ul>
+
+<ul class="article-list leftpic">
+  <li >
+    <h2>
+   	<span class="y cat">
+				    
+</span>
+    <span class="title"><a href="https://linux.cn/article-8978-1.html" style="color:#0A0;" title="OpenMessaging：构建一个分布式消息分发的开放标准" target="_blank"><span id="nt_8978">OpenMessaging：构建一个分布式消息分发的开放标准</span></a>  <span class="original">原</span>   	</span>
+    </h2>
+    <div><a href="https://linux.cn/article-8978-1.html"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/19/185250rw8xo3kmtp5bb323.jpg.thumb.jpg"></a></div>
+    <p id="ns_8978">OpenMessaging 社区的目标是为分布式消息分发创建全球采用的、供应商中立的和开放标准，可以部署在云端、内部和混合云情景中。</p>
+    <p class="info">
+    <span class="function">
+        评论：0 
+    分享：0 
+    收藏：0 &nbsp;&nbsp;&nbsp;&nbsp; 
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,'#qrcode', SITEURL + 'article-8978-1-qr.html');" onmouseout="show_qrcode(event,'#qrcode','');"></a><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-8978-1-shareweibo.html','nt_8978','ns_8978') );" class="tsina"></a></span>
+    2017-10-19 18:51 &nbsp;&nbsp;&nbsp;&nbsp;
+    Mike Dolan, geekpi</p>
+  </li>
+</ul>
+
+<ul class="article-list leftpic">
+  <li >
+    <h2>
+   	<span class="y cat">
+				    
+</span>
+    <span class="title"><a href="https://linux.cn/article-8972-1.html" style="color:#07B;" title="Docker 宣布拥抱 Kubernetes" target="_blank"><span id="nt_8972">Docker 宣布拥抱 Kubernetes</span></a>     	</span>
+    </h2>
+    <div><a href="https://linux.cn/article-8972-1.html"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/17/231759at0c303ddcn750cc.jpeg.thumb.jpg"></a></div>
+    <p id="ns_8972">Hykes 表示，默认的 Swarm 已经限制了 Docker 用户的完整体验，为此，Docker 公司计划提供一个无缝平台，同时支持包含 Swarm 和 Kubernetes 集群的异构部署。</p>
+    <p class="info">
+    <span class="function">
+        评论：0 
+    分享：0 
+    收藏：1 &nbsp;&nbsp;&nbsp;&nbsp; 
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,'#qrcode', SITEURL + 'article-8972-1-qr.html');" onmouseout="show_qrcode(event,'#qrcode','');"></a><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-8972-1-shareweibo.html','nt_8972','ns_8972') );" class="tsina"></a></span>
+    2017-10-17 23:23 &nbsp;&nbsp;&nbsp;&nbsp;
+    南方</p>
+  </li>
+</ul>
+
+<ul class="article-list leftpic">
+  <li >
+    <h2>
+   	<span class="y cat">
+				    
+</span>
+    <span class="title"><a href="https://linux.cn/article-8964-1.html" style="color:#0A0;" title="见多识广的人工智能比你认识更多的 XXX 明星" target="_blank"><span id="nt_8964">见多识广的人工智能比你认识更多的 XXX 明星</span></a>  <span class="original">原</span>   	</span>
+    </h2>
+    <div><a href="https://linux.cn/article-8964-1.html"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/15/225517vmzpzkf3efpuifsz.jpeg.thumb.jpg"></a></div>
+    <p id="ns_8964">你有没有想过，之所以能够根据自己不同兴趣的组合搜索到需要的视频，是因为有那些每日浏览无数视频内容且对它们进行分类和标记的可怜人存在，然而这些看不见的英雄们却在人工智能面前变得英雄无用武之地。 ...</p>
+    <p class="info">
+    <span class="function">
+        评论：0 
+    分享：0 
+    收藏：0 &nbsp;&nbsp;&nbsp;&nbsp; 
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,'#qrcode', SITEURL + 'article-8964-1-qr.html');" onmouseout="show_qrcode(event,'#qrcode','');"></a><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-8964-1-shareweibo.html','nt_8964','ns_8964') );" class="tsina"></a></span>
+    2017-10-15 22:56 &nbsp;&nbsp;&nbsp;&nbsp;
+    Mix, dongfengweixiao</p>
+  </li>
+</ul>
+
+<ul class="article-list leftpic">
+  <li >
+    <h2>
+   	<span class="y cat">
+				    
+</span>
+    <span class="title"><a href="https://linux.cn/article-8959-1.html" style="color:#07B;" title="阿里云发布 Elasticsearch 云服务" target="_blank"><span id="nt_8959">阿里云发布 Elasticsearch 云服务</span></a>     	</span>
+    </h2>
+    <div><a href="https://linux.cn/article-8959-1.html"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201710/14/132515nu2j44g44g4axrrg.jpg.thumb.jpg"></a></div>
+    <p id="ns_8959">Elasticsearch 是基于 Apache Lucene 的搜索和分析引擎，是现阶段最受欢迎的开源软件之一。目前已经超过了 1.4 亿次下载，广泛应用于日志分析、安全业务分析、全文检索等领域。 ...</p>
+    <p class="info">
+    <span class="function">
+        评论：0 
+    分享：0 
+    收藏：0 &nbsp;&nbsp;&nbsp;&nbsp; 
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,'#qrcode', SITEURL + 'article-8959-1-qr.html');" onmouseout="show_qrcode(event,'#qrcode','');"></a><a title="分享到新浪微博" href="javascript:void( share_tsina(SITEURL + 'article-8959-1-shareweibo.html','nt_8959','ns_8959') );" class="tsina"></a></span>
+    2017-10-14 13:27 &nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+  </li>
+</ul>
+
+</div>
+<!--[diy=listloopbottom]--><div id="listloopbottom" class="area"></div><!--[/diy]-->
+</div>
+<div class="linuxcnad"></div>
+<div class="pgs cl y"><div class="pg"><strong>1</strong><a href="https://linux.cn/news/index.php?page=2">2</a><a href="https://linux.cn/news/index.php?page=3">3</a><a href="https://linux.cn/news/index.php?page=4">4</a><a href="https://linux.cn/news/index.php?page=5">5</a><a href="https://linux.cn/news/index.php?page=6">6</a><a href="https://linux.cn/news/index.php?page=7">7</a><a href="https://linux.cn/news/index.php?page=8">8</a><a href="https://linux.cn/news/index.php?page=9">9</a><a href="https://linux.cn/news/index.php?page=10">10</a><a href="https://linux.cn/news/index.php?page=296" class="last">... 296</a><label><input type="text" name="custompage" class="px" size="2" title="输入页码，按回车快速跳转" value="1" onkeydown="if(event.keyCode==13) {window.location='https://linux.cn/news/index.php?page='+this.value;; doane(event);}" /><span title="共 296 页"> / 296 页</span></label><a href="https://linux.cn/news/index.php?page=2" class="nxt">下一页</a></div></div><!--[diy=diycontentbottom]--><div id="diycontentbottom" class="area"></div><!--[/diy]-->
+
+</div>
+<div class="sd pph">
+<div class="linuxcnad"><div class="hm"><a href="https://linux.cn/go/nw4p" target="_blank"><img src="https://dn-linuxcn.qbox.me/data/attachment/album/201611/03/171054m07fnz0qpn3f802m.png" width="100%" border="0"></a></div></div>
+<div class="drag">
+<!--[diy=diyrighttop]--><div id="diyrighttop" class="area"></div><!--[/diy]-->
+</div>
+
+<div class="drag">
+<!--[diy=diy2]--><div id="diy2" class="area"><div id="frameNg6862" class=" frame move-span cl frame-1"><div class="title frame-title"><span class="titletext">最新标签</span></div><div id="frameNg6862_left" class="column frame-1-c"><div id="frameNg6862_left_temp" class="move-span temp"></div><div id="portal_block_214" class="block move-span"><div id="portal_block_214_content" class="dxb_bc"><ul class="cl mutag z"><li><a class="hidefocus" hidefocus="true" href="tag-TiDB.html" target="_blank">TiDB</a></li><li><a class="hidefocus" hidefocus="true" href="tag-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB.html" target="_blank">人脸识别</a></li><li><a class="hidefocus" hidefocus="true" href="tag-%E5%B9%B6%E5%8F%91.html" target="_blank">并发</a></li><li><a class="hidefocus" hidefocus="true" href="tag-NVIDIA.html" target="_blank">NVIDIA</a></li><li><a class="hidefocus" hidefocus="true" href="tag-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0.html" target="_blank">深度学习</a></li><li><a class="hidefocus" hidefocus="true" href="tag-%E9%98%BF%E9%87%8C%E4%BA%91.html" target="_blank">阿里云</a></li><li><a class="hidefocus" hidefocus="true" href="tag-vim.html" target="_blank">vim</a></li><li><a class="hidefocus" hidefocus="true" href="tag-Ubuntu.html" target="_blank">Ubuntu</a></li><li><a class="hidefocus" hidefocus="true" href="tag-Linux.html" target="_blank">Linux</a></li><li><a class="hidefocus" hidefocus="true" href="tag-%E5%8E%86%E5%8F%B2.html" target="_blank">历史</a></li></ul></div></div></div></div><div id="frame2xkXyX" class="cl_frame_bm frame move-span cl frame-1"><div class="frame-title title"><span class="titletext">热门评论</span></div><div id="frame2xkXyX_left" class="column frame-1-c"><div id="frame2xkXyX_left_temp" class="move-span temp"></div><div id="portal_block_213" class="block move-span"><div id="portal_block_213_content" class="dxb_bc"><dl class="cl" id="hotrep"><dd class="ptm"><blockquote class="replist">我准备好了，就差一辆房车了</blockquote></dd>
+<dt class="bbda">
+ <span class="y xw0 xi2 opt">
+  [<a href="portal.php?mod=portalcp&ac=comment&op=reply&cid=46779&aid=8961&idtype=aid&noticeid=1" onclick="showWindow('comment',this.href,'get',0)">回复</a>
+  <a onclick="ajaxmenu(this, 3000, 0, 0, '43', '');return false;" href="forum.php?mod=misc&action=postreview&do=support&idtype=aid&tid=8961&pid=46779&fromportal=1" class="replyadd">赞 <span id="review_support_46779">35</span></a>]
+</span>
+<span>↳《<a class="xi2" href="https://linux.cn/article-8961-1.html" target="_blank">Hello, World！我的房车编程生活，已经 150 天了</a>》</span>
+</dt><dd class="ptm"><blockquote class="replist">好长的文章，不过可以慢慢跟着做，要是有国内的数据源就好了...</blockquote></dd>
+<dt class="bbda">
+ <span class="y xw0 xi2 opt">
+  [<a href="portal.php?mod=portalcp&ac=comment&op=reply&cid=46780&aid=8987&idtype=aid&noticeid=1" onclick="showWindow('comment',this.href,'get',0)">回复</a>
+  <a onclick="ajaxmenu(this, 3000, 0, 0, '43', '');return false;" href="forum.php?mod=misc&action=postreview&do=support&idtype=aid&tid=8987&pid=46780&fromportal=1" class="replyadd">赞 <span id="review_support_46780">6</span></a>]
+</span>
+<span>↳《<a class="xi2" href="https://linux.cn/article-8987-1.html" target="_blank">构建你的数据科学作品集：用数据讲故事</a>》</span>
+</dt><dd class="ptm"><blockquote class="replist">然而，流氓终究是流氓！</blockquote></dd>
+<dt class="bbda">
+ <span class="y xw0 xi2 opt">
+  [<a href="portal.php?mod=portalcp&ac=comment&op=reply&cid=46778&aid=8956&idtype=aid&noticeid=1" onclick="showWindow('comment',this.href,'get',0)">回复</a>
+  <a onclick="ajaxmenu(this, 3000, 0, 0, '43', '');return false;" href="forum.php?mod=misc&action=postreview&do=support&idtype=aid&tid=8956&pid=46778&fromportal=1" class="replyadd">赞 <span id="review_support_46778">14</span></a>]
+</span>
+<span>↳《<a class="xi2" href="https://linux.cn/article-8956-1.html" target="_blank">阿里云李津：三年内，阿里云成为世界云计算两极之一</a>》</span>
+</dt><dd class="ptm"><blockquote class="replist">学习的快乐！</blockquote></dd>
+<dt class="bbda">
+ <span class="y xw0 xi2 opt">
+  [<a href="portal.php?mod=portalcp&ac=comment&op=reply&cid=46771&aid=8934&idtype=aid&noticeid=1" onclick="showWindow('comment',this.href,'get',0)">回复</a>
+  <a onclick="ajaxmenu(this, 3000, 0, 0, '43', '');return false;" href="forum.php?mod=misc&action=postreview&do=support&idtype=aid&tid=8934&pid=46771&fromportal=1" class="replyadd">赞 <span id="review_support_46771">18</span></a>]
+</span>
+<span>↳《<a class="xi2" href="https://linux.cn/article-8934-1.html" target="_blank">关于 Linux 你可能不是非常了解的七件事</a>》</span>
+</dt><dd class="ptm"><blockquote class="replist">用虚拟机，安装之后，电脑中只剩下一个linux系统？</blockquote></dd>
+<dt class="bbda">
+ <span class="y xw0 xi2 opt">
+  [<a href="portal.php?mod=portalcp&ac=comment&op=reply&cid=46770&aid=5893&idtype=aid&noticeid=1" onclick="showWindow('comment',this.href,'get',0)">回复</a>
+  <a onclick="ajaxmenu(this, 3000, 0, 0, '43', '');return false;" href="forum.php?mod=misc&action=postreview&do=support&idtype=aid&tid=5893&pid=46770&fromportal=1" class="replyadd">赞 <span id="review_support_46770">16</span></a>]
+</span>
+<span>↳《<a class="xi2" href="https://linux.cn/article-5893-1.html" target="_blank">新手指南： 手把手教你安装 Ubuntu 和 Fedora</a>》</span>
+</dt><dd class="ptm"><blockquote class="replist">讲真，要不是chrome的同步有点麻烦，我也能也会选择chrome</blockquote></dd>
+<dt class="bbda">
+ <span class="y xw0 xi2 opt">
+  [<a href="portal.php?mod=portalcp&ac=comment&op=reply&cid=46769&aid=8923&idtype=aid&noticeid=1" onclick="showWindow('comment',this.href,'get',0)">回复</a>
+  <a onclick="ajaxmenu(this, 3000, 0, 0, '43', '');return false;" href="forum.php?mod=misc&action=postreview&do=support&idtype=aid&tid=8923&pid=46769&fromportal=1" class="replyadd">赞 <span id="review_support_46769">11</span></a>]
+</span>
+<span>↳《<a class="xi2" href="https://linux.cn/article-8923-1.html" target="_blank">你应该再给 Firefox 一次机会</a>》</span>
+</dt></dl>
+</div></div></div></div><div id="frameJbf9BV" class="cl_frame_bm frame move-span cl frame-1"><div class="title frame-title"><span class="titletext">热门文章</span></div><div id="frameJbf9BV_left" class="column frame-1-c"><div id="frameJbf9BV_left_temp" class="move-span temp"></div><div id="portal_block_296" class="block move-span"><div id="portal_block_296_content" class="dxb_bc"><div class="module cl xl xl1">
+<ul><li><em>2014-07-12</em><a href="https://linux.cn/article-3374-1.html" title="山东蓝翔不是传说！中国产手持扫描仪被发现携带恶意程序，控制端在山东蓝翔" target="_blank"  style="color:#E70;">山东蓝翔不是传说！中国产手持扫描仪被发现携带恶意程序，控制端在山东蓝翔</a></li><li><em>2014-07-29</em><a href="https://linux.cn/article-3490-1.html" title="CoreOS 稳定版发布" target="_blank"  style="color:#E70;">CoreOS 稳定版发布</a></li><li><em>2014-08-02</em><a href="https://linux.cn/article-3514-1.html" title="Windows在中国OS市场依然是“独孤求败”" target="_blank"  style="color:#07B;">Windows在中国OS市场依然是“独孤求败”</a></li><li><em>2016-04-12</em><a href="https://linux.cn/article-7215-1.html" title="不仅是命令行，Windows 10 也可以运行 Linux 的图形界面程序了" target="_blank"  style="color:#E70;">不仅是命令行，Windows 10 也可以运行 Linux 的图形界面程序了</a></li><li><em>2014-09-11</em><a href="https://linux.cn/article-1-1.html" title="Linux中国——关于我们" target="_blank"  style="color:#E70;">Linux中国——关于我们</a></li><li><em>2016-02-29</em><a href="https://linux.cn/article-7063-1.html" title="讣告：『Linux 中国』联合创始人王兴江先生因病辞世" target="_blank"  style="color:#E70;">讣告：『Linux 中国』联合创始人王兴江先生因病辞世</a></li><li><em>2015-04-14</em><a href="https://linux.cn/article-5267-1.html" title="稳定版 elementary OS Freya 正式发布！多图预览+百度云盘下载！" target="_blank"  style="color:#0A0;">稳定版 elementary OS Freya 正式发布！多图预览+百度云盘下载！</a></li><li><em>2014-07-31</em><a href="https://linux.cn/article-3501-1.html" title="第九届中国Linux内核开发者大会将于10月19日召开，现在征稿" target="_blank"  style="color:#E70;">第九届中国Linux内核开发者大会将于10月19日召开，现在征稿</a></li><li><em>2014-11-11</em><a href="https://linux.cn/article-2-1.html" title="Linux中国——联系我们" target="_blank"  style="color:#07B;">Linux中国——联系我们</a></li><li><em>2014-07-30</em><a href="https://linux.cn/article-3497-1.html" title="openSUSE Factory成为滚动更新发行版" target="_blank"  style="color:#E70;">openSUSE Factory成为滚动更新发行版</a></li><li><em>2014-06-29</em><a href="https://linux.cn/article-3290-1.html" title="Ubuntu 14.10已经开始启动测试 代号为 &quot;Utopic Unicorn Alpha 1&quot;" target="_blank"  style="color:#07B;">Ubuntu 14.10已经开始启动测试 代号为 &quot;Utopic Unicorn Alpha 1&quot;</a></li><li><em>2014-07-28</em><a href="https://linux.cn/article-3477-1.html" title="Red Hat要求暂停被美国制裁的俄罗斯企业项目" target="_blank"  style="color:#07B;">Red Hat要求暂停被美国制裁的俄罗斯企业项目</a></li><li><em>2014-07-30</em><a href="https://linux.cn/article-3498-1.html" title="Debian和PHP许可证争议" target="_blank"  style="color:#07B;">Debian和PHP许可证争议</a></li><li><em>2014-09-25</em><a href="https://linux.cn/article-3903-1.html" title="Debian 8 &quot;Jessie&quot; 将把GNOME作为默认桌面环境" target="_blank"  style="color:#E70;">Debian 8 &quot;Jessie&quot; 将把GNOME作为默认桌面环境</a></li><li><em>2013-11-16</em><a href="https://linux.cn/article-2260-1.html" title="一个23岁大学生的Raspberry Pi开源项目" target="_blank"  style="color:#07B;">一个23岁大学生的Raspberry Pi开源项目</a></li><li><em>2016-01-24</em><a href="https://linux.cn/article-6926-1.html" title="黑客专用 Linux 发行版 Kali Linux 发布了首个滚动更新版 2016.1" target="_blank"  style="color:#0A0;">黑客专用 Linux 发行版 Kali Linux 发布了首个滚动更新版 2016.1</a></li><li><em>2015-12-31</em><a href="https://linux.cn/article-6828-1.html" title="Debian  创始人 Ian Murdock 先生去世，享年 42 岁！" target="_blank"  style="color:#E70;">Debian  创始人 Ian Murdock 先生去世，享年 42 岁！</a></li><li><em>2013-04-20</em><a href="https://linux.cn/article-1215-1.html" title="Ubuntu 13.04 的 10 个最佳新特性" target="_blank"  style="color:#07B;">Ubuntu 13.04 的 10 个最佳新特性</a></li></ul>
+</div></div></div></div></div></div><!--[/diy]-->
+</div>
+
+</div>
+</div>
+
+<div class="wp mtn">
+<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+</div>
+<script type="text/javascript">
+checkReaded();
+</script>	</div>
+
+
+<script type="text/javascript">var cookieLogin = Ajax("TEXT");cookieLogin.get("connect.php?mod=check&op=cookie", function() {});</script>
+
+    <div id="footer">
+        <p>
+            <span>Linux.CN &copy; 2003-2016 Linux中国</span>
+            <span class="line">|</span>
+            <span>Powered by <strong>DX</strong> | 图片存储于<a href="http://www.qiniu.com/" target="_blank">七牛云</a></span>
+        </p>
+        <p>
+            <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备05083684号-1</a>            京公网安备110105001595
+        </p>
+        <p>
+        <a href="https://linux.cn/legal.html">服务条款</a> |
+        除特别申明外，本站原创内容版权遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh" target="_blank">CC-BY-NC-SA 协议规定</a></p>
+        <p>
+        <a href="https://linux.cn/"><img src="https://dn-linuxcn.qbox.me/static/image/common/linuxcn_logo_mini.png" align="absmiddle" /></a>
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img src="https://dn-linuxcn.qbox.me/static/image/common/cc.png" align="absmiddle" /></a>
+        </p>
+<p>
+</p>
+</div>
+
+<div id="ft" class="cl"></div>
+<script src="home.php?mod=misc&ac=sendmail&rand=1509108694" type="text/javascript"></script>
+<div id="scrolltop">
+<span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa" ><b>返回顶部</b></a></span>
+</div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });</script>
+<div id="qrcode">
+<p>分享到微信</p>
+<div id="canvas"></div>
+<p><em>打开微信，点击顶部的“╋”，<br />
+使用“扫一扫”将网页分享至微信。</em></p></div>
+<script src="https://dn-linuxcn.qbox.me/static/js/ads.js?S54" type="text/javascript"></script>
+<div id="LS54CisOsS" style="display: none; background-color: #A00; position: fixed; top: 0; width: 100%; z-index: 9999; left: 0; font-size: 16px; color: #fff; text-align: center; padding: 10px; opacity: 0.8;">请将我们加入您的广告过滤器的白名单，请支持开源站点。谢谢您。</div>
+<script type="text/javascript">
+(function($){
+$(window).load(function() {
+if ($('#pleaseRemoveOurSiteFromBlackList').length == 0 && $(window).width() >= 480) {
+$('#LS54CisOsS').css('display','block');
+}
+if (location.href.substr(0,17) != 'https://linux.cn/') {
+location.href = 'https://linux.cn/';
+}
+});
+})(jQuery);
+</script>
+</body>
+</html>

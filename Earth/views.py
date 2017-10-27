@@ -68,7 +68,7 @@ def index(request):
     # # # def post_list(request):
     '''所有已发布文章'''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-            '-published_date').exclude(title='About')
+        '-published_date').exclude(title='About')
     # blog_all = models.Article.objects.all()
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
@@ -86,9 +86,21 @@ def side(request):
         obj = models.Tag.objects.values().all()
     elif res == 'category':
         obj = models.Category.objects.values().all()
-        # print(obj)
-    else:
+    elif res == 'about':
         obj = models.About.objects.values()
+        print(obj)
+    else:
+        ids = request.GET.get('id')
+        obj1 = models.Article.objects.values('id', 'title').filter(id__gt=ids)[0:1]
+        obj2 = models.Article.objects.values('id', 'title').filter(id = int(ids) -1 )
+        li = []
+        for i in list(obj1):
+            obj = {'id': i['id'], 'title': i['title']}
+            li.append(obj)
+        for i in list(obj2):
+            obj = {'id': i['id'], 'title': i['title']}
+            li.append(obj)
+        obj = li
         print(obj)
 
     data = list(obj)
@@ -97,16 +109,14 @@ def side(request):
 
 
 def post_detail(request, pk):
-    res = request.POST
-    print(res)
-    print('11111111111111111111')
     post = get_object_or_404(models.Article, pk=pk)
-    about_obj = models.About.objects.values().all()
-    tag_obj = models.Tag.objects.values().all()
-    category_obj = models.Category.objects.values().all()
+    views_obj = models.Article.objects.filter(id=pk).values('views')
+    obj = list(views_obj)
+    for i in obj:
+        tmp = i['views'] + 1
+        models.Article.objects.filter(id=pk).update(views=tmp)
     return render(request, 'front/post_detail.html',
-                  {'post': post, 'is_post': True, 'about_obj': about_obj, 'category_obj': category_obj,
-                   'tag_obj': tag_obj})
+                  {'post': post, 'is_post': True})
 
 
 @login_required
@@ -137,7 +147,7 @@ def blog_new(request):
 
         # post = form.save(commit=False)
         print(new_article_obj)
-        return redirect('/drafts')
+        return redirect('/drafts/')
         # else:
         #     print('NO !!!!!!!!!!!!!!!')
     else:
@@ -166,7 +176,7 @@ def blog_remove(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
     post.delete()
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-            '-published_date')
+        '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/table.html', {'posts': posts})
 
@@ -197,7 +207,7 @@ def blog_list(request):
     :return:
     '''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-            '-published_date')
+        '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/blog_list.html', {'posts': posts, 'page': True, 'is_list': True})
 
@@ -253,8 +263,8 @@ def archives(request, y, m):
     """根据年月份列出已发布文章"""
     # posts = models.Article.objects.annotate(num_comment=Count('comment')).filter(
     posts_ar = models.Article.objects.annotate().filter(
-            published_date__isnull=False, published_date__year=y,
-            published_date__month=m).prefetch_related().order_by('-published_date')
+        published_date__isnull=False, published_date__year=y,
+        published_date__month=m).prefetch_related().order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     # print('--post_ar-->', posts_ar)
@@ -299,8 +309,8 @@ def admin_category(request):
 def post_list_by_category(request, cg):
     """根据目录列表已发布文章"""
     posts = models.Article.objects.annotate().filter(
-            published_date__isnull=False, category__name=cg).prefetch_related(
-            'category').order_by('-published_date')
+        published_date__isnull=False, category__name=cg).prefetch_related(
+        'category').order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     return render(request, 'index.html',
@@ -367,7 +377,7 @@ def category(request, arg):
     arg = arg
     print(arg)
     blog_all = models.Article.objects.filter(category__name=arg).order_by(
-            '-published_date')
+        '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
@@ -381,7 +391,7 @@ def category(request, arg):
 def tags(request, tag):
     tag = tag
     blog_all = models.Article.objects.filter(tags__name=tag).order_by(
-            '-published_date')
+        '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()

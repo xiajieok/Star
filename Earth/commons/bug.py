@@ -1,4 +1,4 @@
-import requests, os, sys, re, json,random
+import requests, os, sys, re, json, random
 from bs4 import BeautifulSoup as bs
 
 linuxcn = 'https://linux.cn/news/index.php?page=1'
@@ -37,7 +37,7 @@ def getWebPage(url, fname):
 
         desc = os.path.join(ss, fname)
         # print(desc)
-        f = open(desc, 'w')
+        f = open(desc, 'w', encoding='utf-8')
         f.write(html)
         f.close()
 
@@ -86,7 +86,7 @@ def getIthome(ithome):
 
 def getLinuxcn(linuxcn):
     getWebPage(linuxcn, 'linuxcn.html')
-    soup = bs(open('./html/linuxcn.html'), 'lxml')
+    soup = bs(open('./html/linuxcn.html',encoding='utf-8'), 'lxml')
     # 获取文章URL
     b = soup.select('span.title > a')
     for i in b:

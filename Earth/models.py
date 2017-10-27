@@ -49,9 +49,10 @@ class Article(models.Model):
     status = models.CharField(choices=status_choices, default='published', max_length=32)
     copyright = models.TextField(default='Medivh')
     reprinted = models.CharField(default='http://www.mknight.cn',max_length=64)
+    views = models.IntegerField(default='0')
     def publish(self):
         # self.published_date = timezone.now()
-        self.published_date = django.util.datetime.now().strftime("%Y-%m-%d %H:%I:%S")
+        self.published_date = datetime.now().strftime("%Y-%m-%d %H:%I:%S")
         self.save()
 
     def __str__(self):

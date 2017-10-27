@@ -62,7 +62,7 @@
                             title="{{ i.title }}" rel="category tag"></a></span>
                     <span class="label label-zan"><i class="fa fa-user"></i> <a
                             href="#" title="由medivh发布" rel="author">{{ i.author }}</a></span>
-                    <span class="label label-zan"><i class="fa fa-eye"></i> <a>10</a>views</span>
+                    <span class="label label-zan"><i class="fa fa-eye"></i> <a>{{ i.views }}</a> views</span>
                 </div>
                 <div class="content-article">
                     <figure class="thumbnail"><a
@@ -76,7 +76,7 @@
                 </div>
                 <a class="btn btn-danger pull-right read-more"
                    href="{% url 'detail' pk=i.id %}"
-                   title="详细阅读  {{ i.brief }}">阅读全文 <span class="badge">0</span></a>
+                   title="详细阅读  {{ i.brief }}">阅读全文 <span class="badge">{{ i.views }}</span></a>
             </section>
 
         </div>
@@ -110,6 +110,16 @@
 {% block js %}
 
     <script>
+        //计数器
+        function Click(obj) {
+            $('.btn btn-danger pull-right read-more').click()
+            {
+               alert('+1');
+            }
+            ;
+
+        }
+
         //获取标签
         function Tags(obj) {
             $.get("/side/", {name: 'tag'}, function (data) {

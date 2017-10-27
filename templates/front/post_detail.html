@@ -34,19 +34,20 @@
 
                   <span class="label label-zan"><i class="fa fa-tags"></i>{{ post.tags }} <a
                           title="{{ post.title }}" rel="category tag"></a></span>
-{#                    <span class="label label-zan"><i class="fa fa-user"></i> <a#}
-{#                            title="由medivh发布" rel="author">{{ post.author }}</a></span>#}
-                    <span class="label label-zan"><i class="fa fa-calendar"></i> {{ post.published_date|date:"Y-m-d H:i" }}</span>
+                    {#                    <span class="label label-zan"><i class="fa fa-user"></i> <a#}
+                    {#                            title="由medivh发布" rel="author">{{ post.author }}</a></span>#}
+                    <span class="label label-zan"><i
+                            class="fa fa-calendar"></i> {{ post.published_date|date:"Y-m-d H:i" }}</span>
 
-                    <span class="label label-zan"><i class="fa fa-eye"></i> 1,167 views</span>
+                    <span class="label label-zan"><i class="fa fa-eye"></i> {{ post.views }} views</span>
                 </div>
                 <hr/>
 
-                <div style="margin: 30px 0 60px 0 ;" class="centent-article">
+                <div style="margin: 30px 0 60px 0 ; " class="centent-article">
                     <blockquote>
                         <p>转载: {{ post.reprinted }} </p>
                         <p>简介: {{ post.brief }}</p></blockquote>
-                    <p>{{ post.content |safe }}</p>
+                    <p style="padding: 10px">{{ post.content |safe }}</p>
                     <hr>
                 </div>
             {% else %}
@@ -81,6 +82,8 @@
 
                 </div>
             </div>
+            <div style="display: inline" id="left"></div>
+            <div style="float: right;display: inline" id="right"></div>
         </div>
     </div>
 
@@ -90,8 +93,33 @@
 
 
     <script>
-        //移除无关信息
-        $('')
+        //获取相邻页
+        function Next(obj) {
+            var url = window.location.href;
+            var id = url.split('/')['4']
+            console.log(id)
+            $.get("/side/", {name: 'title', id: id}, function (data) {
+                var tmp = JSON.parse(data);
+                console.log(tmp)
+                {#                for (let i = 0; i < tmp.length; i++) {#}
+                console.log(tmp[0]['id'])   
+                var title0 = tmp[0]['title'].substr(0,25)
+                var title1 = tmp[1]['title'].substr(0,25)
+                html1 = "<a href='" + url.split('post')['0'] +"post/" + tmp[0]['id'] + "/'>" + "上一篇 " +  title0 + "</a>"
+                html2 = "<a href='" +  url.split('post')['0'] +"post/" + tmp[1]['id']  + "/'>" + "下一篇 " +  title1 + "</a>"
+                $('#left').append(html1)
+                $('#right').append(html2)
+
+                {#                }#}
+                ;
+
+
+            });
+
+        }
+
+        Next();
+
         //获取标签
         function Tags(obj) {
             $.get("/side/", {name: 'tag'}, function (data) {
