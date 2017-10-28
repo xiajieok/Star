@@ -88,11 +88,19 @@ def side(request):
         obj = models.Category.objects.values().all()
     elif res == 'about':
         obj = models.About.objects.values()
-        print(obj)
     else:
+        '''
+        获取ID,根据ID+1,-1来获取上一篇和下一篇；
+        '''
         ids = request.GET.get('id')
         obj1 = models.Article.objects.values('id', 'title').filter(id__gt=ids)[0:1]
-        obj2 = models.Article.objects.values('id', 'title').filter(id = int(ids) -1 )
+        ltID = int(ids) -1
+        tmp_obj2 = models.Article.objects.values('id', 'title').filter(id = ltID )
+        while len(tmp_obj2) == 0:
+            ltID = ltID -1
+            tmp_obj2 = models.Article.objects.values('id', 'title').filter(id=ltID)
+
+        obj2 = tmp_obj2
         li = []
         for i in list(obj1):
             obj = {'id': i['id'], 'title': i['title']}
@@ -101,7 +109,6 @@ def side(request):
             obj = {'id': i['id'], 'title': i['title']}
             li.append(obj)
         obj = li
-        print(obj)
 
     data = list(obj)
     data = json.dumps(data)
@@ -222,7 +229,6 @@ def blog_drafts(request):
     blog_all = models.Article.objects.filter(published_date__isnull=True).order_by('-created_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/blog_list.html', {'posts': posts, 'page': True})
-
 
 @login_required
 def blog_edit(request, pk):

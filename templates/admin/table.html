@@ -1,14 +1,14 @@
 <table id="tb" class="table table-bordered table-hover">
     <thead>
     <tr>
-        <th style="width: 400px">Title</th>
-        <th style="width: 100px">Author</th>
-        <th style="width: 140px">Date</th>
-        <th style="width: 80px">Status</th>
+        <th style="width: 400px">标题</th>
+        <th style="width: 100px">作者</th>
+        <th style="width: 140px">发布日期</th>
+        <th style="width: 80px">状态</th>
         {% if not is_list %}
-            <th style="width: 80px">Handle</th>
+            <th style="width: 80px">操作</th>
         {% endif %}
-        <th style="width: 80px">Handle</th>
+        <th style="width: 80px">操作</th>
     </tr>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
         <tr>
             <td><a href="{% url 'detail' pk=item.id %}">{{ item.title }}</a></td>
             <td>{{ item.author }}</td>
-            <td>{{ item.created_date |date:"Y-m-d H:i:s" }}</td>
+            <td>{{ item.published_date |date:"Y-m-d H:i:s" }}</td>
             <td onclick="Publish_td(this,{{ item.id }});"><a><span
                     class="fa fa-send"></span></a></td>
             {% if not is_list %}
