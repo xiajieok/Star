@@ -45,9 +45,7 @@ urlpatterns = [
     url(r'^login/', views.acc_login, name='login'),
     url(r'^logout/', views.acc_logout, name='logout'),
     url(r'^robot/', views.robot, name='robot'),
-
-
-
+    url(r'^search/', include('haystack.urls')),
 
     # url(r'^archives/$', Earth.archives, name='archives'),
 

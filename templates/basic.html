@@ -81,9 +81,9 @@
             {% endblock %}
 
             <div class="search visible-lg">
-                <form method="get" id="searchform" class="form-inline" action="http://xiaorui.cc/">
-                    <input class="form-control" type="text" name="s" id="s" placeholder="搜索...">
-                    <button type="submit" class="btn btn-danger btn-small" name="submit"><i class="fa fa-search"></i>
+                <form method="get" id="searchform" class="form-inline" action="{% url 'haystack_search' %}">
+                    <input class="form-control" type="text" name="q" id="s" placeholder="搜索...">
+                    <button type="submit" class="btn btn-danger btn-small" ><i class="fa fa-search"></i>
                     </button>
                 </form>
             </div>
