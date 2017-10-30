@@ -9,6 +9,7 @@ from django.db.models import Count
 from Earth.forms import ArticleFrom, handle_uploaded_file, CategoryFrom, AboutFrom
 from django.http import Http404
 import json
+import markdown
 
 
 def acc_login(request):
@@ -68,14 +69,14 @@ def index(request):
     # # # def post_list(request):
     '''所有已发布文章'''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date').exclude(title='About')
+            '-published_date').exclude(title='About')
     # blog_all = models.Article.objects.all()
     posts = pages(request, blog_all)
-    about_obj = models.About.objects.values().all()
+    # about_obj = models.About.objects.values().all()
     # tag_obj = models.Tag.objects.values().all()
     category_obj = models.Category.objects.values().all().exclude(name='About')
     return render(request, 'index.html',
-                  {'posts': posts, 'page': True, 'about_obj': about_obj,
+                  {'posts': posts, 'page': True,
                    })
 
 
@@ -94,10 +95,10 @@ def side(request):
         '''
         ids = request.GET.get('id')
         obj1 = models.Article.objects.values('id', 'title').filter(id__gt=ids)[0:1]
-        ltID = int(ids) -1
-        tmp_obj2 = models.Article.objects.values('id', 'title').filter(id = ltID )
+        ltID = int(ids) - 1
+        tmp_obj2 = models.Article.objects.values('id', 'title').filter(id=ltID)
         while len(tmp_obj2) == 0:
-            ltID = ltID -1
+            ltID = ltID - 1
             tmp_obj2 = models.Article.objects.values('id', 'title').filter(id=ltID)
 
         obj2 = tmp_obj2
@@ -117,13 +118,16 @@ def side(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
+    body = markdown.markdown(post.md,
+                             )
+    md = post.md
     views_obj = models.Article.objects.filter(id=pk).values('views')
     obj = list(views_obj)
     for i in obj:
         tmp = i['views'] + 1
         models.Article.objects.filter(id=pk).update(views=tmp)
     return render(request, 'front/post_detail.html',
-                  {'post': post, 'is_post': True})
+                  {'post': post, 'body': body, 'md': md, 'is_post': True})
 
 
 @login_required
@@ -183,7 +187,7 @@ def blog_remove(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
     post.delete()
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date')
+            '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/table.html', {'posts': posts})
 
@@ -214,7 +218,7 @@ def blog_list(request):
     :return:
     '''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date')
+            '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/blog_list.html', {'posts': posts, 'page': True, 'is_list': True})
 
@@ -229,6 +233,7 @@ def blog_drafts(request):
     blog_all = models.Article.objects.filter(published_date__isnull=True).order_by('-created_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/blog_list.html', {'posts': posts, 'page': True})
+
 
 @login_required
 def blog_edit(request, pk):
@@ -269,8 +274,8 @@ def archives(request, y, m):
     """根据年月份列出已发布文章"""
     # posts = models.Article.objects.annotate(num_comment=Count('comment')).filter(
     posts_ar = models.Article.objects.annotate().filter(
-        published_date__isnull=False, published_date__year=y,
-        published_date__month=m).prefetch_related().order_by('-published_date')
+            published_date__isnull=False, published_date__year=y,
+            published_date__month=m).prefetch_related().order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     # print('--post_ar-->', posts_ar)
@@ -315,8 +320,8 @@ def admin_category(request):
 def post_list_by_category(request, cg):
     """根据目录列表已发布文章"""
     posts = models.Article.objects.annotate().filter(
-        published_date__isnull=False, category__name=cg).prefetch_related(
-        'category').order_by('-published_date')
+            published_date__isnull=False, category__name=cg).prefetch_related(
+            'category').order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     return render(request, 'index.html',
@@ -383,7 +388,7 @@ def category(request, arg):
     arg = arg
     print(arg)
     blog_all = models.Article.objects.filter(category__name=arg).order_by(
-        '-published_date')
+            '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
@@ -397,7 +402,7 @@ def category(request, arg):
 def tags(request, tag):
     tag = tag
     blog_all = models.Article.objects.filter(tags__name=tag).order_by(
-        '-published_date')
+            '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()

@@ -6,20 +6,9 @@
         {{ i.content|safe }}
     {% endfor %}
 {% endblock %}
-{% block head_css %}
-    #rewardButton span{
-    display: inline-block;
-    width: 80px;
-    height: 35px;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 400;
-    font-style: normal;
-    font-variant: normal;
-    font-stretch: normal;
-    font-size: 18px;
-    font-family: "Microsoft Yahei";
-    background: #f44336;}
+{% block css %}
+
+
 {% endblock %}
 
 {% block main %}
@@ -34,28 +23,29 @@
 
                   <span class="label label-zan"><i class="fa fa-tags"></i>{{ post.tags }} <a
                           title="{{ post.title }}" rel="category tag"></a></span>
-                    {#                    <span class="label label-zan"><i class="fa fa-user"></i> <a#}
-                    {#                            title="由medivh发布" rel="author">{{ post.author }}</a></span>#}
                     <span class="label label-zan"><i
                             class="fa fa-calendar"></i> {{ post.published_date|date:"Y-m-d H:i" }}</span>
-
                     <span class="label label-zan"><i class="fa fa-eye"></i> {{ post.views }} views</span>
                 </div>
                 <hr/>
-
+                <div id="wordsView">
+                    <textarea style="display:none;" name="editormd-markdown-doc">{{ md }}</textarea>
+                </div>
                 <div style="margin: 30px 0 60px 0 ; " class="centent-article">
-                    <blockquote>
+                    <blockquote style="padding: 10px">
                         <p>转载: {{ post.reprinted }} </p>
                         <p>简介: {{ post.brief }}</p></blockquote>
-                    <p style="padding: 10px">{{ post.content |safe }}</p>
+                    {% if post.md %}
+                        <div id="content"
+                             class="mdl-cell mdl-card mdl-cell--12-col mdl-shadow--2dp content ">
+                            <textarea style="display:none;" name="editormd-markdown-doc">{{ md }}</textarea>
+                        </div>
+                    {% else %}
+                        <p>{{ post.content|safe }} </p>
+                    {% endif %}
                     <hr>
                 </div>
-            {% else %}
-                <div style="margin-top: 30px">
-                    {% for i in contact %}
-                        {{ i.content|safe }}
-                    {% endfor %}
-                </div>
+
 
             {% endif %}
 
@@ -90,6 +80,16 @@
 
 {% endblock %}
 {% block js %}
+    <link rel="stylesheet" id="crayon-css" href="/statics/editor/css/editormd.css" type="text/css" media="all">
+    <script type="text/javascript" src="/statics/editor/editormd.js"></script>
+    <script type="text/javascript" src="/statics/editor/lib/marked.min.js"></script>
+    <script type="text/javascript" src="/statics/editor/lib/flowchart.min.js"></script>
+    <script type="text/javascript" src="/statics/editor/lib/prettify.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            editormd.markdownToHTML("content")
+        });
+    </script>
 
 
     <script>
@@ -102,11 +102,11 @@
                 var tmp = JSON.parse(data);
                 console.log(tmp)
                 {#                for (let i = 0; i < tmp.length; i++) {#}
-                console.log(tmp[0]['id'])   
-                var title0 = tmp[0]['title'].substr(0,22)
-                var title1 = tmp[1]['title'].substr(0,22)
-                html1 = "<a href='" + url.split('post')['0'] +"post/" + tmp[0]['id'] + "/'>" + "上一篇 " +  title0 + "</a>"
-                html2 = "<a href='" +  url.split('post')['0'] +"post/" + tmp[1]['id']  + "/'>" + "下一篇 " +  title1 + "</a>"
+                console.log(tmp[0]['id'])
+                var title0 = tmp[0]['title'].substr(0, 22)
+                var title1 = tmp[1]['title'].substr(0, 22)
+                html1 = "<a href='" + url.split('post')['0'] + "post/" + tmp[0]['id'] + "/'>" + "上一篇 " + title0 + "</a>"
+                html2 = "<a href='" + url.split('post')['0'] + "post/" + tmp[1]['id'] + "/'>" + "下一篇 " + title1 + "</a>"
                 $('#left').append(html1)
                 $('#right').append(html2)
 
@@ -158,3 +158,4 @@
     </script>
 
 {% endblock %}
+

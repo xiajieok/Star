@@ -65,13 +65,13 @@ def getIthome(ithome):
             title = str(title)
             pattern = re.compile('<h1>(.*?)</h1>', re.S)
             title = re.search(pattern, title).group(1).strip()
-            # print(title)
+            print(title)
             # 处理发布时间
             date = soup.select('#pubtime_baidu')
             date = str(date)
             pattern = re.compile('<span id="pubtime_baidu">(.*?)</span>', re.S)
-            date = re.search(pattern, date).group(1).strip()[0:16]
-            # print(date)
+            date = re.search(pattern, date).group(1).strip()[0:18]
+            print(date)
             # 文章内容
             article = soup.select('div.post_content')
             article = str(article)[1:-1]
