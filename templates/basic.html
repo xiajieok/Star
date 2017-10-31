@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="zh-CN"><!--<![endif]-->
 <head>
@@ -9,7 +10,7 @@
 
         {% endblock %}
     </title>
-    <link rel="icon" href="/statics/imgs/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href='{% static "imgs/favicon.ico" %}' type="image/x-icon"/>
 
     <!-- 设置描述性标签和关键词标签 -->
 
@@ -19,26 +20,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- icon -->
-    <link rel="stylesheet" href="/statics/bootstrap/dist/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/statics/bootstrap/css/custom.css">
+    <link rel="stylesheet" href='{% static "bootstrap/dist/css/font-awesome.min.css" %}'/>
+    <link rel="stylesheet" href='{% static "custom/custom.css" %}'>
 
-    <link rel="stylesheet" id="crayon-css" href="/statics/sstmp_files/crayon.min.css" type="text/css" media="all">
-    <link rel="stylesheet" id="crayon-theme-solarized-light-css" href="/statics/sstmp_files/solarized-light.css"
-          type="text/css" media="all">
-    <link rel="stylesheet" id="crayon-font-monaco-css" href="/statics/sstmp_files/monaco.css" type="text/css"
-          media="all">
-    <link rel="stylesheet" id="zanblog-style-css" href="/statics/sstmp_files/style.css" type="text/css" media="all">
-    <link rel="stylesheet" id="bootstrap-style-css" href="/statics/sstmp_files/bootstrap.css" type="text/css"
-          media="all">
-    <link rel="stylesheet" id="icheck-style-css" href="/statics/sstmp_files/red.css" type="text/css" media="all">
-    <link rel="stylesheet" id="custom-style-css" href="/statics/sstmp_files/custom.css" type="text/css" media="all">
-    <link rel="stylesheet" id="custom-style-css" href="/statics/sstmp_files/wp-code-highlight.css" type="text/css"
-          media="all">
+    <link rel="stylesheet" id="crayon-css" href='{% static "custom/crayon.min.css" %}'>
+    <link rel="stylesheet" id="crayon-theme-solarized-light-css" href='{% static "custom/solarized-light.css" %}'>
+    <link rel="stylesheet" id="crayon-font-monaco-css" href='{% static "custom/monaco.css" %}'>
+
+    <link rel="stylesheet" id="zanblog-style-css" href='{% static "custom/style.css" %}'>
+    <link rel="stylesheet" id="bootstrap-style-css" href='{% static "custom/bootstrap.css" %}'>
+    <link rel="stylesheet" id="bootstrap-style-css" href='{% static "custom/main.css" %}'>
+
+    <link rel="stylesheet" id="icheck-style-css" href='{% static "custom/red.css" %}'>
+    <link rel="stylesheet" id="custom-style-css" href='{% static "custom/custom.css" %}'>
+    <link rel="stylesheet" id="custom-style-css" href='{% static "custom/wp-code-highlight.css" %}'>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="/statics/sstmp_files/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="/statics/sstmp_files/wp-code-highlight.css" media="screen">
+    <script type="text/javascript" src='https://code.jquery.com/jquery-3.2.1.js'></script>
+    <script type="text/javascript" src='{% static "bootstrap/js/bootstrap.js" %}'></script>
+
 
 
     <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
@@ -55,6 +55,7 @@
         margin-left: 0px !important;
     }
     </style>
+
 </head>
 <body class="home blog">
 <header id="zan-header" class="navbar navbar-inverse bs-docs-nav">
@@ -331,7 +332,7 @@
         prettyPrint();
     };
 </script>
-<script type="text/javascript" src="/statics/sstmp_files/wp-code-highlight.js"></script>
+<script type="text/javascript" src="/statics/custom/wp-code-highlight.js"></script>
 <!--WP Code Highlight_end-->
 <footer id="main-footor" style="background-color: #3d4450;
   padding: 15px;

@@ -47,7 +47,7 @@ class Article(models.Model):
                       ('hidden', u"隐藏"),
                       )
     status = models.CharField(choices=status_choices, default='published', max_length=32)
-    copyright = models.TextField(default='Medivh')
+    # copyright = models.TextField(default='Medivh')
     reprinted = models.CharField(default='http://www.mknight.cn',max_length=64)
     views = models.IntegerField(default='0')
     def publish(self):

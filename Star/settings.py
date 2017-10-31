@@ -79,22 +79,23 @@ WSGI_APPLICATION = 'Star.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 #sqlite
-# DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # },
-#mysql
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'earth',
-        'USER': 'earth',
-        'PASSWORD': 'earth',
-        'HOST': '39.106.51.169',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+#mysql
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'earth',
+#         'USER': 'earth',
+#         'PASSWORD': 'earth',
+#         'HOST': '39.106.51.169',
+#         'PORT': '3306',
+#     }
+# }
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -139,3 +140,6 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_URL = '/login/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+
