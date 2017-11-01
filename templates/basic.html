@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load compress %}
 <!DOCTYPE html>
 <html lang="zh-CN"><!--<![endif]-->
 <head>
@@ -20,26 +21,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- icon -->
-    <link rel="stylesheet" href='{% static "bootstrap/dist/css/font-awesome.min.css" %}'/>
-    <link rel="stylesheet" href='{% static "custom/custom.css" %}'>
+    {% compress css %}
+        <link rel="stylesheet" href='{% static "bootstrap/dist/css/font-awesome.min.css" %}'/>
+        <link rel="stylesheet" href='{% static "custom/custom.css" %}'>
 
-    <link rel="stylesheet" id="crayon-css" href='{% static "custom/crayon.min.css" %}'>
-    <link rel="stylesheet" id="crayon-theme-solarized-light-css" href='{% static "custom/solarized-light.css" %}'>
-{#    <link rel="stylesheet" id="crayon-font-monaco-css" href='{% static "custom/monaco.css" %}'>#}
+        <link rel="stylesheet" href='{% static "custom/crayon.min.css" %}'>
+        <link rel="stylesheet" href='{% static "custom/solarized-light.css" %}'>
+        {#    <link rel="stylesheet" id="crayon-font-monaco-css" href='{% static "custom/monaco.css" %}'>#}
 
-    <link rel="stylesheet" id="zanblog-style-css" href='{% static "custom/style.css" %}'>
-    <link rel="stylesheet" id="bootstrap-style-css" href='{% static "custom/bootstrap.css" %}'>
-    <link rel="stylesheet" id="bootstrap-style-css" href='{% static "custom/main.css" %}'>
+        <link rel="stylesheet" href='{% static "custom/style.css" %}'>
+        <link rel="stylesheet" id="bootstrap-style-css" href='{% static "custom/bootstrap.css" %}'>
+        {#    <link rel="stylesheet" id="bootstrap-style-css" href='{% static "custom/main.css" %}'>#}
 
-    <link rel="stylesheet" id="icheck-style-css" href='{% static "custom/red.css" %}'>
-    <link rel="stylesheet" id="custom-style-css" href='{% static "custom/custom.css" %}'>
-    <link rel="stylesheet" id="custom-style-css" href='{% static "custom/wp-code-highlight.css" %}'>
+        <link rel="stylesheet" href='{% static "custom/red.css" %}'>
+        <link rel="stylesheet" href='{% static "custom/custom.css" %}'>
+        <link rel="stylesheet" href='{% static "custom/wp-code-highlight.css" %}'>
 
+    {% endcompress %}
 
-{#    <script type="text/javascript" src='https://code.jquery.com/jquery-3.2.1.js'></script>#}
-    <script type="text/javascript" src='{% static "bootstrap/js/bootstrap.js" %}'></script>
-    <script type="text/javascript" src='{% static "bootstrap/js/jquery-2.1.4.js" %}'></script>
-
+    <script type="text/javascript" src='https://code.jquery.com/jquery-3.2.1.js'></script>
+    {#    <script type="text/javascript" src='{% static "bootstrap/js/jquery-2.1.4.js" %}'></script>#}
 
 
     <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
@@ -125,166 +126,7 @@
                         category
                     {% endblock %}
                 </div>
-                <!-- 最热文章模块-->
-                {#                <div class="panel panel-zan hot">#}
-                {#                    <div class="panel-heading">#}
-                {#                        <i class="fa fa-fire"></i> 最热文章#}
-                {#                        <i class="fa fa-times-circle panel-remove"></i>#}
-                {#                        <i class="fa fa-chevron-circle-up panel-toggle"></i>#}
-                {#                    </div>#}
-                {#                    <!-- 大屏PC端、手机端 -->#}
-                {#                    <ul class="list-group list-group-flush visible-lg visible-xs">#}
-                {#                        {% block hot %}#}
-                {#                        {% endblock %}#}
-                {##}
-                {#                    </ul>#}
-                {#                    <!-- 小屏PC端 -->#}
-                {#                    <!-- 平板端 -->#}
-                {#                </div>#}
-                <!-- 广告模块 -->
-                <!--     <div class="visible-md visible-lg">
-                        <div class="panel panel-zan host">
-                            <a href="http://www.yeahzan.net" target="_blank">
-                                <img src="http://xiaorui.cc/wp-content/themes/zanblog2.0.7/ui/images/zanblog_ad.png" />
-                            </a>
-                        </div>
-                    </div> -->
-                <!-- 最新文章模块 -->
-                <!-- <div class=" visible-md visible-lg">
-                    <div class="panel panel-zan recent">
-                        <div class="panel-heading">
-                            <i class="fa fa-refresh"></i> 最新文章
-                            <i class="fa fa-times-circle panel-remove"></i>
-                            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2017/10/17/golang%e5%9f%ba%e4%ba%8eredis%e5%ae%9e%e7%8e%b0%e7%9a%84%e5%88%86%e5%b8%83%e5%bc%8f%e4%bf%a1%e5%8f%b7%e9%87%8fsemaphore/" rel="bookmark" target="_blank">
 
-                                    <div class="visible-lg">Golang基于redis实现的分布式...</div>
-
-                                    <div class="visible-md">Golang基于redis实现...</div>
-                                </a>
-                                <span class="badge">
-                                    0					</span>
-                            </li>
-                                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2017/09/27/golang%e5%8f%8c%e7%ab%af%e9%93%be%e8%a1%a8list-remove-nil%e9%97%ae%e9%a2%98/" rel="bookmark" target="_blank">
-
-                                    <div class="visible-lg">golang双端链表list remov...</div>
-
-                                    <div class="visible-md">golang双端链表list ...</div>
-                                </a>
-                                <span class="badge">
-                                    0					</span>
-                            </li>
-                                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2017/09/15/python-requests-response%e5%80%bc%e5%88%a4%e6%96%ad/" rel="bookmark" target="_blank">
-
-                                    <div class="visible-lg">python requests resp...</div>
-
-                                    <div class="visible-md">python requests...</div>
-                                </a>
-                                <span class="badge">
-                                    0					</span>
-                            </li>
-                                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2017/08/26/%e5%88%86%e6%9e%90openresty-redis%e7%9a%84%e9%95%bf%e8%bf%9e%e6%8e%a5%e9%97%ae%e9%a2%98/" rel="bookmark" target="_blank">
-
-                                    <div class="visible-lg">分析openresty redis的长连...</div>
-
-                                    <div class="visible-md">分析openresty red...</div>
-                                </a>
-                                <span class="badge">
-                                    0					</span>
-                            </li>
-                                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2017/08/20/python%e6%9c%8d%e5%8a%a1%e7%ab%af%e5%86%85%e5%ad%98%e6%b3%84%e9%9c%b2%e7%9a%84%e5%a4%84%e7%90%86%e8%bf%87%e7%a8%8b/" rel="bookmark" target="_blank">
-
-                                    <div class="visible-lg">Python服务端内存泄露的处理过程</div>
-
-                                    <div class="visible-md">Python服务端内存泄露的处...</div>
-                                </a>
-                                <span class="badge">
-                                    0					</span>
-                            </li>
-                                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2017/08/16/golang-redigo-lua%e8%a7%a3%e5%86%b3%e6%80%a7%e8%83%bd%e9%97%ae%e9%a2%98/" rel="bookmark" target="_blank">
-
-                                    <div class="visible-lg">golang redigo lua解决性...</div>
-
-                                    <div class="visible-md">golang redigo l...</div>
-                                </a>
-                                <span class="badge">
-                                    0					</span>
-                            </li>
-                                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2017/08/01/%e5%a4%9a%e8%bf%9b%e7%a8%8b%e4%b8%8bgevent%e9%81%87%e5%88%b0%e7%ae%a1%e9%81%93%e5%86%b2%e7%aa%81%e9%97%ae%e9%a2%98/" rel="bookmark" target="_blank">
-
-                                    <div class="visible-lg">多进程下gevent遇到管道冲突问题</div>
-
-                                    <div class="visible-md">多进程下gevent遇到管道冲...</div>
-                                </a>
-                                <span class="badge">
-                                    0					</span>
-                            </li>
-                                            <li class="list-group-item">
-                                <a href="http://xiaorui.cc/2017/07/19/%e6%85%a2%e7%b3%bb%e7%bb%9f%e8%b0%83%e7%94%a8%e5%bc%95%e8%b5%b7%e7%9a%84signal%e6%97%a0%e6%95%88%e9%97%ae%e9%a2%98/" rel="bookmark" target="_blank">
-
-                                    <div class="visible-lg">慢系统调用引起的signal无效问题</div>
-
-                                    <div class="visible-md">慢系统调用引起的signal无...</div>
-                                </a>
-                                <span class="badge">
-                                    0					</span>
-                            </li>
-                                        </ul>
-                    </div>
-                </div> -->
-                <!-- 随机文章模块 -->
-                {#                <div class="visible-md visible-lg">#}
-                {#                    <div class="panel panel-zan random">#}
-                {#                        <div class="panel-heading">#}
-                {#                            <i class="fa fa-random"></i> 随机文章#}
-                {#                            <i class="fa fa-times-circle panel-remove"></i>#}
-                {#                            <i class="fa fa-chevron-circle-up panel-toggle"></i>#}
-                {#                        </div>#}
-                {#                        <ul class="list-group list-group-flush">#}
-                {#                            <li class="list-group-item">#}
-                {#                                <a href="http://xiaorui.cc/2014/10/25/%e4%b8%aa%e4%ba%ba%e5%af%b9%e4%ba%8egolang%e7%9a%84goroutine%e5%b9%b6%e5%8f%91%e5%a4%84%e7%90%86%e4%bb%bb%e5%8a%a1%e6%97%b6%e7%9a%84%e7%90%86%e8%a7%a3/"#}
-                {#                                   rel="bookmark" target="_blank">#}
-                {#                                    <!-- 大屏PC端 -->#}
-                {#                                    <div class="visible-lg">个人对于golang的goroutine...</div>#}
-                {#                                    <!-- 小屏PC端 -->#}
-                {#                                    <div class="visible-md">个人对于golang的goro...</div>#}
-                {#                                </a>#}
-                {#                                <span class="badge">#}
-                {#						0					</span>#}
-                {#                            </li>#}
-                {#                            <li class="list-group-item">#}
-                {#                                <a href="http://xiaorui.cc/2015/01/06/%e8%81%9a%e4%bc%9a_%e9%92%b1%e5%a8%81%e5%ad%97%e6%af%8d%e5%93%a5%e7%94%9f%e6%97%a5%e5%8f%8a%e6%89%be%e5%88%b0%e5%a5%bd%e5%b7%a5%e4%bd%9c/"#}
-                {#                                   rel="bookmark" target="_blank">#}
-                {#                                    <!-- 大屏PC端 -->#}
-                {#                                    <div class="visible-lg">聚会_庆祝 钱威(字母哥)生日快乐</div>#}
-                {#                                    <!-- 小屏PC端 -->#}
-                {#                                    <div class="visible-md">聚会_庆祝 钱威(字母哥)生日...</div>#}
-                {#                                </a>#}
-                {##}
-                {#                            </li>#}
-                {#                            <li class="list-group-item">#}
-                {#                                <a href="http://xiaorui.cc/2014/12/17/python%e8%b0%83%e7%94%a8zookeeper%e7%ae%a1%e7%90%86thrift%e9%9b%86%e7%be%a4%e7%9a%84%e5%8f%af%e7%94%a8%e6%80%a7%e9%98%9f%e5%88%97/"#}
-                {#                                   rel="bookmark" target="_blank">#}
-                {#                                    <!-- 大屏PC端 -->#}
-                {#                                    <div class="visible-lg">python调用zookeeper管理t...</div>#}
-                {#                                    <!-- 小屏PC端 -->#}
-                {#                                    <div class="visible-md">python调用zookeep...</div>#}
-                {#                                </a>#}
-                {#                                <span class="badge">#}
-                {#						1					</span>#}
-                {#                            </li>#}
-                {#                        </ul>#}
-                {#                    </div>#}
-                {#                </div>#}
                 <!-- 分类目录、热门标签、友情链接模块-->
                 <div class="panel hidden-xs " style="padding: 10px">
 
@@ -301,19 +143,19 @@
                     {#                    </ul>#}
                     {#                    <div class="tab-content">#}
                     <div class="tab-pane active nav bs-sidenav fade in" id="sidebar-categories">
-
-                        <li class="cat-item cat-item-486"><a href="http://xiaorui.cc/category/etcd/"
-                                                             title="查看etcd下的所有文章">etcd</a>
-                        </li>
-                        <li class="cat-item cat-item-148"><a href="http://xiaorui.cc/category/git/"
-                                                             title="查看git下的所有文章">git</a>
-                        </li>
-                        <li class="cat-item cat-item-266"><a href="http://xiaorui.cc/category/golang/"
-                                                             title="查看Golang下的所有文章">Golang</a>
-                        </li>
-                        <li class="cat-item cat-item-57"><a href="http://xiaorui.cc/category/mongodb/"
-                                                            title="查看mongodb下的所有文章">mongodb</a>
-                        </li>
+                        {##}
+                        {#                        <li class="cat-item cat-item-486"><a href="http://xiaorui.cc/category/etcd/"#}
+                        {#                                                             title="查看etcd下的所有文章">etcd</a>#}
+                        {#                        </li>#}
+                        {#                        <li class="cat-item cat-item-148"><a href="http://xiaorui.cc/category/git/"#}
+                        {#                                                             title="查看git下的所有文章">git</a>#}
+                        {#                        </li>#}
+                        {#                        <li class="cat-item cat-item-266"><a href="http://xiaorui.cc/category/golang/"#}
+                        {#                                                             title="查看Golang下的所有文章">Golang</a>#}
+                        {#                        </li>#}
+                        {#                        <li class="cat-item cat-item-57"><a href="http://xiaorui.cc/category/mongodb/"#}
+                        {#                                                            title="查看mongodb下的所有文章">mongodb</a>#}
+                        {#                        </li>#}
 
                         {#                        </div>#}
                         <div class="tab-pane nav bs-sidenav fade" id="sidebar-links">
@@ -333,7 +175,6 @@
         prettyPrint();
     };
 </script>
-<script type="text/javascript" src="/statics/custom/wp-code-highlight.js"></script>
 <!--WP Code Highlight_end-->
 <footer id="main-footor" style="background-color: #3d4450;
   padding: 15px;
@@ -382,7 +223,14 @@
 {% block js %}
 
 {% endblock %}
-
+{% compress js %}
+    <script type="text/javascript" src="/statics/custom/wp-code-highlight.js"></script>
+    <script type="text/javascript" src='{% static "bootstrap/js/bootstrap.min.js" %}'></script>
+    <script type="text/javascript" src="{% static 'editor/editormd.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'editor/lib/marked.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'editor/lib/flowchart.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'editor/lib/prettify.min.js' %}"></script>
+{% endcompress %}
 
 </body>
 </html>

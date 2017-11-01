@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% load custom %}
+{% load compress %}
 
 {% block about %}
     {% for i in about_obj %}
@@ -82,12 +83,10 @@
 
 {% endblock %}
 {% block js %}
+
     <link rel="stylesheet" id="custom-style-css" href='{% static "editor/css/editormd.min.css" %}'>
 
-    <script type="text/javascript" src="{% static 'editor/editormd.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'editor/lib/marked.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'editor/lib/flowchart.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'editor/lib/prettify.min.js' %}"></script>
+
     <script type="text/javascript">
         $(function () {
             editormd.markdownToHTML("content")

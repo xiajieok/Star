@@ -1,5 +1,10 @@
 {% extends 'admin/admin.html' %}
 {% load staticfiles %}
+{% load compress %}
+
+        <link rel="stylesheet" href='{% static "editor/css/editormd.min.css" %}'>
+    <script type="text/javascript" src='{% static "editor/editormd.min.js" %}'></script>
+
 
 {% block admin-content-header %}
     <h2>{% if is_new %}New article{% else %}Edit article{% endif %}</h2>
@@ -65,15 +70,6 @@
         {% endif %}
     </div>
 
-{% endblock %}
-{% block css %}
-
-
-    <link rel="stylesheet" id="custom-style-css" href='{% static "editor/css/editormd.min.css" %}'>
-{#    <link rel="stylesheet" id="custom-style-css" href='{% static "editor/lib/codemirror/codemirror.min.css" %}'>#}
-{#    <link rel="stylesheet" id="custom-style-css" href='{% static "editor/lib/codemirror/addon/dialog/dialog.css" %}'>#}
-    <script type="text/javascript" src='{% static "editor/editormd.min.js" %}'></script>
-{#    <script type="text/javascript" src='{% static "editor/lib/codemirror/codemirror.min.js" %}'></script>#}
 {% endblock %}
 
 {% block js %}

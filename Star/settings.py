@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'haystack',
     'Earth',
-
+    'compressor',
 
 ]
 
@@ -78,14 +78,14 @@ WSGI_APPLICATION = 'Star.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-#sqlite
+# sqlite
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-#mysql
+# mysql
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
@@ -141,4 +141,12 @@ STATICFILES_DIRS = [
 LOGIN_URL = '/login/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
 
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'compressor.finders.CompressorFinder',
+)
