@@ -6,7 +6,7 @@ from Earth.models import Article,Category,About
 
 class ArticleFrom(forms.ModelForm):
     # title = forms.CharField(max_length=30, min_length=5)
-    title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}),error_messages={'required':u'标题不可重复'})
     brief = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     # head_img = forms.ImageField
     # content = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','value':'{{ new_article.content|safe }}'}))

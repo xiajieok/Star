@@ -10,7 +10,7 @@ from Earth.forms import ArticleFrom, handle_uploaded_file, CategoryFrom, AboutFr
 from django.http import Http404
 import json
 import markdown
-
+from django.core.exceptions import ObjectDoesNotExist
 
 def acc_login(request):
     '''
@@ -134,33 +134,37 @@ def post_detail(request, pk):
 def blog_new(request):
     print(request.method)
     if request.method == "POST":
-        form = ArticleFrom(request.POST)
-        print('这里是post的request', request.POST)
-        print('这里是post的form', form)
-        # if form.is_valid():
-        form_data = form.cleaned_data
-        form_data['author_id'] = request.user.userprofile.id
-        print('ID--->', request.POST.get('category_id'))
-        form_data['category_id'] = request.POST.get('category_id')
-        form_data['tags_id'] = request.POST.get('tags_id')
-        form_data['content'] = request.POST.get('text')
-        form_data['md'] = request.POST.get('editormd-markdown-doc')
-        # 不知道咋回事,反正就是category_id必须手动加进去
-        print('--->form_data', form_data)
-        # form_data['category_id'] = request.user.userprofile.id
-        # new_img_path = handle_uploaded_file(request,request.FILES['head_img'])
-        # print('---->',form_data)
-        # print('---->',new_img_path)
-        # form_data['head_img'] = new_img_path
-        new_article_obj = models.Article(**form_data)
-        # print('----obj-->',new_article_obj.category_id)
-        new_article_obj.save()
+        try:
+        #判断用户名是否被注册
+            models.Article.objects.get(title=request.POST.get('title'))
+        except ObjectDoesNotExist:
+            form = ArticleFrom(request.POST)
+            print('这里是post的request', request.POST)
+            print('这里是post的form', form)
+            # if form.is_valid():
+            form_data = form.cleaned_data
+            form_data['author_id'] = request.user.userprofile.id
+            print('ID--->', request.POST.get('category_id'))
+            form_data['category_id'] = request.POST.get('category_id')
+            form_data['tags_id'] = request.POST.get('tags_id')
+            form_data['content'] = request.POST.get('text')
+            form_data['md'] = request.POST.get('editormd-markdown-doc')
+            print('--->form_data', form_data)
 
-        # post = form.save(commit=False)
-        print(new_article_obj)
-        return redirect('/drafts/')
-        # else:
-        #     print('NO !!!!!!!!!!!!!!!')
+            new_article_obj = models.Article(**form_data)
+            new_article_obj.save()
+
+            # post = form.save(commit=False)
+            print(new_article_obj)
+            return redirect('/drafts/')
+            # else:
+            #     print('NO !!!!!!!!!!!!!!!')
+        # raise forms.ValidationError('文章标题冲突')
+        category_list = models.Category.objects.all()
+        tags_list = models.Tag.objects.all()
+        return render(request, 'admin/blog_edit.html',
+                  { 'category_list': category_list, 'tags_list': tags_list, 'is_new': True})
+
     else:
         # form = models.Post.objects.all()
         new_article = ArticleFrom()
@@ -418,7 +422,6 @@ def robot(request):
             'brief': request.POST.get('brief'),
             'content': request.POST.get('article'),
             'reprinted': request.POST.get('reprinted'),
-            'copyright': request.POST.get('copyright'),
             'published_date': request.POST.get('date'),
             'author_id': '1', 'category_id': '1', 'tags_id': '5'
             }
