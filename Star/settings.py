@@ -136,7 +136,6 @@ USE_TZ = True
 STATIC_URL = '/statics/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "statics"),
-    os.path.join(BASE_DIR, "uploads"),
 ]
 
 LOGIN_URL = '/login/'
