@@ -126,7 +126,7 @@ def post_detail(request, pk, refresh=False):
     key = 'title-%s' % (pk)
     print(key)
     value = cache.get(key)
-    print(value)
+    # print(value)
     if value and not refresh:
         views_obj = models.Article.objects.filter(id=pk).values('views')
         obj = list(views_obj)
@@ -138,7 +138,7 @@ def post_detail(request, pk, refresh=False):
     else:
         # body = markdown.markdown(post.md, )
         # md = post.md
-        print(post.content)
+        # print(post.content)
         cache.set(key, post.content, 2 * 24 * 3600)
         pass
 
