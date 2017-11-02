@@ -2,7 +2,8 @@
 cd /data/www/Star
 git pull
 killall -9 uwsgi
-python3 manage.py collectstatic
+python3 manage.py collectstatic --noinput -c
+
 python3 manage.py compress
 
 killall -9 uwsgi
