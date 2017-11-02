@@ -11,6 +11,8 @@ from django.http import Http404
 import json
 import markdown
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.cache import cache
+
 
 def acc_login(request):
     '''
@@ -82,6 +84,8 @@ def index(request):
 
 def side(request):
     res = request.GET.get('name')
+    key = res
+
     print(request)
     if res == 'tag':
         obj = models.Tag.objects.values().all()
@@ -116,18 +120,35 @@ def side(request):
     return HttpResponse(data)
 
 
-def post_detail(request, pk):
+def post_detail(request, pk, refresh=False):
     post = get_object_or_404(models.Article, pk=pk)
-    body = markdown.markdown(post.md,
-                             )
-    md = post.md
+
+    key = 'title-%s' % (pk)
+    print(key)
+    value = cache.get(key)
+    print(value)
+    if value and not refresh:
+        views_obj = models.Article.objects.filter(id=pk).values('views')
+        obj = list(views_obj)
+        for i in obj:
+            tmp = i['views'] + 1
+            models.Article.objects.filter(id=pk).update(views=tmp)
+        return render(request, 'front/post_detail.html',
+                      {'post': post,'content': post.content, 'is_post': True})
+    else:
+        # body = markdown.markdown(post.md, )
+        # md = post.md
+        print(post.content)
+        cache.set(key, post.content, 2 * 24 * 3600)
+        pass
+
     views_obj = models.Article.objects.filter(id=pk).values('views')
     obj = list(views_obj)
     for i in obj:
         tmp = i['views'] + 1
         models.Article.objects.filter(id=pk).update(views=tmp)
     return render(request, 'front/post_detail.html',
-                  {'post': post, 'body': body, 'md': md, 'is_post': True})
+                      {'post': post,'content': post.content, 'is_post': True})
 
 
 @login_required
@@ -135,7 +156,7 @@ def blog_new(request):
     print(request.method)
     if request.method == "POST":
         try:
-        #判断用户名是否被注册
+            # 判断用户名是否被注册
             models.Article.objects.get(title=request.POST.get('title'))
         except ObjectDoesNotExist:
             form = ArticleFrom(request.POST)
@@ -163,7 +184,7 @@ def blog_new(request):
         category_list = models.Category.objects.all()
         tags_list = models.Tag.objects.all()
         return render(request, 'admin/blog_edit.html',
-                  { 'category_list': category_list, 'tags_list': tags_list, 'is_new': True})
+                      {'category_list': category_list, 'tags_list': tags_list, 'is_new': True})
 
     else:
         # form = models.Post.objects.all()
