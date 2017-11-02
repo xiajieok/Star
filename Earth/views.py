@@ -134,7 +134,7 @@ def post_detail(request, pk, refresh=False):
             tmp = i['views'] + 1
             models.Article.objects.filter(id=pk).update(views=tmp)
         return render(request, 'front/post_detail.html',
-                      {'post': post,'content': post.content, 'is_post': True})
+                      {'post': post,'content': post.content,'md':post.md, 'is_post': True})
     else:
         # body = markdown.markdown(post.md, )
         # md = post.md
@@ -148,7 +148,7 @@ def post_detail(request, pk, refresh=False):
         tmp = i['views'] + 1
         models.Article.objects.filter(id=pk).update(views=tmp)
     return render(request, 'front/post_detail.html',
-                      {'post': post,'content': post.content, 'is_post': True})
+                      {'post': post,'content': post.content,'md':post.md, 'is_post': True})
 
 
 @login_required
