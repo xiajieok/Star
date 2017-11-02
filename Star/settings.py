@@ -79,23 +79,23 @@ WSGI_APPLICATION = 'Star.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 # sqlite
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-# mysql
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'earth',
-#         'USER': 'earth',
-#         'PASSWORD': 'earth',
-#         'HOST': '39.106.51.169',
-#         'PORT': '3306',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+# mysql
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'earth',
+        'USER': 'earth',
+        'PASSWORD': 'earth',
+        'HOST': '192.168.1.40',
+        'PORT': '3306',
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -144,9 +144,24 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
 
-
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'compressor.finders.CompressorFinder',
 )
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            'DB': 1,
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "COMPRESSOR": "django_redis.compressors.zlib.ZlibCompressor",
+            "SOCKET_TIMEOUT": 5,
+            "IGNORE_EXCEPTIONS": True,
+            "CONNECTION_POOL_KWARGS": {"max_connections": 100},
+
+        }
+    }
+}
