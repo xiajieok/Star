@@ -123,27 +123,28 @@ def side(request):
     return HttpResponse(data)
 
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 def post_detail(request, pk, refresh=False):
     post = get_object_or_404(models.Article, pk=pk)
 
     key = 'title-%s' % (pk)
-    print(key)
+    # print(key)
     value = cache.get(key)
     # print(value)
     views_key = 'views-%s' % (pk)
-    print(views_key)
+    # print(views_key)
     views_value = cache.get(views_key)
-    print(views_value)
-    if views_value and not refresh:
-        print('获取到了views')
-        views_value = + views_value
-        cache.set(views_key, views_value)
+    # print(views_value)
+    if int(views_value) >=  0 :
+        # print('获取到了views')
+        views_value = int(views_value) + 1
+        # print('views_value,这是增加后的',views_value)
+        cache.set(views_key, views_value, 2 * 24 * 3600)
         views_obj = views_value
-        print('新的views',views_obj)
+        # print('新的views', views_obj)
     else:
-        print('没有获取到views')
-        cache.set(views_key, 0)
+        # print('没有获取到views',views_key)
+        cache.set(views_key, 0, 2 * 24 * 3600)
         views_obj = 0
     if value and not refresh:
         # 判断是否存在标题ID的views

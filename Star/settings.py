@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE_CLASSES = [
+    'django.middleware.cache.UpdateCacheMiddleware',  #必须设置在第一个位置
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     # 'django.middleware.common.CommonMiddleware',
@@ -51,6 +52,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',#必须设置在最后一个位置
 ]
 
 ROOT_URLCONF = 'Star.urls'
@@ -92,7 +94,8 @@ DATABASES = {
         'NAME': 'earth',
         'USER': 'earth',
         'PASSWORD': 'earth',
-        'HOST': '127.0.0.1',
+        # 'HOST': '127.0.0.1',
+        'HOST': '192.168.1.40',
         'PORT': '3306',
     }
 }
@@ -165,3 +168,7 @@ CACHES = {
         }
     }
 }
+CACHE_MIDDLEWARE_ALIAS = "default"
+CACHE_MIDDLEWARE_SECONDS = 0
+CACHE_MIDDLEWARE_KEY_PREFIX = "www.mknight.cn"
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False
