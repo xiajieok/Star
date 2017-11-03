@@ -12,6 +12,7 @@ import json
 import markdown
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.cache import cache
+from django.views.decorators.cache import cache_page
 
 
 def acc_login(request):
@@ -65,6 +66,7 @@ def pages(request, blog_all):
     return posts
 
 
+@cache_page(60 * 15)
 def index(request):
     #     return HttpResponse('hello')
     # # def index(request):
@@ -82,6 +84,7 @@ def index(request):
                    })
 
 
+@cache_page(60 * 15)
 def side(request):
     res = request.GET.get('name')
     key = res
@@ -120,6 +123,7 @@ def side(request):
     return HttpResponse(data)
 
 
+@cache_page(60 * 15)
 def post_detail(request, pk, refresh=False):
     post = get_object_or_404(models.Article, pk=pk)
 
@@ -127,28 +131,28 @@ def post_detail(request, pk, refresh=False):
     print(key)
     value = cache.get(key)
     # print(value)
-    if value and not refresh:
-        views_obj = models.Article.objects.filter(id=pk).values('views')
-        obj = list(views_obj)
-        for i in obj:
-            tmp = i['views'] + 1
-            models.Article.objects.filter(id=pk).update(views=tmp)
-        return render(request, 'front/post_detail.html',
-                      {'post': post,'content': post.content,'md':post.md, 'is_post': True})
+    views_key = 'views-%s' % (pk)
+    print(views_key)
+    views_value = cache.get(views_key)
+    print(views_value)
+    if views_value and not refresh:
+        print('获取到了views')
+        views_value = + views_value
+        cache.set(views_key, views_value)
+        views_obj = views_value
+        print('新的views',views_obj)
     else:
-        # body = markdown.markdown(post.md, )
-        # md = post.md
-        # print(post.content)
+        print('没有获取到views')
+        cache.set(views_key, 0)
+        views_obj = 0
+    if value and not refresh:
+        # 判断是否存在标题ID的views
+        return render(request, 'front/post_detail.html',
+                      {'post': post, 'content': post.content, 'md': post.md, 'is_post': True, 'views': views_obj})
+    else:
         cache.set(key, post.content, 2 * 24 * 3600)
-        pass
-
-    views_obj = models.Article.objects.filter(id=pk).values('views')
-    obj = list(views_obj)
-    for i in obj:
-        tmp = i['views'] + 1
-        models.Article.objects.filter(id=pk).update(views=tmp)
     return render(request, 'front/post_detail.html',
-                      {'post': post,'content': post.content,'md':post.md, 'is_post': True})
+                  {'post': post, 'content': post.content, 'md': post.md, 'is_post': True, 'views': views_obj})
 
 
 @login_required
