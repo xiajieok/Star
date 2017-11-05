@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from datetime import datetime
 import django
-
+from django.contrib.sites.models import Site
 
 
 class Tag(models.Model):
@@ -50,10 +50,14 @@ class Article(models.Model):
     # copyright = models.TextField(default='Medivh')
     reprinted = models.CharField(default='http://www.mknight.cn',max_length=64)
     views = models.IntegerField(default='0')
+    sites = models.ManyToManyField(Site)
     def publish(self):
         # self.published_date = timezone.now()
         self.published_date = datetime.now().strftime("%Y-%m-%d %H:%I:%S")
         self.save()
+
+    def get_absolute_url(self):
+        return '/post/%s.html' % (self.id)
 
     def __str__(self):
         return self.title

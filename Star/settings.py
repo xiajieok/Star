@@ -36,14 +36,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'haystack',
     'Earth',
     'compressor',
 
 ]
+SITE_ID = 2
 
 MIDDLEWARE_CLASSES = [
-    'django.middleware.cache.UpdateCacheMiddleware',  #必须设置在第一个位置
+    'django.middleware.cache.UpdateCacheMiddleware',  # 必须设置在第一个位置
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     # 'django.middleware.common.CommonMiddleware',
@@ -52,7 +54,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',#必须设置在最后一个位置
+    'django.middleware.cache.FetchFromCacheMiddleware',  # 必须设置在最后一个位置
 ]
 
 ROOT_URLCONF = 'Star.urls'
@@ -60,8 +62,9 @@ ROOT_URLCONF = 'Star.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 '/home/medivh/gitlab/Star/static_html'
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -94,8 +97,9 @@ DATABASES = {
         'NAME': 'earth',
         'USER': 'earth',
         'PASSWORD': 'earth',
-        # 'HOST': '127.0.0.1',
-        'HOST': '192.168.1.40',
+        # 'HOST': '192.168.1.21',
+        'HOST': '127.0.0.1',
+        # 'HOST': '192.168.1.40',
         'PORT': '3306',
     }
 }

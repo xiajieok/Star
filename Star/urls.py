@@ -17,6 +17,22 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from Earth import views as views
 from django.contrib.auth import views as user_views
+from django.contrib.sitemaps import GenericSitemap
+from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import Sitemap
+from Earth.models import Article
+from Earth import models
+
+sitemaps = {
+    'Earth': GenericSitemap({'queryset': models.Article.objects.all(), 'date_field': 'published_date'}, priority=0.6),
+    # 如果还要加其它的可以模仿上面的
+}
+info_dict = {
+    'queryset': models.Article.objects.all(),
+    'date_field': 'published_date',
+}
+
+
 
 urlpatterns = [
 
@@ -46,6 +62,10 @@ urlpatterns = [
     url(r'^logout/', views.acc_logout, name='logout'),
     url(r'^robot/', views.robot, name='robot'),
     url(r'^search/', include('haystack.urls')),
+
+    url(r'^sitemap\.xml$', sitemap,
+        {'sitemaps': {'Earth': GenericSitemap(info_dict, priority=0.6)}},
+        name='django.contrib.sitemaps.views.sitemap'),
 
     # url(r'^archives/$', Earth.archives, name='archives'),
 

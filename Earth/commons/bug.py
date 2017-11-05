@@ -27,7 +27,7 @@ ss = os.path.abspath(os.path.join(os.path.dirname(__file__), ".", 'html'))
 
 def getWebPage(url, fname):
     try:
-        obj = requests.get(url)
+        obj = requests.get(url, verify=False)
         obj.headers = headers
         # coding = obj.apparent_encoding
         # print(coding)
