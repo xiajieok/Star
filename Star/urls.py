@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url, include,patterns
 from django.contrib import admin
 from Earth import views as views
 from django.contrib.auth import views as user_views
@@ -22,6 +22,8 @@ from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import Sitemap
 from Earth.models import Article
 from Earth import models
+
+from django.conf import settings
 
 
 info_dict = {
@@ -69,3 +71,9 @@ urlpatterns = [
     # url(r'^accounts/login/$', user_views.login),
     # url(r'^accounts/logout/$', user_views.logout, {'next_page': '/blog'})
 ]
+if settings.DEBUG is False:
+    urlpatterns += patterns('',
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.STATIC_ROOT,
+        }),
+   )

@@ -15,6 +15,14 @@ from django.core.cache import cache
 from django.views.decorators.cache import cache_page
 from django.template.loader import render_to_string
 import os
+from django.shortcuts import render_to_response
+
+def page_not_found(request):
+    return render_to_response('404.html')
+
+
+def page_error(request):
+    return render_to_response('500.html')
 
 
 def acc_login(request):
@@ -68,7 +76,7 @@ def pages(request, blog_all):
     return posts
 
 
-@cache_page(60 * 5)
+# @cache_page(60 * 5)
 def index(request):
     '''
     静态文件模式,但是效果不明显
@@ -142,7 +150,7 @@ def side(request):
     return HttpResponse(data)
 
 
-@cache_page(60 * 15)
+# @cache_page(60 * 15)
 def post_detail(request, pk, refresh=False):
     key = 'title-%s' % (pk)
     # print(key)
