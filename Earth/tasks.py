@@ -1,3 +1,10 @@
+from __future__ import absolute_import
+
+import logging
+from celery import task
+from celery.utils.log import get_task_logger
+from celery.schedules import crontab
+
 import requests, os, sys, re, json, random
 from bs4 import BeautifulSoup as bs
 from time import ctime
@@ -49,7 +56,8 @@ def getWebPage(url, fname):
 
 def getIthome(func):
     getWebPage(ithome, 'ithome.html')
-    soup = bs(open('./html/ithome.html', 'rb'), 'lxml')
+    desc = os.path.join(ss, 'ithome.html')
+    soup = bs(open(desc, 'rb'), 'lxml')
     b = soup.select('div.new-list-1 li.new a  ')
     for i in b:
         url = i.get('href')
@@ -88,7 +96,12 @@ def getIthome(func):
 
 def getLinuxcn(func):
     getWebPage(linuxcn, 'linuxcn.html')
-    soup = bs(open('./html/linuxcn.html', encoding='utf-8'), 'lxml')
+    # soup = bs(open('html/linuxcn.html', encoding='utf-8'), 'lxml')
+
+    desc = os.path.join(ss, 'linuxcn.html')
+    soup = bs(open(desc, encoding='utf-8'), 'lxml')
+
+
     # 获取文章URL
     b = soup.select('span.title > a')
     for i in b:
@@ -139,14 +152,25 @@ def getLinuxcn(func):
 
 
 threads = []
-t1 = threading.Thread(target=getIthome, args=(ithome,) )
+t1 = threading.Thread(target=getIthome, args=(ithome,))
 threads.append(t1)
-t2 = threading.Thread(target=getLinuxcn, args=(linuxcn,) )
+t2 = threading.Thread(target=getLinuxcn, args=(linuxcn,))
 threads.append(t2)
-if __name__ == '__main__':
+
+
+@task
+def news():
     print('Start !!! %s' % (ctime()))
     for t in threads:
         t.setDaemon(True)
         t.start()
     t.join()
     print('END !!! %s' % (ctime()))
+
+# if __name__ == '__main__':
+#     print('Start !!! %s' % (ctime()))
+#     for t in threads:
+#         t.setDaemon(True)
+#         t.start()
+#     t.join()
+#     print('END !!! %s' % (ctime()))

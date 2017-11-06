@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
-
+from __future__ import absolute_import
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -37,12 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'djcelery',
     'haystack',
     'Earth',
     'compressor',
 
 ]
-SITE_ID = 2
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.cache.UpdateCacheMiddleware',  # 必须设置在第一个位置
@@ -98,8 +99,8 @@ DATABASES = {
         'USER': 'earth',
         'PASSWORD': 'earth',
         # 'HOST': '192.168.1.21',
-        'HOST': '127.0.0.1',
-        # 'HOST': '192.168.1.40',
+        # 'HOST': '127.0.0.1',
+        'HOST': '192.168.1.40',
         'PORT': '3306',
     }
 }
@@ -176,3 +177,30 @@ CACHE_MIDDLEWARE_ALIAS = "default"
 CACHE_MIDDLEWARE_SECONDS = 0
 CACHE_MIDDLEWARE_KEY_PREFIX = "www.mknight.cn"
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False
+
+#定时任务
+import djcelery
+from celery.schedules import crontab
+djcelery.setup_loader()
+BROKER_URL = 'redis://127.0.0.1:6379/1'
+# BROKER_URL = 'redis://:密码@主机地址:端口号/数据库号'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+CELERY_ENABLE_UTC = False # 不是用UTC
+CELERY_TIMEZONE = 'Asia/Shanghai'
+CELERY_TASK_RESULT_EXPIRES = 10 #任务结果的时效时间
+# CELERYD_LOG_FILE = BASE_DIR + "/logs/celery/celery.log" # log路径
+# CELERYBEAT_LOG_FILE = BASE_DIR + "/logs/celery/beat.log" # beat log路径
+CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml'] # 允许的格式
+
+from datetime import timedelta
+
+
+CELERYBEAT_SCHEDULE = {
+    'add-every-3-seconds': {
+        'task': 'Earth.tasks.news',
+        'schedule': crontab(minute=u'40', hour=u'08',),
+        # 'schedule': timedelta(seconds=60),
+        'args': (16, 16)
+    },
+}

@@ -23,10 +23,7 @@ from django.contrib.sitemaps import Sitemap
 from Earth.models import Article
 from Earth import models
 
-sitemaps = {
-    'Earth': GenericSitemap({'queryset': models.Article.objects.all(), 'date_field': 'published_date'}, priority=0.6),
-    # 如果还要加其它的可以模仿上面的
-}
+
 info_dict = {
     'queryset': models.Article.objects.all(),
     'date_field': 'published_date',
@@ -40,8 +37,8 @@ urlpatterns = [
     url(r'^list/$', views.blog_list, name='list'),
     url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='detail'),
     url(r'^post/new/$', views.blog_new, name='new'),
-    url(r'^admin/$', views.blog_admin, name='admin'),
-    url(r'^admin/category/$', views.admin_category, name='admin_category'),
+    url(r'^bs$', views.blog_admin, name='bs'),
+    url(r'^bs/category/$', views.admin_category, name='admin_category'),
     url(r'^category/$', views.admin_category, name='category_old'),
     url(r'^category/(.+)/$', views.category, name='category'),
     url(r'^category/(?P<pk>[0-9]+)/del/$', views.blog_category_del, name='category_del'),
@@ -66,7 +63,7 @@ urlpatterns = [
     url(r'^sitemap\.xml$', sitemap,
         {'sitemaps': {'Earth': GenericSitemap(info_dict, priority=0.6)}},
         name='django.contrib.sitemaps.views.sitemap'),
-
+    url(r'^admin/', admin.site.urls),
     # url(r'^archives/$', Earth.archives, name='archives'),
 
     # url(r'^accounts/login/$', user_views.login),

@@ -15,19 +15,17 @@
 
     <!-- 设置描述性标签和关键词标签 -->
 
-    <meta content="python,运维自动化,运维平台化,saltstack,ansible,docker" name="description">
-    {#    <meta content="                                                                                                                                                                                                                                                                                                                                                     Golang,python,运维自动化,运维平台化,saltstack,ansible,docker                                                                                                                                                                                                                       Golang,python,运维自动化,运维平台化,saltstack,ansible运维,docker,zabbix                                                                                                                                                                                                                                                                                                                           "#}
-    {#          name="keywords">#}
+    <meta content="python,运维自动化,运维平台化,saltstack,ansible,docker" name="keywords">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- icon -->
     {% compress css %}
-{#        <link rel="stylesheet" href='{% static "bootstrap/dist/css/font-awesome.min.css" %}'/>#}
+        {#        <link rel="stylesheet" href='{% static "bootstrap/dist/css/font-awesome.min.css" %}'/>#}
         <link rel="stylesheet" href='{% static "custom/custom.css" %}'>
 
         <link rel="stylesheet" href='{% static "custom/crayon.min.css" %}'>
         <link rel="stylesheet" href='{% static "custom/solarized-light.css" %}'>
-            <link rel="stylesheet" id="crayon-font-monaco-css" href='{% static "custom/monaco.css" %}'>
+        <link rel="stylesheet" id="crayon-font-monaco-css" href='{% static "custom/monaco.css" %}'>
 
         <link rel="stylesheet" href='{% static "custom/style.css" %}'>
         <link rel="stylesheet" id="bootstrap-style-css" href='{% static "custom/bootstrap.css" %}'>
@@ -36,13 +34,12 @@
         <link rel="stylesheet" href='{% static "custom/red.css" %}'>
         <link rel="stylesheet" href='{% static "custom/custom.css" %}'>
         <link rel="stylesheet" href='{% static "custom/wp-code-highlight.css" %}'>
-            <link rel="stylesheet" id="custom-style-css" href='{% static "editor/css/editormd.min.css" %}'>
+        <link rel="stylesheet" id="custom-style-css" href='{% static "editor/css/editormd.min.css" %}'>
 
 
     {% endcompress %}
 
-    <script type="text/javascript" src='https://code.jquery.com/jquery-3.2.1.js'></script>
-    {#    <script type="text/javascript" src='{% static "bootstrap/js/jquery-2.1.4.js" %}'></script>#}
+    {#    <script type="text/javascript" src='https://code.jquery.com/jquery-3.2.1.min.js'></script>#}
 
 
     <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
@@ -184,7 +181,7 @@
   font-size: 1pc;
   border-top: 1px solid #d2d6de;">
 
-    <p style="margin: 10px 0 10px;">Copyright © Medivh 2016 - 2017 All Rights Reserved.</p>
+    <p style="margin: 10px 0 10px;">Copyright © Medivh 2016 - 2017 All Rights Reserved.京ICP备xxxxxxx号</p>
 
     <!--统计代码开始-->
     <script>
@@ -222,9 +219,12 @@
     };
     backTop('gotop');
 </script>
+<script type="text/javascript" src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+
 {% block js %}
 
 {% endblock %}
+
 {% compress js %}
     <script type="text/javascript" src="/statics/custom/wp-code-highlight.js"></script>
     <script type="text/javascript" src='{% static "bootstrap/js/bootstrap.min.js" %}'></script>
