@@ -70,34 +70,37 @@ def pages(request, blog_all):
 
 @cache_page(60 * 5)
 def index(request):
-    blog_all = models.Article.objects.filter(published_date__isnull=False).order_by(
-        '-published_date').exclude(title='About')
-    posts = pages(request, blog_all)
-    context = {'posts': posts, 'page': True,}
-
-    static_html = 'templates/static/index_static.html'
-
-    # print(os.path.abspath('.'))
-    pwd = os.path.join(os.path.abspath('.'),static_html)
-    # print(pwd)
-    if not os.path.exists(static_html):
-        content = render_to_string('index.html', context)
-        with open(static_html, 'w') as static_file:
-            static_file.write(content)
-    static_html = 'static/index_static.html'
-    return render(request, static_html)
-
-    # '''所有已发布文章'''
-    # blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
+    '''
+    静态文件模式,但是效果不明显
+    :param request:
+    :return:
+    '''
+    # blog_all = models.Article.objects.filter(published_date__isnull=False).order_by(
     #     '-published_date').exclude(title='About')
-    # # blog_all = models.Article.objects.all()
     # posts = pages(request, blog_all)
-    # # about_obj = models.About.objects.values().all()
-    # # tag_obj = models.Tag.objects.values().all()
-    # category_obj = models.Category.objects.values().all().exclude(name='About')
-    # return render(request, 'index.html',
-    #               {'posts': posts, 'page': True,
-    #                })
+    # context = {'posts': posts, 'page': True,}
+    #
+    # static_html = 'templates/static/index_static.html'
+    #
+    # # print(os.path.abspath('.'))
+    # pwd = os.path.join(os.path.abspath('.'),static_html)
+    # # print(pwd)
+    # if not os.path.exists(static_html):
+    #     content = render_to_string('index.html', context)
+    #     with open(static_html, 'w') as static_file:
+    #         static_file.write(content)
+    # static_html = 'static/index_static.html'
+    # return render(request, static_html)
+    '''
+    普通模式
+    '''
+    # '''所有已发布文章'''
+    blog_all = models.Article.objects.filter(published_date__isnull=False).order_by('-published_date').exclude(
+        title='About')
+    posts = pages(request, blog_all)
+    return render(request, 'index.html',
+                  {'posts': posts, 'page': True,
+                   })
 
 
 @cache_page(60 * 15)
@@ -146,19 +149,19 @@ def post_detail(request, pk, refresh=False):
     value = cache.get(key)
     # print(value)
     views_key = 'views-%s' % (pk)
-    print(views_key)
+    # print(views_key)
     views_value = cache.get(views_key)
-    print(views_value, type(views_value))
+    # print(views_value, type(views_value))
     if views_value or views_value == 0:
-        print('获取到了views')
+        # print('获取到了views')
         views_value = views_value + 1
-        print('views_value,这是增加后的', views_value)
+        # print('views_value,这是增加后的', views_value)
         cache.set(views_key, views_value, 2 * 24 * 3600)
         views_obj = views_value
-        print('新的views', views_obj)
+        # print('新的views', views_obj)
         models.Article.objects.filter(id=pk).update(views=views_obj)
     else:
-        print('没有获取到views', views_key)
+        # print('没有获取到views', views_key)
         cache.set(views_key, 0, 2 * 24 * 3600)
         views_obj = 0
     post = get_object_or_404(models.Article, pk=pk)
@@ -234,7 +237,7 @@ def blog_remove(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
     post.delete()
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date')
+            '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/table.html', {'posts': posts})
 
@@ -265,7 +268,7 @@ def blog_list(request):
     :return:
     '''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date')
+            '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/blog_list.html', {'posts': posts, 'page': True, 'is_list': True})
 
@@ -321,8 +324,8 @@ def archives(request, y, m):
     """根据年月份列出已发布文章"""
     # posts = models.Article.objects.annotate(num_comment=Count('comment')).filter(
     posts_ar = models.Article.objects.annotate().filter(
-        published_date__isnull=False, published_date__year=y,
-        published_date__month=m).prefetch_related().order_by('-published_date')
+            published_date__isnull=False, published_date__year=y,
+            published_date__month=m).prefetch_related().order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     # print('--post_ar-->', posts_ar)
@@ -367,8 +370,8 @@ def admin_category(request):
 def post_list_by_category(request, cg):
     """根据目录列表已发布文章"""
     posts = models.Article.objects.annotate().filter(
-        published_date__isnull=False, category__name=cg).prefetch_related(
-        'category').order_by('-published_date')
+            published_date__isnull=False, category__name=cg).prefetch_related(
+            'category').order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     return render(request, 'index.html',
@@ -435,7 +438,7 @@ def category(request, arg):
     arg = arg
     print(arg)
     blog_all = models.Article.objects.filter(category__name=arg).order_by(
-        '-published_date')
+            '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
@@ -449,7 +452,7 @@ def category(request, arg):
 def tags(request, tag):
     tag = tag
     blog_all = models.Article.objects.filter(tags__name=tag).order_by(
-        '-published_date')
+            '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()

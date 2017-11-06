@@ -57,7 +57,8 @@ class Article(models.Model):
         self.save()
 
     def get_absolute_url(self):
-        return '/post/%s.html' % (self.id)
+        return '/post/%s/' % (self.id)
+        # return '/post/%s.html' % (self.id)
 
     def __str__(self):
         return self.title
