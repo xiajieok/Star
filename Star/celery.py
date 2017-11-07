@@ -5,11 +5,11 @@ import os
 from celery import Celery, platforms
 
 # set the default Django settings module for the 'celery' program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_celery_demo.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Star.settings')
 
 from django.conf import settings  # noqa
 
-app = Celery('Earth')
+app = Celery('Star')
 platforms.C_FORCE_ROOT = True
 
 # Using a string here means the worker will not have to

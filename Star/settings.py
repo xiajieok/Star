@@ -99,8 +99,8 @@ DATABASES = {
         'USER': 'earth',
         'PASSWORD': 'earth',
         # 'HOST': '192.168.1.21',
-        'HOST': '127.0.0.1',
-        # 'HOST': '192.168.1.40',
+        # 'HOST': '127.0.0.1',
+        'HOST': '192.168.1.40',
         'PORT': '3306',
     }
 }
@@ -186,8 +186,8 @@ djcelery.setup_loader()
 BROKER_URL = 'redis://127.0.0.1:6379/1'
 # BROKER_URL = 'redis://:密码@主机地址:端口号/数据库号'
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
-CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
-CELERY_ENABLE_UTC = False # 不是用UTC
+# CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+# CELERY_ENABLE_UTC = False # 不是用UTC
 CELERY_TIMEZONE = 'Asia/Shanghai'
 CELERY_TASK_RESULT_EXPIRES = 10 #任务结果的时效时间
 # CELERYD_LOG_FILE = BASE_DIR + "/logs/celery/celery.log" # log路径
@@ -200,8 +200,8 @@ from datetime import timedelta
 CELERYBEAT_SCHEDULE = {
     'add-every-3-seconds': {
         'task': 'Earth.tasks.news',
-        'schedule': crontab(minute=u'40', hour=u'08',),
-        # 'schedule': timedelta(seconds=60),
-        'args': (16, 16)
+        'schedule': crontab(minute=u'10', hour=u'08',),
+        # 'schedule': timedelta(seconds=120),
+        # 'args': (16, 16)
     },
 }

@@ -90,7 +90,8 @@ def getIthome(func):
             data = {'title': title, 'brief': title, 'article': article, 'copyright': '', 'date': date,
                     "reprinted": url}
 
-            r = requests.post('http://127.0.0.1:8000/robot/', data=data)
+            r = requests.post('http://127.0.0.1/robot/', data=data)
+            # r = requests.post('http://127.0.0.1:8000/robot/', data=data)
             print('ok')
 
 
@@ -100,8 +101,6 @@ def getLinuxcn(func):
 
     desc = os.path.join(ss, 'linuxcn.html')
     soup = bs(open(desc, encoding='utf-8'), 'lxml')
-
-
     # 获取文章URL
     b = soup.select('span.title > a')
     for i in b:
@@ -148,29 +147,13 @@ def getLinuxcn(func):
         data = {'title': title, 'brief': summary, 'article': article, 'copyright': copyright, 'date': date,
                 "reprinted": url}
 
-        r = requests.post('http://127.0.0.1:8000/robot/', data=data)
-
-
-threads = []
-t1 = threading.Thread(target=getIthome, args=(ithome,))
-threads.append(t1)
-t2 = threading.Thread(target=getLinuxcn, args=(linuxcn,))
-threads.append(t2)
+        r = requests.post('http://127.0.0.1/robot/', data=data)
+        # r = requests.post('http://127.0.0.1:8000/robot/', data=data)
 
 
 @task
 def news():
-    print('Start !!! %s' % (ctime()))
-    for t in threads:
-        t.setDaemon(True)
-        t.start()
-    t.join()
-    print('END !!! %s' % (ctime()))
-
-# if __name__ == '__main__':
-#     print('Start !!! %s' % (ctime()))
-#     for t in threads:
-#         t.setDaemon(True)
-#         t.start()
-#     t.join()
-#     print('END !!! %s' % (ctime()))
+    print('start')
+    getIthome(ithome)
+    getLinuxcn(linuxcn)
+    print('end')
