@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'j$zr0obk)$dfs84&-@z*#exjsa+f7tar4q%mfzykvs8j*@ox&$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -99,8 +99,8 @@ DATABASES = {
         'USER': 'earth',
         'PASSWORD': 'earth',
         # 'HOST': '192.168.1.21',
-        # 'HOST': '127.0.0.1',
-        'HOST': '192.168.1.40',
+        'HOST': '127.0.0.1',
+        # 'HOST': '192.168.1.40',
         'PORT': '3306',
     }
 }

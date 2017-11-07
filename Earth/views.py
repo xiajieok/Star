@@ -14,8 +14,10 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page
 from django.template.loader import render_to_string
-import os
+import os,datetime,pytz
 from django.shortcuts import render_to_response
+from django.utils.timezone import utc
+from django.utils import timezone
 
 def page_not_found(request):
     return render_to_response('404.html')
@@ -245,7 +247,7 @@ def blog_remove(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
     post.delete()
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-            '-published_date')
+        '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/table.html', {'posts': posts})
 
@@ -276,7 +278,7 @@ def blog_list(request):
     :return:
     '''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-            '-published_date')
+        '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/blog_list.html', {'posts': posts, 'page': True, 'is_list': True})
 
@@ -332,8 +334,8 @@ def archives(request, y, m):
     """根据年月份列出已发布文章"""
     # posts = models.Article.objects.annotate(num_comment=Count('comment')).filter(
     posts_ar = models.Article.objects.annotate().filter(
-            published_date__isnull=False, published_date__year=y,
-            published_date__month=m).prefetch_related().order_by('-published_date')
+        published_date__isnull=False, published_date__year=y,
+        published_date__month=m).prefetch_related().order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     # print('--post_ar-->', posts_ar)
@@ -378,8 +380,8 @@ def admin_category(request):
 def post_list_by_category(request, cg):
     """根据目录列表已发布文章"""
     posts = models.Article.objects.annotate().filter(
-            published_date__isnull=False, category__name=cg).prefetch_related(
-            'category').order_by('-published_date')
+        published_date__isnull=False, category__name=cg).prefetch_related(
+        'category').order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     return render(request, 'index.html',
@@ -446,7 +448,7 @@ def category(request, arg):
     arg = arg
     print(arg)
     blog_all = models.Article.objects.filter(category__name=arg).order_by(
-            '-published_date')
+        '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
@@ -460,7 +462,7 @@ def category(request, arg):
 def tags(request, tag):
     tag = tag
     blog_all = models.Article.objects.filter(tags__name=tag).order_by(
-            '-published_date')
+        '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
@@ -469,22 +471,29 @@ def tags(request, tag):
     return render(request, 'index.html',
                   {'posts': posts, 'is_post': True, 'about_obj': about_obj, 'category_obj': category_obj,
                    'tag_obj': tag_obj})
-
+tz = pytz.timezone('Asia/Shanghai')
 
 def robot(request):
+    date = request.POST.get('date')
+
+    t = datetime.datetime.strptime(date, "%Y-%m-%d %H:%M")
+    ot = utc.localize(t)
+    ct = ot.astimezone(tz)
+    # new = timezone.localtime(t,tz)
+    utcnow = ct
+    print(utcnow)
+    # utcnow = timezone.localtime(date).strftime("%Y-%m-%d %H:%M:%S")
     data = {'title': request.POST.get('title'),
             'brief': request.POST.get('brief'),
             'content': request.POST.get('article'),
             'reprinted': request.POST.get('reprinted'),
-            'published_date': request.POST.get('date'),
+            'published_date': utcnow,
             'author_id': '1', 'category_id': '1', 'tags_id': '1'
             }
-    # print(request.POST)
-    models.Article.objects.update_or_create(**data)
-    # print('这里是post的request', request.POST)
-    # title = res.title
-    # print(title)
-    # models.Article.objects.create(**res)
-
+    try:
+        # 判断title,once again
+        models.Article.objects.get(title=request.POST.get(request.POST.get('title')))
+    except:
+        models.Article.objects.update_or_create(**data)
 
     return HttpResponse('ok')
