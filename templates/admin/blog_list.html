@@ -1,7 +1,9 @@
 {% extends 'admin/admin.html' %}
 {% load custom %}
 {% load compress %}
-
+{% block admin-content-header %}
+   当前页面
+{% endblock %}
 {% block admin-content %}
     <div class="row">
     <div class="col-xs-12">
@@ -71,7 +73,7 @@
                 success: function (data) {
                     console.log(data);
                     $("#tb").html(data);
-                    window.location.href="/list/"
+                    window.location.href = "/list/"
                 }
             })
         }

@@ -102,17 +102,17 @@
             console.log(id)
             $.get("/side/", {name: 'title', id: id}, function (data) {
                 var tmp = JSON.parse(data);
-                console.log(tmp)
                 {#                for (let i = 0; i < tmp.length; i++) {#}
-                console.log(tmp[0]['id'])
+{#                console.log(tmp[0]['id'])#}
                 var title0 = tmp[0]['title'].substr(0, 22)
                 var title1 = tmp[1]['title'].substr(0, 22)
-                html1 = "<a href='" + url.split('post')['0'] + "post/" + tmp[0]['id'] + "/'>" + "上一篇 " + title0 + "</a>"
-                html2 = "<a href='" + url.split('post')['0'] + "post/" + tmp[1]['id'] + "/'>" + "下一篇 " + title1 + "</a>"
+                console.log(title0)
+                console.log(title1)
+                html1 = "<a href='" + url.split('post')['0'] + "post/" + tmp[1]['id'] + "/'>" + "上一篇 " + title1 + "</a>"
+                html2 = "<a href='" + url.split('post')['0'] + "post/" + tmp[0]['id'] + "/'>" + "下一篇 " + title0 + "</a>"
                 $('#left').append(html1)
                 $('#right').append(html2)
 
-                {#                }#}
                 ;
 
 

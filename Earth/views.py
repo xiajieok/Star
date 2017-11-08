@@ -14,10 +14,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page
 from django.template.loader import render_to_string
-import os,datetime,pytz
+import os, datetime, pytz
 from django.shortcuts import render_to_response
 from django.utils.timezone import utc
 from django.utils import timezone
+
 
 def page_not_found(request):
     return render_to_response('404.html')
@@ -65,7 +66,7 @@ def pages(request, blog_all):
     :param blog_all:
     :return:
     '''
-    paginator = Paginator(blog_all, 8)
+    paginator = Paginator(blog_all, 10)
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
@@ -106,7 +107,7 @@ def index(request):
     '''
     # '''所有已发布文章'''
     blog_all = models.Article.objects.filter(published_date__isnull=False).order_by('-published_date').exclude(
-        title='About')
+            title='About')
     posts = pages(request, blog_all)
     return render(request, 'index.html',
                   {'posts': posts, 'page': True,
@@ -130,14 +131,25 @@ def side(request):
         获取ID,根据ID+1,-1来获取上一篇和下一篇；
         '''
         ids = request.GET.get('id')
-        obj1 = models.Article.objects.values('id', 'title').filter(id__gt=ids)[0:1]
-        ltID = int(ids) - 1
-        tmp_obj2 = models.Article.objects.values('id', 'title').filter(id=ltID)
-        while len(tmp_obj2) == 0:
-            ltID = ltID - 1
-            tmp_obj2 = models.Article.objects.values('id', 'title').filter(id=ltID)
+        print(ids)
+        obj1 = models.Article.objects.values('id', 'title').filter(id__gt=ids)
+        if len(obj1) == 0:
+            obj1 = [{'id': 1, 'title': '没有了'}]
+        else:
+            obj1 = obj1[0:1]
 
-        obj2 = tmp_obj2
+        ltID = int(ids) - 1
+        obj2 = models.Article.objects.values('id', 'title').filter(id=ltID)
+        # print(obj2)
+        # print(len(obj2))
+        while len(obj2) == 0 and ltID > 1:
+            ltID = ltID - 1
+            print(ltID)
+            obj2 = models.Article.objects.values('id', 'title').filter(id=ltID)
+        else:
+            obj2 = [{'id': 1, 'title': '没有了'}]
+        print('obj2', obj2)
+
         li = []
         for i in list(obj1):
             obj = {'id': i['id'], 'title': i['title']}
@@ -146,9 +158,11 @@ def side(request):
             obj = {'id': i['id'], 'title': i['title']}
             li.append(obj)
         obj = li
+        print(obj)
 
     data = list(obj)
     data = json.dumps(data)
+
     return HttpResponse(data)
 
 
@@ -247,7 +261,7 @@ def blog_remove(request, pk):
     post = get_object_or_404(models.Article, pk=pk)
     post.delete()
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date')
+            '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/table.html', {'posts': posts})
 
@@ -278,7 +292,7 @@ def blog_list(request):
     :return:
     '''
     blog_all = models.Article.objects.annotate(num_comment=Count('id')).filter(published_date__isnull=False).order_by(
-        '-published_date')
+            '-published_date')
     posts = pages(request, blog_all)
     return render(request, 'admin/blog_list.html', {'posts': posts, 'page': True, 'is_list': True})
 
@@ -334,8 +348,8 @@ def archives(request, y, m):
     """根据年月份列出已发布文章"""
     # posts = models.Article.objects.annotate(num_comment=Count('comment')).filter(
     posts_ar = models.Article.objects.annotate().filter(
-        published_date__isnull=False, published_date__year=y,
-        published_date__month=m).prefetch_related().order_by('-published_date')
+            published_date__isnull=False, published_date__year=y,
+            published_date__month=m).prefetch_related().order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     # print('--post_ar-->', posts_ar)
@@ -380,8 +394,8 @@ def admin_category(request):
 def post_list_by_category(request, cg):
     """根据目录列表已发布文章"""
     posts = models.Article.objects.annotate().filter(
-        published_date__isnull=False, category__name=cg).prefetch_related(
-        'category').order_by('-published_date')
+            published_date__isnull=False, category__name=cg).prefetch_related(
+            'category').order_by('-published_date')
     # for p in posts:
     #     p.click = cache_manager.get_click(p)
     return render(request, 'index.html',
@@ -448,7 +462,7 @@ def category(request, arg):
     arg = arg
     print(arg)
     blog_all = models.Article.objects.filter(category__name=arg).order_by(
-        '-published_date')
+            '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
@@ -462,7 +476,7 @@ def category(request, arg):
 def tags(request, tag):
     tag = tag
     blog_all = models.Article.objects.filter(tags__name=tag).order_by(
-        '-published_date')
+            '-published_date')
     print(blog_all)
     posts = pages(request, blog_all)
     about_obj = models.About.objects.values().all()
@@ -471,7 +485,10 @@ def tags(request, tag):
     return render(request, 'index.html',
                   {'posts': posts, 'is_post': True, 'about_obj': about_obj, 'category_obj': category_obj,
                    'tag_obj': tag_obj})
+
+
 tz = pytz.timezone('Asia/Shanghai')
+
 
 def robot(request):
     date = request.POST.get('date')
