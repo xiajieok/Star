@@ -36,7 +36,7 @@
                 </div>
                 <div style="margin: 30px 0 60px 0 ; " class="centent-article">
                     <blockquote style="padding: 10px">
-                        <p>转载: {{ post.reprinted }} </p>
+                        <p>地址: <a href={{ post.reprinted }}>{{ post.reprinted}}</a> </p>
                         <p>简介: {{ post.brief }}</p></blockquote>
                     {% if post.md %}
                         <div id="content"
