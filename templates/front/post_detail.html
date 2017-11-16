@@ -10,6 +10,10 @@
     {% endfor %}
 {% endblock %}
 
+{% block blog-title %}
+    {{ post.title }} |  Mkinght
+{% endblock %}
+
 
 
 
@@ -36,7 +40,7 @@
                 </div>
                 <div style="margin: 30px 0 60px 0 ; " class="centent-article">
                     <blockquote style="padding: 10px">
-                        <p>地址: <a href={{ post.reprinted }}>{{ post.reprinted}}</a> </p>
+                        <p>地址: <a href={{ post.reprinted }}>{{ post.reprinted }}</a></p>
                         <p>简介: {{ post.brief }}</p></blockquote>
                     {% if post.md %}
                         <div id="content"
@@ -103,7 +107,7 @@
             $.get("/side/", {name: 'title', id: id}, function (data) {
                 var tmp = JSON.parse(data);
                 {#                for (let i = 0; i < tmp.length; i++) {#}
-{#                console.log(tmp[0]['id'])#}
+                {#                console.log(tmp[0]['id'])#}
                 var title0 = tmp[0]['title'].substr(0, 22)
                 var title1 = tmp[1]['title'].substr(0, 22)
                 console.log(title0)
