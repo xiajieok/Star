@@ -128,27 +128,16 @@ def side(request):
         obj = models.About.objects.values()
     else:
         '''
-        获取ID,根据ID+1,-1来获取上一篇和下一篇；
+        获取ID,根据ID获取上一篇和下一篇；
         '''
         ids = request.GET.get('id')
-        print(ids)
-        obj1 = models.Article.objects.values('id', 'title').filter(id__gt=ids)
+        obj1 = models.Article.objects.values('id', 'title').filter(id__lt=ids).order_by('-id')[0:1]
+    
         if len(obj1) == 0:
-            obj1 = [{'id': 1, 'title': '没有了'}]
-        else:
-            obj1 = obj1[0:1]
-
-        ltID = int(ids) - 1
-        obj2 = models.Article.objects.values('id', 'title').filter(id=ltID)
-        # print(obj2)
-        # print(len(obj2))
-        while len(obj2) == 0 and ltID > 1:
-            ltID = ltID - 1
-            print(ltID)
-            obj2 = models.Article.objects.values('id', 'title').filter(id=ltID)
-        else:
-            obj2 = [{'id': 1, 'title': '没有了'}]
-        print('obj2', obj2)
+            obj1 = [{'id': 1, 'title': '没有更早的文章了'}]
+        obj2 = models.Article.objects.values('id', 'title').filter(id__gt=ids)[0:1]
+        if len(obj2) == 0:
+            obj2 = [{'id': 1, 'title': '没有更新的文章了'}]
 
         li = []
         for i in list(obj1):
@@ -158,7 +147,6 @@ def side(request):
             obj = {'id': i['id'], 'title': i['title']}
             li.append(obj)
         obj = li
-        print(obj)
 
     data = list(obj)
     data = json.dumps(data)
