@@ -4,7 +4,7 @@
 {% endblock %}
 {% load custom %}
 {% block blog-title %}
-    Mkinght.cn
+    mkinght | 运维的日常
 {% endblock %}
 {% block blog-textwidget %}
 
@@ -17,8 +17,32 @@
 {% endblock %}
 {% block tags %}
 
-    <div class="tagcloud">
-    </div>
+{#    <div class="tagcloud">#}
+{#    </div>#}
+{#    <div id="page">#}
+{#	<div id="container" class="content clearfix">#}
+{#<!---->#}
+ <canvas width="300" height="300" id="myCanvas">
+  <p>Anything in here will be replaced on browsers that support the canvas element</p>
+  <ul>
+   <li><a href="http://sc.chinaz.com/" target="_blank">Google</a></li>
+   <li><a href="http://sc.chinaz.com/">Fish</a></li>
+   <li><a href="http://sc.chinaz.com/">Chips</a></li>
+   <li><a href="http://sc.chinaz.com/">Salt</a></li>
+   <li><a href="http://sc.chinaz.com/">Vinegar</a></li>
+   <li><a href="http://sc.chinaz.com/">Fish</a></li>
+   <li><a href="http://sc.chinaz.com/">Chips</a></li>
+   <li><a href="http://sc.chinaz.com/">Salt</a></li>
+   <li><a href="http://sc.chinaz.com/">Vinegar</a></li>
+    <li><a href="http://sc.chinaz.com/">Fish</a></li>
+   <li><a href="http://sc.chinaz.com/">Chips</a></li>
+   <li><a href="http://sc.chinaz.com/">Salt</a></li>
+   <li><a href="http://sc.chinaz.com/">Vinegar</a></li>
+  </ul>
+ </canvas>
+{#  </div>#}
+{# </div>#}
+
 {% endblock %}
 {% block category %}
     <ul id="side_category">
@@ -28,7 +52,8 @@
     <li class="list-group-item"><a
             href="http://xiaorui.cc/2017/06/20/python-cffi%e8%b0%83%e7%94%a8gcc%e5%ae%9e%e7%8e%b0%e5%8e%9f%e5%ad%90%e8%ae%a1%e6%95%b0%e5%8f%8acas/"
             rel="bookmark" title="python cffi调用sync实现原子计数及cas">python cffi调用sync实现原子计数及cas</a><span
-            class="badge">0</span></li>
+            class="badge">0</span>
+    </li>
 
 {% endblock %}
 {% block navbar-nav %}
@@ -43,10 +68,6 @@
                 <span class="month">{{ i.published_date |date:"m" }}月</span>
                 <span class="day">{{ i.published_date |date:"d" }}</span>
             </div>
-
-            <!-- PC端设备文章属性 -->
-{#            <section class="visible-md visible-lg">#}
-
                 <div class="title-article">
                     <h1>
                         <a class="blog-title"
@@ -108,7 +129,20 @@
 
 {% endblock %}
 {% block js %}
-
+<script>
+$(document).ready(function() {
+   if( ! $('#myCanvas').tagcanvas({
+     textColour : '#ffffff',
+     outlineThickness : 1,
+     maxSpeed : 0.03,
+     depth : 0.75
+   })) {
+     // TagCanvas failed to load
+     $('#myCanvasContainer').hide();
+   }
+   // your other jQuery stuff here...
+ });
+</script>
     <script>
         //计数器
         function Click(obj) {
