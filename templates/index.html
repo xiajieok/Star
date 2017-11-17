@@ -1,6 +1,6 @@
 {% extends 'basic.html' %}
 {% block css %}
-1231231231
+    1231231231
 {% endblock %}
 {% load custom %}
 {% block blog-title %}
@@ -17,31 +17,14 @@
 {% endblock %}
 {% block tags %}
 
-{#    <div class="tagcloud">#}
-{#    </div>#}
-{#    <div id="page">#}
-{#	<div id="container" class="content clearfix">#}
-{#<!---->#}
- <canvas width="300" height="300" id="myCanvas">
-  <p>Anything in here will be replaced on browsers that support the canvas element</p>
-  <ul>
-   <li><a href="http://sc.chinaz.com/" target="_blank">Google</a></li>
-   <li><a href="http://sc.chinaz.com/">Fish</a></li>
-   <li><a href="http://sc.chinaz.com/">Chips</a></li>
-   <li><a href="http://sc.chinaz.com/">Salt</a></li>
-   <li><a href="http://sc.chinaz.com/">Vinegar</a></li>
-   <li><a href="http://sc.chinaz.com/">Fish</a></li>
-   <li><a href="http://sc.chinaz.com/">Chips</a></li>
-   <li><a href="http://sc.chinaz.com/">Salt</a></li>
-   <li><a href="http://sc.chinaz.com/">Vinegar</a></li>
-    <li><a href="http://sc.chinaz.com/">Fish</a></li>
-   <li><a href="http://sc.chinaz.com/">Chips</a></li>
-   <li><a href="http://sc.chinaz.com/">Salt</a></li>
-   <li><a href="http://sc.chinaz.com/">Vinegar</a></li>
-  </ul>
- </canvas>
-{#  </div>#}
-{# </div>#}
+
+    <canvas width="300" height="300" id="myCanvas">
+        <p>Anything in here will be replaced on browsers that support the canvas element</p>
+        <ul class="tagcloud">
+        </ul>
+    </canvas>
+    {#  </div>#}
+    {# </div>#}
 
 {% endblock %}
 {% block category %}
@@ -68,14 +51,14 @@
                 <span class="month">{{ i.published_date |date:"m" }}月</span>
                 <span class="day">{{ i.published_date |date:"d" }}</span>
             </div>
-                <div class="title-article">
-                    <h1>
-                        <a class="blog-title"
-                           href="{% url 'detail' pk=i.id %}"
-                        >{{ i.title }} </a></h1>
+            <div class="title-article">
+                <h1>
+                    <a class="blog-title"
+                       href="{% url 'detail' pk=i.id %}"
+                    >{{ i.title }} </a></h1>
 
-                </div>
-                <div class="tag-article container">
+            </div>
+            <div class="tag-article container">
 
 
                     <span class="label label-zan"><i class="fa fa-tags"></i>{{ i.tags }} <a
@@ -83,22 +66,22 @@
                             title="{{ i.title }}" rel="category tag"></a></span>
                     <span class="label label-zan"><i class="fa fa-user"></i> <a
                             href="#" title="由medivh发布" rel="author">{{ i.author }}</a></span>
-                    <span class="label label-zan"><i class="fa fa-eye"></i> <a>{{ i.views }}</a> views</span>
-                </div>
-                <div class="content-article">
-                    <figure class="thumbnail"><a
-                            href="{% url 'detail' pk=i.id %}"
-                    ></a>
+                <span class="label label-zan"><i class="fa fa-eye"></i> <a>{{ i.views }}</a> views</span>
+            </div>
+            <div class="content-article">
+                <figure class="thumbnail"><a
+                        href="{% url 'detail' pk=i.id %}"
+                ></a>
 
-                    </figure>
-                    <div class="alert alert-zan">
-                        {{ i.brief }}
-                    </div>
+                </figure>
+                <div class="alert alert-zan">
+                    {{ i.brief }}
                 </div>
-                <a class="btn btn-danger pull-right read-more"
-                   href="{% url 'detail' pk=i.id %}"
-                   title="详细阅读  {{ i.brief }}">阅读全文 <span class="badge">{{ i.views }}</span></a>
-{#            </section>#}
+            </div>
+            <a class="btn btn-danger pull-right read-more"
+               href="{% url 'detail' pk=i.id %}"
+               title="详细阅读  {{ i.brief }}">阅读全文 <span class="badge">{{ i.views }}</span></a>
+            {#            </section>#}
 
         </div>
 
@@ -129,26 +112,26 @@
 
 {% endblock %}
 {% block js %}
-<script>
-$(document).ready(function() {
-   if( ! $('#myCanvas').tagcanvas({
-     textColour : '#ffffff',
-     outlineThickness : 1,
-     maxSpeed : 0.03,
-     depth : 0.75
-   })) {
-     // TagCanvas failed to load
-     $('#myCanvasContainer').hide();
-   }
-   // your other jQuery stuff here...
- });
-</script>
+    <script>
+        $(document).ready(function () {
+            if (!$('#myCanvas').tagcanvas({
+                        textColour: '#d43f3a',
+                        outlineThickness: 1,
+                        maxSpeed: 0.02,
+                        depth: 0.75,
+                    })) {
+                // TagCanvas failed to load
+                $('#myCanvasContainer').hide();
+            }
+            // your other jQuery stuff here...
+        });
+    </script>
     <script>
         //计数器
         function Click(obj) {
             $('.btn btn-danger pull-right read-more').click()
             {
-               alert('+1');
+                alert('+1');
             }
             ;
 
@@ -160,7 +143,7 @@ $(document).ready(function() {
                 var tmp = JSON.parse(data);
                 for (let i = 0; i < tmp.length; i++) {
                     var tag = tmp[i].name;
-                    html = '<a href="/tags/' + tag + '/" class="tag-link-43" title="6个话题" style="color:#1270d6;font-size: 12.06976744186pt;">' + tag + '</a>'
+                    html = '<li><a href="/tags/' + tag + '/">' + tag + '</a></li>'
                     $('.tagcloud').append(html);
                 }
             });

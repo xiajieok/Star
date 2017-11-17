@@ -464,10 +464,11 @@ ul.pills-zan li {
 
 .tagcloud  a{
 	background-color: #5bc0de;
-	color: #fff;
+	color: #d9534f;
 	border-radius: 3px;
 	padding: 2px 5px;
 	/*font-size: 14px  !important;*/
+	font-size: 1.5pc;
 	margin-right: 15px;
 	margin-bottom: 10px;
 	display: inline-block;
