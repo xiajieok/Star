@@ -90,7 +90,7 @@
 {% block js %}
 
     <link rel="stylesheet" id="custom-style-css" href='{% static "editor/css/editormd.min.css" %}'>
-     <script>
+    <script>
         $(document).ready(function () {
             if (!$('#myCanvas').tagcanvas({
                         textColour: '#d43f3a',
@@ -142,6 +142,9 @@
     <script type="text/javascript">
         $(function () {
             editormd.markdownToHTML("content")
+            var TOC = $('.markdown-toc.editormd-markdown-toc')
+            $('#toc').css('display','block').append(TOC.clone());
+            TOC.hide();
         });
     </script>
 
@@ -208,6 +211,7 @@
         ;
         Tags();
         Category();
+
 
     </script>
 
