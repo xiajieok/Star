@@ -7,10 +7,70 @@
     </div>
 {% endblock %}
 {% block js %}
-<script language="javascript" type="text/javascript">
+    <script language="javascript" type="text/javascript">
 
-    setTimeout(function () {
-        window.history.go(-1);
-    }, 5000)
-</script>
+        setTimeout(function () {
+            window.location.href='/';
+        }, 5000)
+    </script>
+    <script>
+        $(document).ready(function () {
+            if (!$('#myCanvas').tagcanvas({
+                    textColour: '#d43f3a',
+                    outlineThickness: 1,
+                    maxSpeed: 0.02,
+                    depth: 0.75,
+                })) {
+                // TagCanvas failed to load
+                $('#myCanvasContainer').hide();
+            }
+            // your other jQuery stuff here...
+        });
+    </script>
+    <script>
+        //计数器
+        function Click(obj) {
+            $('.btn btn-danger pull-right read-more').click()
+            {
+                alert('+1');
+            }
+            ;
+
+        }
+
+        //获取标签
+        function Tags(obj) {
+            $.get("/side/", {name: 'tag'}, function (data) {
+                var tmp = JSON.parse(data);
+                for (let i = 0; i < tmp.length; i++) {
+                    var tag = tmp[i].name;
+                    html = '<li><a href="/tags/' + tag + '/">' + tag + '</a></li>'
+                    $('.tagcloud').append(html);
+                }
+            });
+        }
+        ;
+
+        //获取版块
+        function Category(obj) {
+            $.get("/side/", {name: 'category'}, function (data) {
+                var tmp = JSON.parse(data);
+                for (let i = 0; i < tmp.length; i++) {
+                    var category_name = tmp[i].name;
+                    var category_alias = tmp[i].alias;
+                    html = ' <li><a href="/category/' + category_name + '/">' + category_alias + '</a></li> '
+                    $("#nav_head").append(html);
+                    side = ' <li class="cat-item cat-item-313"><a href="/category/' + category_name + '/>' + category_alias + '</a> </li>'
+                    $("#side_category").append(html);
+
+
+                }
+            });
+        }
+        ;
+
+        Tags();
+        Category();
+
+    </script>
 {% endblock %}
