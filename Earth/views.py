@@ -509,4 +509,4 @@ def api(request, param1):
     with open(ip_file, 'r') as f:
         res = f.read().replace("\\", "")
         print(res)
-        return HttpResponse(json.dumps(res).replace("\\", ""), content_type="application/json")
+        return HttpResponse(json.dumps(res).replace("\\", "")[1:-1], content_type="application/json")
