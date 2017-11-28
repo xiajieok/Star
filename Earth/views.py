@@ -25,7 +25,7 @@ def page_not_found(request):
 
 
 def page_error(request):
-    return render_to_response('500.html')
+    return render_to_response('505.html')
 
 
 def acc_login(request):
