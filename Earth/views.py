@@ -507,5 +507,6 @@ def robot(request):
 def api(request, param1):
     ip_file = os.path.join(os.path.dirname(os.getcwd()), 'fox/fox/ip.json')
     with open(ip_file, 'r') as f:
-        res = f.read().strip('/n')
-        return HttpResponse(json.dumps(res), content_type="application/json")
+        res = f.read().replace("\\", "")
+        print(res)
+        return HttpResponse(json.dumps(res).replace("\\", ""), content_type="application/json")
