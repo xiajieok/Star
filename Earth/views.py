@@ -132,7 +132,7 @@ def side(request):
         '''
         ids = request.GET.get('id')
         obj1 = models.Article.objects.values('id', 'title').filter(id__lt=ids).order_by('-id')[0:1]
-    
+
         if len(obj1) == 0:
             obj1 = [{'id': 1, 'title': '没有更早的文章了'}]
         obj2 = models.Article.objects.values('id', 'title').filter(id__gt=ids)[0:1]
@@ -502,3 +502,10 @@ def robot(request):
         models.Article.objects.update_or_create(**data)
 
     return HttpResponse('ok')
+
+
+def api(request, param1):
+    ip_file = os.path.join(os.path.dirname(os.getcwd()), 'fox/fox/ip.json')
+    with open(ip_file, 'r') as f:
+        res = f.read().strip('/n')
+        return HttpResponse(json.dumps(res), content_type="application/json")

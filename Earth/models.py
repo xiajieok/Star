@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from datetime import datetime
 import django
 from django.contrib.sites.models import Site
+import pytz
 
 
 class Tag(models.Model):
@@ -53,7 +54,8 @@ class Article(models.Model):
     sites = models.ManyToManyField(Site)
     def publish(self):
         # self.published_date = timezone.now()
-        self.published_date = datetime.now().strftime("%Y-%m-%d %H:%I:%S")
+        self.published_date = datetime.now(pytz.utc)
+        # self.published_date = datetime.now().strftime("%Y-%m-%d %H:%I:%S")
         self.save()
 
     def get_absolute_url(self):

@@ -1,18 +1,3 @@
-"""Star URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.9/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.conf.urls import url, include
-    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
-"""
 from django.conf.urls import url, include,patterns
 from django.contrib import admin
 from Earth import views as views
@@ -51,8 +36,6 @@ urlpatterns = [
     url(r'^post/(?P<pk>[0-9]+)/remove/$', views.blog_remove, name='remove'),
     # url(r'^posts/archive/(?P<y>[0-9]{4})/(?P<m>[0-9]{1,2})$', views.archives, name='list_by_ym'),
     url(r'^posts/category/(?P<cg>\w+)$', views.post_list_by_category, name='list_by_cg'),
-    # url(r'^contact/$', views.contact, name='contact'),
-    # url(r'^contact/edit/$', views.contact_edit, name='contact_edit'),
     url(r'^about/$', views.about, name='about'),
     url(r'^side/$', views.side, name='side'),
     url(r'^edit/$', views.edit, name='edit'),
@@ -61,6 +44,7 @@ urlpatterns = [
     url(r'^logout/', views.acc_logout, name='logout'),
     url(r'^robot/', views.robot, name='robot'),
     url(r'^search/', include('haystack.urls')),
+    url(r'^api/v1/(.+)', views.api),
 
     url(r'^sitemap\.xml$', sitemap,
         {'sitemaps': {'Earth': GenericSitemap(info_dict, priority=0.6)}},
